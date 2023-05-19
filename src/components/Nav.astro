@@ -1,0 +1,143 @@
+---
+import Logo from '../icons/Logo.astro';
+import MenuRight from '../icons/MenuRight.astro';
+import GithubIcon from '../icons/Github.astro';
+import LinkedInIcon from '../icons/LinkedIn.astro';
+import EmailIcon from '../icons/Email.astro';
+import Dark from '../icons/Dark.astro';
+import Light from '../icons/Light.astro';
+
+const navLinks: { label: string; href: string }[] = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Proyectos', href: '/projects' },
+  { label: 'Contacto', href: '/contact' }
+];
+
+const socialLinks = [
+  { label: 'Email', href: 'mailto: jordigd8@gmail.com', Icon: EmailIcon },
+  { label: 'GitHub', href: 'https://github.com/jordigd20', Icon: GithubIcon },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/jordi-g%C3%B3mez-devesa-a21860219/',
+    Icon: LinkedInIcon
+  }
+];
+---
+
+<nav
+  class="text-textColor flex flex-col items-center justify-center lg:p-5 lg:px-10 lg:flex-row lg:justify-between"
+>
+  <div class="p-5 w-full flex items-center justify-between lg:p-0 lg:w-auto">
+    <a href="/" class="flex items-center font-brand gap-3 text-xl">
+      <Logo />
+      Jordi Gómez Devesa
+    </a>
+
+    <div>
+      <input type="checkbox" id="menu" hidden class="peer" />
+      <label for="menu" class="relative z-50 block lg:hidden" role="button">
+        <MenuRight />
+      </label>
+    </div>
+  </div>
+
+  <ul
+    id="navbarList"
+    class="p-3 hidden lg:flex lg:static lg:items-center lg:justify-center lg:gap-10"
+  >
+    {
+      navLinks.map(({ label, href }) => (
+        <li
+          class:list={[
+            'relative hover:text-[#38bdf8] px-5 lg:px-0',
+            {
+              'before:block before:absolute before:w-1.5 before:h-1.5 before:bg-[#38bdf8] before:rounded-full before:top-2/4 before:left-0 before:-translate-y-2/4 lg:before:-top-2.5 lg:before:left-2/4 lg:before:-translate-x-2/4':
+                Astro.url.pathname === href || (href !== '/' && Astro.url.pathname.startsWith(href))
+            }
+          ]}
+        >
+          <a
+            aria-current={Astro.url.pathname === href}
+            class:list={[
+              'w-full block',
+              {
+                'text-[#38bdf8]':
+                  Astro.url.pathname === href ||
+                  (href !== '/' && Astro.url.pathname.startsWith(href))
+              }
+            ]}
+            href={href}
+          >
+            {label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <div
+    id="navbarLastCol"
+    class="w-full hidden p-4 border-t border-grey-500 rounded-b-lg dark:border-[#273449] shadow-grey-500 dark:shadow-[#273449] shadow-md lg:shadow-none lg:block lg:w-auto lg:border-none"
+  >
+    <div class="flex items-center justify-between">
+      <div class="px-4 flex items-center gap-2">
+        {
+          socialLinks.map(({ label, href, Icon }) => (
+            <a class="hover:text-[#38bdf8]" href={href} aria-label={label}>
+              <Icon />
+            </a>
+          ))
+        }
+      </div>
+
+      <button id="toggleThemeBtn" class="bg-[#273449] rounded-full flex items-center">
+        <span
+          class="flex p-1 w-8 relative z-1 transition-transform dark:text-white dark:before:translate-x-full before:transition-transform before:absolute before:inset-0 before:bg-[#45d9bf] before:rounded-full"
+          ><Light /></span
+        >
+        <span
+          class="transition-transform text-[#ffffff] dark:text-[#273449] flex p-1 w-8 relative z-1"
+          ><Dark /></span
+        >
+      </button>
+    </div>
+  </div>
+</nav>
+
+<script type="module">
+  const menuCheckbox = document.getElementById('menu');
+  const mediaQuery = window.matchMedia('(min-width: 1024px)');
+  const navbarList = document.getElementById('navbarList');
+  const navbarSocialCol = document.getElementById('navbarLastCol');
+  const toggleThemeBtn = document.getElementById('toggleThemeBtn');
+
+  const onCheckedFalse = () => {
+    navbarList.classList.add('hidden');
+    navbarList.classList.remove('block', 'w-full');
+    navbarSocialCol.classList.add('hidden');
+    navbarSocialCol.classList.remove('block', 'w-full');
+  };
+
+  menuCheckbox.addEventListener('change', (event) => {
+    if (event.target.checked) {
+      navbarList.classList.remove('hidden');
+      navbarList.classList.add('block', 'w-full');
+      navbarSocialCol.classList.remove('hidden');
+      navbarSocialCol.classList.add('block', 'w-full');
+    } else {
+      onCheckedFalse();
+    }
+  });
+
+  mediaQuery.addEventListener('change', (event) => {
+    if (event.matches) {
+      menuCheckbox.checked = false;
+      onCheckedFalse();
+    }
+  });
+
+  toggleThemeBtn.addEventListener('click', () => {
+    const isDark = document.documentElement.classList.contains('dark');
+    document.documentElement.classList[!isDark ? 'add' : 'remove']('dark');
+  });
+</script>
