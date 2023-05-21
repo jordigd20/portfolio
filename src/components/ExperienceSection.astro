@@ -1,0 +1,87 @@
+---
+import ExperienceCard from './ExperienceCard.astro';
+
+const projectsExperience = [
+  {
+    title: 'TFG, Desarrollo de una app de gestión de tareas colaborativas',
+    date: 'Septiembre 2022 - Mayo 2023',
+    description:
+      'Diseño y desarrollo de una aplicación móvil para la gestión y el reparto de tareas entre un grupo de personas de una manera equitativa y justa entre los participantes.',
+    stack: [
+      {
+        name: 'Ionic',
+        classColor: 'bg-[#3880FF]'
+      },
+      {
+        name: 'Angular',
+        classColor: 'bg-[#DD0031]'
+      },
+      {
+        name: 'Firestore',
+        classColor: 'bg-[#F29E12]'
+      },
+      {
+        name: 'Firebase Cloud Functions',
+        classColor: 'bg-[#F29E12]'
+      }
+    ],
+    href: '#'
+  },
+  {
+    title: 'NutriUs, Desarrollo del proyecto de una startup',
+    date: 'Septiembre 2021 - Junio 2022',
+    description:
+      'NutriUs es un proyecto ABP (Aprendizaje Basado en Proyectos) desarrollado en el último curso de la universidad. El objetivo del proyecto se centraba en lograr el desarrollo completo de una aplicación web en un equipo de 5 personas durante 8 meses. Esta aplicación debía tener almenos una sección de administración y una sección para los usuarios que contara con un motor gráfico propio desarrollado con WebGL.',
+    stack: [
+      {
+        name: 'Angular',
+        classColor: 'bg-[#DD0031]'
+      },
+      {
+        name: 'NodeJS',
+        classColor: 'bg-[#76AE63]'
+      },
+      {
+        name: 'MongoDB',
+        classColor: 'bg-[#09934E]'
+      },
+      {
+        name: 'Dialogflow',
+        classColor: 'bg-[#F29E12]'
+      },
+      {
+        name: 'WebGL',
+        classColor: 'bg-[#9A0000]'
+      }
+    ],
+    href: '#'
+  }
+];
+---
+
+<section class="text-textColor mt-20 mb-20 px-5">
+  <h2 class="text-2xl mb-5 font-bold">Experiencia en proyectos</h2>
+
+  <div
+    class="relative before:absolute before:w-[3px] before:h-full before:bg-[#273449] dark:before:bg-white before:top-0 before:left-[19px] sm:before:left-[23px] lg:before:left-[268px] before:z-[-1]"
+  >
+    {
+      projectsExperience.map(({ title, date, description, stack, href }) => (
+        <div class="mt-7 flex gap-3 lg:gap-10 items-start">
+          <div class="flex-[1_0_auto] flex items-center gap-5">
+            <span class="hidden lg:inline-block">{date}</span>
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-[#38BDF8] to-[#45D9BF]  shadow-[0_0_0_4px_#273449] dark:shadow-[0_0_0_4px_#ffffff]" />
+          </div>
+
+          <ExperienceCard
+            title={title}
+            description={description}
+            date={date}
+            stack={stack}
+            href={href}
+          />
+        </div>
+      ))
+    }
+  </div>
+</section>

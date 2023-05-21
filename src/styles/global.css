@@ -7,10 +7,31 @@
   :root {
     --color-background: #ffffff;
     --color-text: #273449;
+    --scrollbar: rgba(0, 0, 0, 0.5);
+    --scrollbar-hover: rgba(0, 0, 0, 0.6);
   }
 
   :root.dark {
     --color-background: #17171b;
     --color-text: #ffffff;
+    --scrollbar: rgba(255, 255, 255, 0.2);
+    --scrollbar-hover: rgba(255, 255, 255, 0.3);
   }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-hover);
 }
