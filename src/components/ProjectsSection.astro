@@ -1,0 +1,90 @@
+---
+import NutriusImage from '../assets/nutrius.jpg';
+import CollabtaskImage from '../assets/collabtask.jpg';
+import Angular from '../icons/technologies/Angular.astro';
+import Ionic from '../icons/technologies/Ionic.astro';
+import Dialogflow from '../icons/technologies/Dialogflow.astro';
+import Firebase from '../icons/technologies/Firebase.astro';
+import MongoDB from '../icons/technologies/MongoDB.astro';
+import NodeJS from '../icons/technologies/NodeJS.astro';
+import WebGL from '../icons/technologies/WebGL.astro';
+
+const projects = [
+  {
+    title: 'NutriUs, desarrollo del proyecto de una startup',
+    description:
+      'NutriUs es un proyecto ABP (Aprendizaje Basado en Proyectos) desarrollado en el último curso de la universidad. El objetivo del proyecto se centraba en lograr el desarrollo completo de una aplicación web en un equipo de 5 personas durante 8 meses. Esta aplicación debía tener almenos una sección de administración y una sección para los usuarios que contara con un motor gráfico propio desarrollado con WebGL. ',
+    stack: [Angular, NodeJS, MongoDB, Dialogflow, WebGL],
+    image: NutriusImage,
+    imageClass: '',
+    href: '#'
+  },
+  {
+    title: 'TFG, Desarrollo de una aplicación móvil',
+    description:
+      'Diseño y desarrollo de una aplicación móvil para la gestión y el reparto de tareas entre un grupo de personas de una manera equitativa y justa entre los participantes.',
+    stack: [Ionic, Angular, Firebase],
+    image: CollabtaskImage,
+    imageClass: 'object-[50%_15%]',
+    href: '#'
+  },
+  {
+    title: 'TFG, Desarrollo de una aplicación móvil',
+    description:
+      'Diseño y desarrollo de una aplicación móvil para la gestión y el reparto de tareas entre un grupo de personas de una manera equitativa y justa entre los participantes.',
+    stack: [Ionic, Angular, Firebase],
+    image: NutriusImage,
+    imageClass: '',
+    href: '#'
+  },
+  {
+    title: 'TFG, Desarrollo de una aplicación móvil',
+    description:
+      'Diseño y desarrollo de una aplicación móvil para la gestión y el reparto de tareas entre un grupo de personas de una manera equitativa y justa entre los participantes.',
+    stack: [Ionic, Angular, Firebase],
+    image: NutriusImage,
+    imageClass: '',
+    href: '#'
+  },
+  {
+    title: 'TFG, Desarrollo de una aplicación móvil',
+    description:
+      'Diseño y desarrollo de una aplicación móvil para la gestión y el reparto de tareas entre un grupo de personas de una manera equitativa y justa entre los participantes.',
+    stack: [Ionic, Angular, Firebase],
+    image: NutriusImage,
+    imageClass: '',
+    href: '#'
+  }
+];
+---
+
+<section class="text-textColor px-5 pb-20">
+  <h2 class="text-2xl mb-5 font-bold">Proyectos</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    {
+      projects.map(({ title, description, stack, image, imageClass, href }) => (
+        <article class="bg-[#ecf1f4] dark:bg-gradient-to-r dark:from-[#273449] dark:to-[#2A4A4B] rounded-lg shadow-[0_3px_0_0_#45D9BF]">
+          <img
+            class="rounded-t-lg w-full h-40 object-cover"
+            class:list={imageClass}
+            src={image}
+            alt=""
+          />
+
+          <div class="p-5">
+            <a class="hover:opacity-70" href={href}>
+              <h3 class="font-bold mb-3">{title}</h3>
+            </a>
+            <p class="text-sm line-clamp-4 mb-3">{description}</p>
+            <footer class="flex items-center gap-1 [&>svg]:w-6">
+              {stack.map((Icon) => (
+                <Icon />
+              ))}
+            </footer>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>
