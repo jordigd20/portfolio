@@ -1,0 +1,28 @@
+---
+import EmailIcon from '../icons/Email.astro';
+import GithubIcon from '../icons/Github.astro';
+import LinkedInIcon from '../icons/LinkedIn.astro';
+
+const socialLinks = [
+  { label: 'Email', href: 'mailto:jordigd8@gmail.com', Icon: EmailIcon },
+  { label: 'GitHub', href: 'https://github.com/jordigd20', Icon: GithubIcon },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/jordi-g%C3%B3mez-devesa-a21860219/',
+    Icon: LinkedInIcon
+  }
+];
+---
+
+<footer class="bg-[#aee9e3] dark:bg-[#2a4a4b] flex flex-wrap items-center justify-center sm:justify-between py-8 px-10">
+  <p class="text-textColor mb-3 sm:mb-0">Portfolio personal de Jordi Gómez Devesa</p>
+  <div class="px-4 flex items-center justify-center gap-2">
+    {
+      socialLinks.map(({ label, href, Icon }) => (
+        <a class="transition-transform hover:scale-110" href={href} aria-label={label}>
+          <Icon />
+        </a>
+      ))
+    }
+  </div>
+</footer>

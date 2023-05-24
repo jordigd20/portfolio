@@ -10,8 +10,9 @@ module.exports = {
         textColor: 'var(--color-text)',
       },
       animation: {
-        'fade-in-down': 'fade-in-down 350ms ease-out',
-        'fade-out-up': 'fade-out-up 350ms ease-out',
+        'fade-in-down': 'fade-in-down 250ms ease-out',
+        'fade-out-up': 'fade-out-up 250ms ease-out',
+        'fade-in-up': 'fade-in-up 350ms ease-out',
       },
       keyframes: {
         'fade-in-down': {
@@ -34,6 +35,16 @@ module.exports = {
             transform: 'translateY(-100%)'
           }
         },
+        'fade-in-up': {
+          from: {
+            opacity: '0',
+            transform: 'translateY(100px)'
+          },
+          to: {
+            opacity: '1',
+            transform: 'translateY(0)'
+          }
+        }
       }
     },
     fontFamily: {
