@@ -7,10 +7,16 @@ import EmailIcon from '../icons/Email.astro';
 import Dark from '../icons/Dark.astro';
 import Light from '../icons/Light.astro';
 
+export interface Props {
+  className: string;
+}
+
+const { className } = Astro.props;
+
 const navLinks: { label: string; href: string }[] = [
   { label: 'Inicio', href: '/' },
-  { label: 'Proyectos', href: '/projects' },
-  { label: 'Contacto', href: '/contact' }
+  { label: 'Proyectos', href: '/#projects' },
+  { label: 'Contacto', href: '/#contact' }
 ];
 
 const socialLinks = [
@@ -26,6 +32,7 @@ const socialLinks = [
 
 <nav
   class="text-textColor flex flex-col items-center justify-center lg:p-5 lg:px-10 lg:flex-row lg:justify-between"
+  class:list={className}
 >
   <div class="p-5 w-full flex items-center justify-between lg:p-0 lg:w-auto">
     <a href="/" class="flex items-center font-brand gap-3 text-xl">
@@ -47,27 +54,8 @@ const socialLinks = [
   >
     {
       navLinks.map(({ label, href }) => (
-        <li
-          class:list={[
-            'relative hover:text-[#38bdf8] px-5 lg:px-0',
-            {
-              'before:block before:absolute before:w-1.5 before:h-1.5 before:bg-gradient-to-r before:from-[#38BDF8] before:to-[#45D9BF] before:rounded-full before:top-2/4 before:left-0 before:-translate-y-2/4 lg:before:-top-2.5 lg:before:left-2/4 lg:before:-translate-x-2/4':
-                Astro.url.pathname === href || (href !== '/' && Astro.url.pathname.startsWith(href))
-            }
-          ]}
-        >
-          <a
-            aria-current={Astro.url.pathname === href}
-            class:list={[
-              'w-full block',
-              {
-                'font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] to-[#45D9BF]':
-                  Astro.url.pathname === href ||
-                  (href !== '/' && Astro.url.pathname.startsWith(href))
-              }
-            ]}
-            href={href}
-          >
+        <li class="relative px-5 lg:px-0 hover:font-extrabold hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#38BDF8] hover:to-[#45D9BF]">
+          <a aria-current={Astro.url.pathname === href} class="w-full block" href={href}>
             {label}
           </a>
         </li>
@@ -83,14 +71,22 @@ const socialLinks = [
       <div class="px-4 flex items-center gap-2">
         {
           socialLinks.map(({ label, href, Icon }) => (
-            <a class="transition-transform hover:scale-110" href={href} aria-label={label}>
+            <a
+              class="transition-transform hover:scale-110 [&>svg]:fill-textColor"
+              href={href}
+              aria-label={label}
+            >
               <Icon />
             </a>
           ))
         }
       </div>
 
-      <button id="toggleThemeBtn" class="bg-[#273449] rounded-full flex items-center">
+      <button
+        id="toggleThemeBtn"
+        class="bg-[#273449] rounded-full flex items-center"
+        aria-label="Cambiar de modo oscuro/claro"
+      >
         <span
           class="flex p-1 w-8 relative z-1 transition-transform dark:text-white dark:before:translate-x-full before:transition-transform before:absolute before:inset-0 before:bg-[#45d9bf] before:rounded-full"
           ><Light /></span
@@ -105,63 +101,63 @@ const socialLinks = [
 </nav>
 
 <script type="module">
-  const menuCheckbox = document.getElementById('menu');
-  const mediaQuery = window.matchMedia('(min-width: 1024px)');
-  const navbarList = document.getElementById('navbarList');
-  const navbarSocialCol = document.getElementById('navbarLastCol');
-  const toggleThemeBtn = document.getElementById('toggleThemeBtn');
+const menuCheckbox = document.getElementById('menu');
+const mediaQuery = window.matchMedia('(min-width: 1024px)');
+const navbarList = document.getElementById('navbarList');
+const navbarSocialCol = document.getElementById('navbarLastCol');
+const toggleThemeBtn = document.getElementById('toggleThemeBtn');
 
-  const onCheckedFalse = (fromCheckbox) => {
-    if (fromCheckbox) {
-      navbarList.classList.add('animate-fade-out-up');
-      navbarSocialCol.classList.add('animate-fade-out-up');
+const onCheckedFalse = (fromCheckbox) => {
+  if (fromCheckbox) {
+    navbarList.classList.add('animate-fade-out-up');
+    navbarSocialCol.classList.add('animate-fade-out-up');
 
-      setTimeout(() => {
-        navbarList.classList.add('hidden', 'opacity-0');
-        navbarList.classList.remove(
-          'block',
-          'w-full',
-          'opacity-100',
-          'animate-fade-in-down',
-          'animate-fade-out-up'
-        );
-        navbarSocialCol.classList.add('hidden', 'opacity-0');
-        navbarSocialCol.classList.remove(
-          'block',
-          'w-full',
-          'opacity-100',
-          'animate-fade-in-down',
-          'animate-fade-out-up'
-        );
-      }, 250);
-    } else {
+    setTimeout(() => {
       navbarList.classList.add('hidden', 'opacity-0');
-      navbarList.classList.remove('block', 'w-full', 'opacity-100', 'animate-fade-in-down');
+      navbarList.classList.remove(
+        'block',
+        'w-full',
+        'opacity-100',
+        'animate-fade-in-down',
+        'animate-fade-out-up'
+      );
       navbarSocialCol.classList.add('hidden', 'opacity-0');
-      navbarSocialCol.classList.remove('block', 'w-full', 'opacity-100', 'animate-fade-in-down');
-    }
-  };
+      navbarSocialCol.classList.remove(
+        'block',
+        'w-full',
+        'opacity-100',
+        'animate-fade-in-down',
+        'animate-fade-out-up'
+      );
+    }, 250);
+  } else {
+    navbarList.classList.add('hidden', 'opacity-0');
+    navbarList.classList.remove('block', 'w-full', 'opacity-100', 'animate-fade-in-down');
+    navbarSocialCol.classList.add('hidden', 'opacity-0');
+    navbarSocialCol.classList.remove('block', 'w-full', 'opacity-100', 'animate-fade-in-down');
+  }
+};
 
-  menuCheckbox.addEventListener('change', (event) => {
-    if (event.target.checked) {
-      navbarList.classList.remove('hidden', 'opacity-0');
-      navbarList.classList.add('block', 'w-full', 'opacity-100', 'animate-fade-in-down');
-      navbarSocialCol.classList.remove('hidden', 'opacity-0');
-      navbarSocialCol.classList.add('block', 'w-full', 'opacity-100', 'animate-fade-in-down');
-    } else {
-      onCheckedFalse(true);
-    }
-  });
+menuCheckbox.addEventListener('change', (event) => {
+  if (event.target.checked) {
+    navbarList.classList.remove('hidden', 'opacity-0');
+    navbarList.classList.add('block', 'w-full', 'opacity-100', 'animate-fade-in-down');
+    navbarSocialCol.classList.remove('hidden', 'opacity-0');
+    navbarSocialCol.classList.add('block', 'w-full', 'opacity-100', 'animate-fade-in-down');
+  } else {
+    onCheckedFalse(true);
+  }
+});
 
-  mediaQuery.addEventListener('change', (event) => {
-    if (event.matches) {
-      menuCheckbox.checked = false;
-      onCheckedFalse(false);
-    }
-  });
+mediaQuery.addEventListener('change', (event) => {
+  if (event.matches) {
+    menuCheckbox.checked = false;
+    onCheckedFalse(false);
+  }
+});
 
-  toggleThemeBtn.addEventListener('click', () => {
-    const isDark = document.documentElement.classList.contains('dark');
-    document.documentElement.classList[!isDark ? 'add' : 'remove']('dark');
-  });
+toggleThemeBtn.addEventListener('click', () => {
+  const isDark = document.documentElement.classList.contains('dark');
+  document.documentElement.classList[!isDark ? 'add' : 'remove']('dark');
+});
 </script>

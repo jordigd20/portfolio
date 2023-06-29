@@ -5,9 +5,10 @@ import Head from '../components/Head.astro';
 export interface Props {
   title: string;
   description: string;
+  headerClass?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, headerClass = "" } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -17,7 +18,7 @@ const { title, description } = Astro.props;
   </head>
   <body class="bg-background">
     <header>
-      <Nav />
+      <Nav className={headerClass} />
     </header>
     <slot />
   </body>

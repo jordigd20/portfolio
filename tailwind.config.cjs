@@ -13,6 +13,10 @@ module.exports = {
         'fade-in-down': 'fade-in-down 250ms ease-out',
         'fade-out-up': 'fade-out-up 250ms ease-out',
         'fade-in-up': 'fade-in-up 350ms ease-out',
+        'enter-from-right': 'enter-from-right 200ms ease-in-out',
+        'enter-from-left': 'enter-from-left 200ms ease-in-out',
+        'leave-to-left': 'leave-to-left 200ms ease-in-out',
+        'leave-to-right': 'leave-to-right 200ms ease-in-out',
       },
       keyframes: {
         'fade-in-down': {
@@ -44,7 +48,47 @@ module.exports = {
             opacity: '1',
             transform: 'translateY(0)'
           }
-        }
+        },
+        'enter-from-right': {
+          from: {
+            transform: 'translateX(3rem)',
+            opacity: '0'
+          },
+          to: {
+            transform: 'translateX(0)',
+            opacity: '1'
+          }
+        },
+        'enter-from-left': {
+          from: {
+            transform: 'translateX(-3rem)',
+            opacity: '0'
+          },
+          to: {
+            transform: 'translateX(0)',
+            opacity: '1'
+          }
+        },
+        'leave-to-left': {
+          from: {
+            transform: 'translateX(0)',
+            opacity: '1'
+          },
+          to: {
+            transform: 'translateX(-3rem)',
+            opacity: '0'
+          }
+        },
+        'leave-to-right': {
+          from: {
+            transform: 'translateX(0)',
+            opacity: '1'
+          },
+          to: {
+            transform: 'translateX(3rem)',
+            opacity: '0'
+          }
+        },
       }
     },
     fontFamily: {
