@@ -67,7 +67,7 @@ stack:
 headerClass: 'bg-[#0D9488] text-white'
 navClass: 'text-white [&_svg]:fill-white'
 github: 'https://github.com/jordigd20/collabtask'
-site: ''
+site: 'https://github.com/jordigd20/collabtask/releases'
 ---
 
 # CollabTask

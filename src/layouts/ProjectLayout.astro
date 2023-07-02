@@ -4,6 +4,8 @@ import Head from '../components/Head.astro';
 import GithubIcon from '../icons/Github.astro';
 import ChevronLeftIcon from '../icons/ChevronLeft.astro';
 import ChevronRightIcon from '../icons/ChevronRight.astro';
+import ChevronDoubleLeftIcon from '../icons/ChevronDoubleLeft.astro';
+import ChevronDoubleRightIcon from '../icons/ChevronDoubleRight.astro';
 import VisitSiteIcon from '../icons/VisitSite.astro';
 import Footer from '../components/Footer.astro';
 
@@ -52,6 +54,12 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
         }
         <div class="text-black mt-3 flex items-center justify-center gap-3">
           <button
+            class="start bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:opacity-70"
+            aria-label="Primero"
+          >
+            <ChevronDoubleLeftIcon />
+          </button>
+          <button
             class="prev bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:opacity-70"
             aria-label="Anterior"
           >
@@ -67,6 +75,12 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
             aria-label="Siguiente"
           >
             <ChevronRightIcon />
+          </button>
+          <button
+            class="end bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:opacity-70"
+            aria-label="Último"
+          >
+            <ChevronDoubleRightIcon />
           </button>
         </div>
       </div>
@@ -127,6 +141,12 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
           }
           <div class="text-black mt-3 flex items-center justify-center gap-3">
             <button
+              class="start bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:opacity-70"
+              aria-label="Primero"
+            >
+              <ChevronDoubleLeftIcon />
+            </button>
+            <button
               class="prev bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:opacity-70"
               aria-label="Anterior"
             >
@@ -143,6 +163,12 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
             >
               <ChevronRightIcon />
             </button>
+            <button
+              class="end bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:opacity-70"
+              aria-label="Último"
+            >
+              <ChevronDoubleRightIcon />
+            </button>
           </div>
         </div>
 
@@ -158,26 +184,15 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
     <script define:vars={{ assets: frontmatter.assets }}>
       const prevButtons = document.querySelectorAll('.prev');
       const nextButtons = document.querySelectorAll('.next');
+      const startButtons = document.querySelectorAll('.start');
+      const endButtons = document.querySelectorAll('.end');
       const currentCounters = document.querySelectorAll('.currentCount');
       const postImageContainer = document.querySelectorAll('.postImageContainer');
       const postImages = [];
 
       let i = 0;
 
-      const prevImage = () => {
-        const currentType = assets[i].type;
-        const currentIndex = i;
-
-        if (i == 0) {
-          i = 0;
-        } else {
-          i--;
-        }
-
-        if (currentIndex === i) {
-          return;
-        }
-
+      const updatePrevImage = (currentIndex) => {
         postImageContainer.forEach((container) => {
           const currentAsset = container.children.namedItem(currentIndex.toString());
           currentAsset.classList.remove('animate-enter-from-left');
@@ -206,19 +221,7 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
         }, 190);
       };
 
-      const nextImage = () => {
-        const currentIndex = i;
-
-        if (i === assets.length - 1) {
-          i = assets.length - 1;
-        } else {
-          i++;
-        }
-
-        if (currentIndex === i) {
-          return;
-        }
-
+      const updateNextImage = (currentIndex) => {
         postImageContainer.forEach((container) => {
           const currentAsset = container.children.namedItem(currentIndex.toString());
           currentAsset.classList.remove('animate-enter-from-right');
@@ -247,12 +250,75 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
         }, 190);
       };
 
+      const prevImage = () => {
+        const currentType = assets[i].type;
+        const currentIndex = i;
+
+        if (i == 0) {
+          i = 0;
+        } else {
+          i--;
+        }
+
+        if (currentIndex === i) {
+          return;
+        }
+
+        updatePrevImage(currentIndex);
+      };
+
+      const nextImage = () => {
+        const currentIndex = i;
+
+        if (i === assets.length - 1) {
+          i = assets.length - 1;
+        } else {
+          i++;
+        }
+
+        if (currentIndex === i) {
+          return;
+        }
+
+        updateNextImage(currentIndex);
+      };
+
+      const firstImage = () => {
+        const currentIndex = i;
+        i = 0;
+
+        if (currentIndex === i) {
+          return;
+        }
+
+        updatePrevImage(currentIndex);
+      };
+
+      const lastImage = () => {
+        const currentIndex = i;
+        i = assets.length - 1;
+
+        if (currentIndex === i) {
+          return;
+        }
+
+        updateNextImage(currentIndex);
+      };
+
       prevButtons.forEach((btn) => {
         btn.addEventListener('click', () => prevImage());
       });
 
       nextButtons.forEach((btn) => {
         btn.addEventListener('click', () => nextImage());
+      });
+
+      startButtons.forEach((btn) => {
+        btn.addEventListener('click', () => firstImage());
+      });
+
+      endButtons.forEach((btn) => {
+        btn.addEventListener('click', () => lastImage());
       });
     </script>
   </body>
