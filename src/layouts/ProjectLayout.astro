@@ -8,6 +8,7 @@ import ChevronDoubleLeftIcon from '../icons/ChevronDoubleLeft.astro';
 import ChevronDoubleRightIcon from '../icons/ChevronDoubleRight.astro';
 import VisitSiteIcon from '../icons/VisitSite.astro';
 import Footer from '../components/Footer.astro';
+import ImagesDialog from '../components/ImagesDialog.astro';
 
 const { frontmatter } = Astro.props;
 const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
@@ -17,6 +18,7 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
 <html lang="es">
   <head>
     <Head title={title} description={frontmatter.description} />
+    <link rel="stylesheet" type="text/css" href="/dialog-polyfill.css" />
   </head>
   <body class="bg-background">
     <header class="relative">
@@ -42,13 +44,18 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
                 controls
               />
             ) : (
-              <img
-                id={index.toString()}
-                class="postImage lg:w-full xl:w-[initial] max-w-lg max-h-[36rem] m-auto object-cover"
+              <button
+                name={index.toString()}
+                class="cursor-zoom-in"
                 class:list={index !== 0 ? 'hidden' : ''}
-                src={url}
-                alt={alt}
-              />
+                aria-label="Ver imagen"
+              >
+                <img
+                  class="postImage lg:w-full xl:w-[initial] max-w-lg max-h-[36rem] m-auto object-cover"
+                  src={url}
+                  alt={alt}
+                />
+              </button>
             )
           )
         }
@@ -128,14 +135,19 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
                   controls
                 />
               ) : (
-                <img
-                  id={index.toString()}
-                  class="postImage w-full sm:w-auto lg:w-full xl:w-[initial] max-w-lg max-h-[36rem] m-auto object-cover"
+                <button
+                  name={index.toString()}
+                  class="block m-auto cursor-zoom-in"
                   class:list={index !== 0 ? 'hidden' : ''}
-                  src={url}
-                  alt={alt}
-                  width="259.19px"
-                />
+                  aria-label="Ver imagen"
+                >
+                  <img
+                    class="postImage w-full sm:w-auto lg:w-full xl:w-[initial] max-w-lg max-h-[36rem] m-auto object-cover"
+                    src={url}
+                    alt={alt}
+                    width="259"
+                  />
+                </button>
               )
             )
           }
@@ -179,7 +191,15 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
         </div>
       </div>
     </div>
+
+    <ImagesDialog assets={frontmatter.assets} />
     <Footer />
+
+    <script>
+      import dialogPolyfill from 'dialog-polyfill';
+      const imagesDialog = document.getElementById('imagesDialog');
+      dialogPolyfill.registerDialog(imagesDialog);
+    </script>
 
     <script define:vars={{ assets: frontmatter.assets }}>
       const prevButtons = document.querySelectorAll('.prev');
@@ -189,8 +209,14 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
       const currentCounters = document.querySelectorAll('.currentCount');
       const postImageContainer = document.querySelectorAll('.postImageContainer');
       const postImages = [];
+      const imageButtons = document.querySelectorAll('.postImageContainer > button');
+      const imagesDialog = document.getElementById('imagesDialog');
+      const closeButton = document.getElementById('closeButton');
+      const frontImage = document.getElementById('frontImage');
+      const galleryButtons = document.querySelectorAll('#imageGallery > button');
 
       let i = 0;
+      let galleryIndex = 0;
 
       const updatePrevImage = (currentIndex) => {
         postImageContainer.forEach((container) => {
@@ -305,6 +331,42 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
         updateNextImage(currentIndex);
       };
 
+      const updateFrontImage = (index) => {
+        const currentIndex = galleryIndex;
+        galleryIndex = index;
+
+        if (currentIndex !== galleryIndex) {
+          const currentSelectedButton = Array.from(galleryButtons).find(
+            (btn) => btn.id === `gallery-${currentIndex}`
+          );
+          currentSelectedButton.classList.remove('border-green-400');
+          currentSelectedButton.classList.add('hover:border-blue-700');
+        }
+
+        frontImage.src = assets[index].url;
+        frontImage.alt = assets[index].alt;
+
+        const selectedGalleryButton = Array.from(galleryButtons).find(
+          (btn) => btn.id === `gallery-${index}`
+        );
+
+        selectedGalleryButton.classList.add('border-green-400');
+        selectedGalleryButton.classList.remove('hover:border-blue-700');
+      };
+
+      const displayImageModal = (idImage) => {
+        document.body.classList.add('overflow-hidden');
+        updateFrontImage(i);
+
+        imagesDialog.classList.add(
+          'animate-fade-in',
+          '[&::backdrop]:animate-fade-in',
+          '[&+.backdrop]:animate-fade-in'
+        );
+
+        imagesDialog.showModal();
+      };
+
       prevButtons.forEach((btn) => {
         btn.addEventListener('click', () => prevImage());
       });
@@ -319,6 +381,14 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
 
       endButtons.forEach((btn) => {
         btn.addEventListener('click', () => lastImage());
+      });
+
+      imageButtons.forEach((btn) => {
+        btn.addEventListener('click', () => displayImageModal(btn.name));
+      });
+
+      galleryButtons.forEach((btn) => {
+        btn.addEventListener('click', () => updateFrontImage(btn.id.split('-')[1]));
       });
     </script>
   </body>

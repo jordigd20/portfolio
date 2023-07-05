@@ -17,6 +17,8 @@ module.exports = {
         'enter-from-left': 'enter-from-left 200ms ease-in-out',
         'leave-to-left': 'leave-to-left 200ms ease-in-out',
         'leave-to-right': 'leave-to-right 200ms ease-in-out',
+        'fade-in': 'fade-in 250ms ease-in-out',
+        'fade-out': 'fade-out 250ms ease-in-out'
       },
       keyframes: {
         'fade-in-down': {
@@ -89,6 +91,22 @@ module.exports = {
             opacity: '0'
           }
         },
+        'fade-in': {
+          from: {
+            opacity: '0'
+          },
+          to: {
+            opacity: '1'
+          }
+        },
+        'fade-out': {
+          from: {
+            opacity: '1'
+          },
+          to: {
+            opacity: '0'
+          }
+        }
       }
     },
     fontFamily: {
