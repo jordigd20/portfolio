@@ -8,7 +8,7 @@ const { assets } = Astro.props;
   id="imagesDialog"
   class="min-h-full min-w-full bg-transparent border-none p-0 sm:p-4 lg:py-5 lg:px-20 [&::backdrop]:backdrop-blur-sm [&::backdrop]:bg-black/50 [&+.backdrop]:backdrop-opacity-80"
 >
-  <div class="bg-background w-full h-full relative rounded-sm py-10">
+  <div class="bg-background w-full h-full relative sm:rounded-md py-10">
     <button
       id="closeButton"
       class="text-textColor absolute right-1 top-1 rounded-full p-1 hover:bg-black/20 [html.dark_&]:hover:bg-white/20"
@@ -16,11 +16,11 @@ const { assets } = Astro.props;
       <Close />
     </button>
 
-    <div class="grid md:grid-cols-[3fr_305px] gap-3 h-full px-4">
+    <div class="grid xl:grid-cols-[3fr_305px] gap-3 h-full px-4">
       <div class="py-2">
         <img
           id="frontImage"
-          class="max-h-[calc(100vh-8.5rem)] m-auto"
+          class="max-h-[calc(100vh-8.5rem)] m-auto rounded-sm"
           src={assets[0].url}
           alt={assets[0].alt}
         />

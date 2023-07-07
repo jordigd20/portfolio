@@ -3,7 +3,7 @@ export interface Props {
   title: string;
   description: string;
   date: string;
-  stack: { name: string; classColor: string }[];
+  stack: { name: string; url: string }[];
   href: string;
 }
 
@@ -13,17 +13,18 @@ const { title, description, date, stack, href } = Astro.props;
 <article
   class="flex-[1_1_auto] p-5 bg-[#ECF1F4] shadow-[0_3px_0_0_#45D9BF] dark:bg-gradient-to-r dark:from-[#273449] dark:to-[#2A4A4B] rounded-lg"
 >
-  <h3 class="text-xl font-bold">{title}</h3>
+  <a class="text-xl font-bold hover:opacity-50" href={href}>
+    <h3 class="inline">{title}</h3>
+  </a>
   <p class="py-2 inline-block lg:hidden opacity-70">{date}</p>
   <p class="lg:pt-1 text-[#58585D] dark:text-[#ffffff]/[.85] font-light text-sm">
     {description}
-    <a class="text-[#00C2FF] underline hover:opacity-50" href={href}> Ver proyecto</a>
   </p>
   <footer class="pt-2 flex items-center flex-wrap gap-3">
     {
-      stack.map(({ name, classColor }) => (
+      stack.map(({ name, url }) => (
         <div class="py-1 pl-2 pr-3 rounded-full flex items-center gap-2 bg-[#273449] dark:bg-[#181818]">
-          <div class="w-5 h-5 rounded-full" class:list={classColor} />
+          <img class="w-5 h-5" src={url} alt={name} />
           <span class="text-white text-sm">{name}</span>
         </div>
       ))

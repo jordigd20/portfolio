@@ -51,7 +51,7 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
                 aria-label="Ver imagen"
               >
                 <img
-                  class="postImage lg:w-full xl:w-[initial] max-w-lg max-h-[36rem] m-auto object-cover"
+                  class="postImage lg:w-full xl:w-[initial] max-w-lg max-h-[36rem] m-auto object-cover rounded-sm"
                   src={url}
                   alt={alt}
                 />
@@ -97,9 +97,9 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
         </h1>
         <div class="pt-2 flex items-center flex-wrap gap-3 mb-2">
           {
-            frontmatter.stack.map(({ name, classColor }: any) => (
+            frontmatter.stack.map(({ name, url }: any) => (
               <div class="py-1 pl-2 pr-3 rounded-full flex items-center gap-2 bg-[#273449] dark:bg-[#181818]">
-                <div class="w-5 h-5 rounded-full" class:list={classColor} />
+                <img class="w-5 h-5" src={url} alt={name} /> 
                 <span class="text-white">{name}</span>
               </div>
             ))
@@ -114,13 +114,18 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
             <GithubIcon />
             GitHub
           </a>
-          <a
-            class="text-black p-2 px-3 rounded-lg bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] transition-transform hover:scale-105 flex items-center gap-2 [&>svg]:fill-black"
-            href={frontmatter.site}
-          >
-            <VisitSiteIcon />
-            Visitar
-          </a>
+
+          {
+            frontmatter.site && (
+              <a
+                class="text-black p-2 px-3 rounded-lg bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] transition-transform hover:scale-105 flex items-center gap-2 [&>svg]:fill-black"
+                href={frontmatter.site}
+              >
+                <VisitSiteIcon />
+                Visitar
+              </a>
+            )
+          }
         </div>
         <div class="postImageContainer lg:hidden overflow-x-hidden">
           {
@@ -142,7 +147,7 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
                   aria-label="Ver imagen"
                 >
                   <img
-                    class="postImage w-full sm:w-auto lg:w-full xl:w-[initial] max-w-lg max-h-[36rem] m-auto object-cover"
+                    class="postImage w-full sm:w-auto lg:w-full xl:w-[initial] max-w-lg max-h-[36rem] m-auto object-cover rounded-sm"
                     src={url}
                     alt={alt}
                     width="259"
@@ -185,7 +190,7 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
         </div>
 
         <div
-          class="p-5 lg:p-0 xl:pt-5 [&>h1]:text-3xl [&>h1]:font-bold [&>h1]:mb-4 [&>p]:mb-4 [&>h2]:font-bold [&>h2]:text-2xl [&>h2]:mb-2 [&>h2]:mt-8 [&>pre]:p-5 [&>pre]:mb-4 [&>pre]:whitespace-pre-wrap [&>pre]:text-justify [&>ul]:list-disc [&>ul>li]:mb-1 [&>ul>li:last-child]:mb-4 [&_a]:text-[#00C2FF] [&_a]:underline [&_a:hover]:opacity-50"
+          class="p-5 lg:p-0 xl:pt-5 [&>h1]:text-3xl [&>h1]:font-bold [&>h1]:mb-4 [&>p]:mb-4 [&>h2]:font-bold [&>h2]:text-2xl [&>h2]:mb-2 [&>h2]:mt-8 [&>pre]:p-5 [&>pre]:mb-4 [&>pre]:whitespace-pre-wrap [&>pre]:text-justify [&>ul]:list-disc [&>ul>li]:mb-1 [&>ul>li:last-child]:mb-4 [&>ul>li>ul]:list-revert [&>ul>li>ul]:ml-4 [&_a]:text-[#00C2FF] [&_a]:underline [&_a:hover]:opacity-50"
         >
           <slot />
         </div>

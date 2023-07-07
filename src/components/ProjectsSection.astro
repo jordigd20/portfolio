@@ -1,33 +1,60 @@
 ---
 import NutriusImage from '../assets/nutrius.webp';
 import CollabtaskImage from '../assets/collabtask.webp';
-import Angular from '../icons/technologies/Angular.astro';
-import Ionic from '../icons/technologies/Ionic.astro';
-import Dialogflow from '../icons/technologies/Dialogflow.astro';
-import Firebase from '../icons/technologies/Firebase.astro';
-import MongoDB from '../icons/technologies/MongoDB.astro';
-import NodeJS from '../icons/technologies/NodeJS.astro';
-import WebGL from '../icons/technologies/WebGL.astro';
 
 const projects = [
   {
     title: 'NutriUs, desarrollo del proyecto de una startup',
     description:
-      'NutriUs es un proyecto ABP (Aprendizaje Basado en Proyectos) desarrollado en el último curso de la universidad. El objetivo del proyecto se centraba en lograr el desarrollo completo de una aplicación web en un equipo de 5 personas durante 8 meses. Esta aplicación debía tener almenos una sección de administración y una sección para los usuarios que contara con un motor gráfico propio desarrollado con WebGL. ',
-    stack: [Angular, NodeJS, MongoDB, Dialogflow, WebGL],
+      'Aplicación web sobre nutrición infantil que ofrece menús y dietas para niños de acuerdo con los objetivos/intolerancias que los tutores/padres establezcan.Mientras los niños cuentan con un entorno gráfico atractivo para ellos en el que pueden interactuar y conseguir recompensas, los padres/tutores disponen de un apartado en el que poder ver un seguimiento de la evolución de los niños.',
+    stack: [
+      {
+        name: 'Angular',
+        url: '/assets/technologies/angular.svg'
+      },
+      {
+        name: 'NodeJS',
+        url: '/assets/technologies/nodejs.svg'
+      },
+      {
+        name: 'MongoDB',
+        url: '/assets/technologies/mongodb.svg'
+      },
+      {
+        name: 'Dialogflow',
+        url: '/assets/technologies/dialogflow.svg'
+      },
+      {
+        name: 'WebGL',
+        url: '/assets/technologies/webgl.svg'
+      }
+    ],
     image: NutriusImage,
     imageClass: '',
     href: '/projects/nutrius'
   },
   {
-    title: 'TFG, Desarrollo de una aplicación móvil',
+    title: 'CollabTask, app de gestión de tareas colaborativas',
     description:
       'Diseño y desarrollo de una aplicación móvil para la gestión y el reparto de tareas entre un grupo de personas de una manera equitativa y justa entre los participantes.',
-    stack: [Ionic, Angular, Firebase],
+    stack: [
+      {
+        name: 'Ionic',
+        url: '/assets/technologies/ionic.svg'
+      },
+      {
+        name: 'Angular',
+        url: '/assets/technologies/angular.svg'
+      },
+      {
+        name: 'Firestore',
+        url: '/assets/technologies/firebase.svg'
+      },
+    ],
     image: CollabtaskImage,
     imageClass: 'object-[50%_15%]',
     href: '/projects/collabtask'
-  },
+  }
 ];
 ---
 
@@ -51,8 +78,12 @@ const projects = [
             </a>
             <p class="text-sm line-clamp-4 mb-3 dark:text-[#d1d7de]">{description}</p>
             <footer class="flex items-center gap-1 [&>svg]:w-6">
-              {stack.map((Icon) => (
-                <Icon />
+              {stack.map((tech) => (
+                <div
+                  class="w-6 h-6 bg-textColor"
+                  style={`-webkit-mask: url(${tech.url}) no-repeat center;mask: url(${tech.url};`}
+                  title={tech.name}
+                />
               ))}
             </footer>
           </div>

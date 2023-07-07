@@ -107,6 +107,9 @@ module.exports = {
             opacity: '0'
           }
         }
+      },
+      listStyleType: {
+        revert: 'revert'
       }
     },
     fontFamily: {
