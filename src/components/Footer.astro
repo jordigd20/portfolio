@@ -27,7 +27,7 @@ const { notFoundError = false } = Astro.props;
     {
       socialLinks.map(({ label, href, Icon }) => (
         <a
-          class="transition-transform hover:scale-110 [&>svg]:fill-textColor"
+          class="transition-transform hover:scale-110 [&>svg]:fill-textColor text-textColor"
           href={href}
           aria-label={label}
         >
