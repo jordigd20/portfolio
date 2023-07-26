@@ -99,7 +99,7 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
           {
             frontmatter.stack.map(({ name, url }: any) => (
               <div class="py-1 pl-2 pr-3 rounded-full flex items-center gap-2 bg-[#273449] dark:bg-[#181818]">
-                <img class="w-5 h-5" src={url} alt={name} /> 
+                <img class="w-5 h-5" src={url} alt={name} />
                 <span class="text-white">{name}</span>
               </div>
             ))
@@ -346,8 +346,8 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
           const currentSelectedButton = Array.from(galleryButtons).find(
             (btn) => btn.id === `gallery-${currentIndex}`
           );
-          currentSelectedButton.classList.remove('border-green-400');
-          currentSelectedButton.classList.add('hover:border-blue-700');
+          currentSelectedButton.classList.remove('shadow-[0_0_0_3px_rgb(74,222,128)]');
+          currentSelectedButton.classList.add('hover:shadow-[0_0_0_3px_rgb(29,78,216)]');
         }
 
         frontImage.src = assets[index].url;
@@ -357,8 +357,8 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
           (btn) => btn.id === `gallery-${index}`
         );
 
-        selectedGalleryButton.classList.add('border-green-400');
-        selectedGalleryButton.classList.remove('hover:border-blue-700');
+        selectedGalleryButton.classList.add('shadow-[0_0_0_3px_rgb(74,222,128)]');
+        selectedGalleryButton.classList.remove('hover:shadow-[0_0_0_3px_rgb(29,78,216)]');
       };
 
       const displayImageModal = (idImage) => {

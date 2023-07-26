@@ -6,12 +6,12 @@ const { assets } = Astro.props;
 
 <dialog
   id="imagesDialog"
-  class="min-h-full min-w-full bg-transparent border-none p-0 sm:p-4 lg:py-5 lg:px-20 [&::backdrop]:backdrop-blur-sm [&::backdrop]:bg-black/50 [&+.backdrop]:backdrop-opacity-80"
+  class="min-h-full min-w-full bg-transparent border-none p-0 sm:p-4 [&::backdrop]:backdrop-blur-[2px] [&::backdrop]:bg-black/75 [&+.backdrop]:backdrop-opacity-80"
 >
-  <div class="bg-background w-full h-full relative sm:rounded-md py-10">
+  <div class="w-full h-full relative sm:rounded-md py-10">
     <button
       id="closeButton"
-      class="text-textColor absolute right-1 top-1 rounded-full p-1 hover:bg-black/20 [html.dark_&]:hover:bg-white/20"
+      class="text-white absolute right-1 top-1 rounded-full p-1 hover:bg-black/20 [html.dark_&]:hover:bg-white/20"
     >
       <Close />
     </button>
@@ -30,7 +30,7 @@ const { assets } = Astro.props;
           assets.map(({ url, type, alt }: any, index: number) => (
             <button
               id={`gallery-${index}`}
-              class=" w-20 h-20 border-2 rounded-sm hover:border-blue-700"
+              class=" w-20 h-20 border-2 rounded-sm hover:shadow-[0_0_0_3px_rgb(29,78,216)]"
             >
               <img class="w-full h-full object-cover" src={url} alt={alt} />
             </button>
