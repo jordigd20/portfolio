@@ -1,6 +1,7 @@
 ---
 import NutriusImage from '../assets/nutrius.webp';
 import CollabtaskImage from '../assets/collabtask.webp';
+import WeatherAppImage from '../assets/weather-app.webp';
 
 const projects = [
   {
@@ -54,6 +55,24 @@ const projects = [
     image: CollabtaskImage,
     imageClass: 'object-[50%_15%]',
     href: '/projects/collabtask'
+  },
+  {
+    title: 'Weather App',
+    description:
+      'App de predicción meteorológica que muestra información sobre el pronóstico del tiempo en la ubicación actual del usuario o sobre cualquier otra ciudad.',
+    stack: [
+      {
+        name: 'Angular',
+        url: '/assets/technologies/angular.svg'
+      },
+      {
+        name: 'TailwindCSS',
+        url: '/assets/technologies/tailwindcss.svg'
+      },
+    ],
+    image: WeatherAppImage,
+    imageClass: '',
+    href: '/projects/weather-app'
   }
 ];
 ---
@@ -64,7 +83,7 @@ const projects = [
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
     {
       projects.map(({ title, description, stack, image, imageClass, href }) => (
-        <article class="bg-[#ecf1f4] dark:bg-gradient-to-r dark:from-[#273449] dark:to-[#2A4A4B]  rounded-lg shadow-[0_3px_0_0_#45D9BF]">
+        <article class="bg-[#ecf1f4] dark:bg-gradient-to-r dark:from-[#273449] dark:to-[#2A4A4B] rounded-lg shadow-[0_3px_0_0_#45D9BF]">
           <img
             class="rounded-t-lg w-full h-52 object-cover"
             class:list={imageClass}
