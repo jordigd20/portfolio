@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import photo from '../assets/jordi-gomez-devesa.webp';
 ---
 
@@ -38,6 +39,7 @@ import photo from '../assets/jordi-gomez-devesa.webp';
           href="/assets/cv-jordi-gomez-devesa.pdf"
           target="_blank"
           class="text-black p-2 px-5 rounded-lg bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] hover:bg-none hover:bg-background hover:text-textColor hover:border-[#45D9BF] border-2 border-transparent bg-origin-border"
+          data-astro-reload
         >
           Descargar CV
         </a>
@@ -50,7 +52,7 @@ import photo from '../assets/jordi-gomez-devesa.webp';
       </div>
     </footer>
   </div>
-  <img
+  <Image
     class="m-auto rounded-3xl object-cover aspect-[0.95] w-[450px] md:w-[375px] lg:w-[490px]"
     src={photo}
     alt="Una foto de Jordi Gómez Devesa"

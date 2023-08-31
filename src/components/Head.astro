@@ -1,6 +1,7 @@
 ---
 import '@fontsource/rubik';
 import '../styles/global.css';
+import { ViewTransitions } from 'astro:transitions';
 
 export interface Props {
   title: string;
@@ -16,20 +17,12 @@ const { title, description } = Astro.props;
 <meta name="generator" content={Astro.generator} />
 
 <title>{title}</title>
-
+<ViewTransitions />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
 <script is:inline>
   // This code is inlined in the head to make dark mode instant & blocking.
-  const getThemePreference = () => {
-    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-      return localStorage.getItem('theme');
-    }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  };
-
-  const isDark = getThemePreference() === 'dark';
-  document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+  setDarkMode();
 
   if (typeof localStorage !== 'undefined') {
     // Watch the document element and persist user preference when it changes.
@@ -39,4 +32,18 @@ const { title, description } = Astro.props;
     });
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
   }
+
+  function setDarkMode() {
+    const getThemePreference = () => {
+      if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+        return localStorage.getItem('theme');
+      }
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+   
+    const isDark = getThemePreference() === 'dark';
+    document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+  }
+
+  document.addEventListener('astro:after-swap', setDarkMode);
 </script>

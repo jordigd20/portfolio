@@ -2,6 +2,7 @@
 import NutriusImage from '../assets/nutrius.webp';
 import CollabtaskImage from '../assets/collabtask.webp';
 import WeatherAppImage from '../assets/weather-app.webp';
+import { Image } from 'astro:assets';
 
 const projects = [
   {
@@ -84,7 +85,7 @@ const projects = [
     {
       projects.map(({ title, description, stack, image, imageClass, href }) => (
         <article class="bg-[#ecf1f4] dark:bg-gradient-to-r dark:from-[#273449] dark:to-[#2A4A4B] rounded-lg shadow-[0_3px_0_0_#45D9BF]">
-          <img
+          <Image
             class="rounded-t-lg w-full h-52 object-cover"
             class:list={imageClass}
             src={image}

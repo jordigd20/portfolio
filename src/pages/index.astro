@@ -11,7 +11,7 @@ import Footer from '../components/Footer.astro';
   title="Jordi Gómez Devesa | Portfolio"
   description="Portfolio personal de Jordi Gómez Devesa"
 >
-  <main>
+  <main id="main-index">
     <div class="max-w-5xl m-auto">
       <HeroSection />
       <ExperienceSection />
@@ -23,22 +23,30 @@ import Footer from '../components/Footer.astro';
 </Layout>
 
 <script>
-  const sections = document.querySelectorAll('section');
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        entry.target.classList.toggle('animate-fade-in-up', entry.isIntersecting);
+  document.addEventListener('astro:page-load', setUpIntersectionObserver);
+  
+  function setUpIntersectionObserver() {
+    const sections = document.querySelectorAll('#main-index section');
 
-        if (entry.isIntersecting) {
-          entry.target.classList.remove('opacity-0');
-          observer.unobserve(entry.target);
+    if (sections.length !== 0) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            entry.target.classList.toggle('animate-fade-in-up', entry.isIntersecting);
+            
+            if (entry.isIntersecting) {
+              entry.target.classList.remove('opacity-0');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.1
         }
-      });
-    },
-    {
-      threshold: 0.1
+      );
+        
+      sections.forEach((section) => observer.observe(section));
     }
-  );
+  }  
 
-  sections.forEach((section) => observer.observe(section));
 </script>
