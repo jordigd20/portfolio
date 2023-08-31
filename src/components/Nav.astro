@@ -102,63 +102,67 @@ const socialLinks = [
 </nav>
 
 <script>
-  const menuCheckbox = document.getElementById('menu') as HTMLInputElement;
-  const mediaQuery = window.matchMedia('(min-width: 1024px)');
-  const navbarList = document.getElementById('navbarList') as HTMLUListElement;
-  const navbarSocialCol = document.getElementById('navbarLastCol') as HTMLDivElement;
-  const toggleThemeBtn = document.getElementById('toggleThemeBtn') as HTMLButtonElement;
+  function setUpEventListeners() {
+    const menuCheckbox = document.getElementById('menu') as HTMLInputElement;
+    const mediaQuery = window.matchMedia('(min-width: 1024px)');
+    const navbarList = document.getElementById('navbarList') as HTMLUListElement;
+    const navbarSocialCol = document.getElementById('navbarLastCol') as HTMLDivElement;
+    const toggleThemeBtn = document.getElementById('toggleThemeBtn') as HTMLButtonElement;
 
-  const onCheckedFalse = (fromCheckbox: boolean) => {
-    if (fromCheckbox) {
-      navbarList.classList.add('animate-fade-out-up');
-      navbarSocialCol.classList.add('animate-fade-out-up');
+    const onCheckedFalse = (fromCheckbox: boolean) => {
+      if (fromCheckbox) {
+        navbarList.classList.add('animate-fade-out-up');
+        navbarSocialCol.classList.add('animate-fade-out-up');
 
-      setTimeout(() => {
+        setTimeout(() => {
+          navbarList.classList.add('hidden', 'opacity-0');
+          navbarList.classList.remove(
+            'block',
+            'w-full',
+            'opacity-100',
+            'animate-fade-in-down',
+            'animate-fade-out-up'
+          );
+          navbarSocialCol.classList.add('hidden', 'opacity-0');
+          navbarSocialCol.classList.remove(
+            'block',
+            'w-full',
+            'opacity-100',
+            'animate-fade-in-down',
+            'animate-fade-out-up'
+          );
+        }, 250);
+      } else {
         navbarList.classList.add('hidden', 'opacity-0');
-        navbarList.classList.remove(
-          'block',
-          'w-full',
-          'opacity-100',
-          'animate-fade-in-down',
-          'animate-fade-out-up'
-        );
+        navbarList.classList.remove('block', 'w-full', 'opacity-100', 'animate-fade-in-down');
         navbarSocialCol.classList.add('hidden', 'opacity-0');
-        navbarSocialCol.classList.remove(
-          'block',
-          'w-full',
-          'opacity-100',
-          'animate-fade-in-down',
-          'animate-fade-out-up'
-        );
-      }, 250);
-    } else {
-      navbarList.classList.add('hidden', 'opacity-0');
-      navbarList.classList.remove('block', 'w-full', 'opacity-100', 'animate-fade-in-down');
-      navbarSocialCol.classList.add('hidden', 'opacity-0');
-      navbarSocialCol.classList.remove('block', 'w-full', 'opacity-100', 'animate-fade-in-down');
-    }
-  };
+        navbarSocialCol.classList.remove('block', 'w-full', 'opacity-100', 'animate-fade-in-down');
+      }
+    };
 
-  menuCheckbox.addEventListener('change', (event: any) => {
-    if (event.target.checked) {
-      navbarList.classList.remove('hidden', 'opacity-0');
-      navbarList.classList.add('block', 'w-full', 'opacity-100', 'animate-fade-in-down');
-      navbarSocialCol.classList.remove('hidden', 'opacity-0');
-      navbarSocialCol.classList.add('block', 'w-full', 'opacity-100', 'animate-fade-in-down');
-    } else {
-      onCheckedFalse(true);
-    }
-  });
+    menuCheckbox.addEventListener('change', (event: any) => {
+      if (event.target.checked) {
+        navbarList.classList.remove('hidden', 'opacity-0');
+        navbarList.classList.add('block', 'w-full', 'opacity-100', 'animate-fade-in-down');
+        navbarSocialCol.classList.remove('hidden', 'opacity-0');
+        navbarSocialCol.classList.add('block', 'w-full', 'opacity-100', 'animate-fade-in-down');
+      } else {
+        onCheckedFalse(true);
+      }
+    });
 
-  mediaQuery.addEventListener('change', (event: any) => {
-    if (event.matches) {
-      menuCheckbox.checked = false;
-      onCheckedFalse(false);
-    }
-  });
+    mediaQuery.addEventListener('change', (event: any) => {
+      if (event.matches) {
+        menuCheckbox.checked = false;
+        onCheckedFalse(false);
+      }
+    });
 
-  toggleThemeBtn.addEventListener('click', () => {
-    const isDark = document.documentElement.classList.contains('dark');
-    document.documentElement.classList[!isDark ? 'add' : 'remove']('dark');
-  });
+    toggleThemeBtn.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      document.documentElement.classList[!isDark ? 'add' : 'remove']('dark');
+    });
+  }
+
+  document.addEventListener('astro:page-load', setUpEventListeners);
 </script>

@@ -51,7 +51,7 @@ import ContactIllustration from '../icons/ContactIllustration.astro';
 
       <button
         id="submitBtn"
-        class="text-[#273449] font-bold p-3 w-full bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg hover:bg-none hover:bg-background hover:text-textColor  hover:border-[#45D9BF] border-2 border-transparent bg-origin-border"
+        class="text-[#273449] font-bold p-3 w-full bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg hover:bg-none hover:bg-background hover:text-textColor hover:border-[#45D9BF] border-2 border-transparent bg-origin-border"
         type="submit"
       >
         Enviar
@@ -62,28 +62,34 @@ import ContactIllustration from '../icons/ContactIllustration.astro';
 
 <script>
   import emailjs from '@emailjs/browser';
-
   emailjs.init('-7oN40-PprdhoEmgw');
-  const form = document.getElementById('contactForm') as HTMLFormElement;
-  const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement;
 
-  form!.addEventListener('submit', (e) => {
-    e.preventDefault();
+  function setUpOnSubmit() {
+    const form = document.getElementById('contactForm') as HTMLFormElement;
+    const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement;
 
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = 'Enviando...';
-    emailjs
-      .sendForm('service_j016olb', 'template_fm1ll9h', form)
-      .then(() => {
-        alert('Mensaje enviado correctamente. Pronto me pondre en contacto.');
-      })
-      .catch(() => {
-        alert(`Ha ocurrido un error. Por favor, intenta contacter desde otro medio.`);
-      })
-      .finally(() => {
-        form.reset();
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = 'Enviar';
-      });
-  });
+    if (!form || !submitBtn) return;
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Enviando...';
+      emailjs
+        .sendForm('service_j016olb', 'template_fm1ll9h', form)
+        .then(() => {
+          alert('Mensaje enviado correctamente. Pronto me pondre en contacto.');
+        })
+        .catch(() => {
+          alert(`Ha ocurrido un error. Por favor, intenta contacter desde otro medio.`);
+        })
+        .finally(() => {
+          form.reset();
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = 'Enviar';
+        });
+    });
+  }
+
+  document.addEventListener('astro:page-load', setUpOnSubmit);
 </script>
