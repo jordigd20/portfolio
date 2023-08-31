@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/tailwind": "^5.0.0",
     "@astrojs/vercel": "^4.0.1",
+    "@emailjs/browser": "^3.11.0",
     "@fontsource/rubik": "^5.0.11",
     "@vercel/analytics": "^1.0.1",
     "astro": "^3.0.3",

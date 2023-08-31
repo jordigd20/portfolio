@@ -60,17 +60,14 @@ import ContactIllustration from '../icons/ContactIllustration.astro';
   </div>
 </section>
 
-<script
-  type="text/javascript"
-  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
-></script>
+<script>
+  import emailjs from '@emailjs/browser';
 
-<script type="module">
   emailjs.init('-7oN40-PprdhoEmgw');
-  const form = document.getElementById('contactForm');
-  const submitBtn = document.getElementById('submitBtn');
+  const form = document.getElementById('contactForm') as HTMLFormElement;
+  const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement;
 
-  form.addEventListener('submit', (e) => {
+  form!.addEventListener('submit', (e) => {
     e.preventDefault();
 
     submitBtn.disabled = true;

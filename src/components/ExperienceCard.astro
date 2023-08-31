@@ -13,7 +13,7 @@ const { title, description, date, stack, href } = Astro.props;
 <article
   class="flex-[1_1_auto] p-5 bg-[#ECF1F4] shadow-[0_3px_0_0_#45D9BF] dark:bg-gradient-to-r dark:from-[#273449] dark:to-[#2A4A4B] rounded-lg"
 >
-  <a class="text-xl font-bold hover:opacity-50" href={href}>
+  <a class="text-xl font-bold hover:opacity-50 mr-2 lg:mr-0" href={href}>
     <h3 class="inline">{title}</h3>
   </a>
   <p class="py-2 inline-block lg:hidden opacity-70">{date}</p>
