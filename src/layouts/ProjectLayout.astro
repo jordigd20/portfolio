@@ -61,13 +61,13 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
         }
         <div class="text-black mt-3 flex items-center justify-center gap-3">
           <button
-            class="start bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:bg-none hover:bg-background hover:text-textColor hover:border-[#45D9BF] border-2 border-transparent bg-origin-border"
+            class="start bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:bg-none hover:bg-background hover:text-textColor hover:border-[#45D9BF] border-2 border-transparent bg-origin-border cursor-pointer"
             aria-label="Primero"
           >
             <ChevronDoubleLeftIcon />
           </button>
           <button
-            class="prev bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:bg-none hover:bg-background hover:text-textColor hover:border-[#45D9BF] border-2 border-transparent bg-origin-border"
+            class="prev bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:bg-none hover:bg-background hover:text-textColor hover:border-[#45D9BF] border-2 border-transparent bg-origin-border cursor-pointer"
             aria-label="Anterior"
           >
             <ChevronLeftIcon />
@@ -78,13 +78,13 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
             >
           </div>
           <button
-            class="next bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:bg-none hover:bg-background hover:text-textColor hover:border-[#45D9BF] border-2 border-transparent bg-origin-border"
+            class="next bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:bg-none hover:bg-background hover:text-textColor hover:border-[#45D9BF] border-2 border-transparent bg-origin-border cursor-pointer"
             aria-label="Siguiente"
           >
             <ChevronRightIcon />
           </button>
           <button
-            class="end bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:bg-none hover:bg-background hover:text-textColor hover:border-[#45D9BF] border-2 border-transparent bg-origin-border"
+            class="end bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:bg-none hover:bg-background hover:text-textColor hover:border-[#45D9BF] border-2 border-transparent bg-origin-border cursor-pointer"
             aria-label="Último"
           >
             <ChevronDoubleRightIcon />
@@ -113,7 +113,7 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
             target="_blank"
           >
             <GithubIcon />
-            GitHub
+             GitHub
           </a>
 
           {
@@ -160,13 +160,13 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
           }
           <div class="text-black mt-3 flex items-center justify-center gap-3">
             <button
-              class="start bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:opacity-70"
+              class="start bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:bg-none hover:bg-background hover:text-textColor hover:border-[#45D9BF] border-2 border-transparent bg-origin-border cursor-pointer"
               aria-label="Primero"
             >
               <ChevronDoubleLeftIcon />
             </button>
             <button
-              class="prev bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:opacity-70"
+              class="prev bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:bg-none hover:bg-background hover:text-textColor hover:border-[#45D9BF] border-2 border-transparent bg-origin-border cursor-pointer"
               aria-label="Anterior"
             >
               <ChevronLeftIcon />
@@ -177,13 +177,13 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
               >
             </div>
             <button
-              class="next bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:opacity-70"
+              class="next bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:bg-none hover:bg-background hover:text-textColor hover:border-[#45D9BF] border-2 border-transparent bg-origin-border cursor-pointer"
               aria-label="Siguiente"
             >
               <ChevronRightIcon />
             </button>
             <button
-              class="end bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:opacity-70"
+              class="end bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:bg-none hover:bg-background hover:text-textColor hover:border-[#45D9BF] border-2 border-transparent bg-origin-border cursor-pointer"
               aria-label="Último"
             >
               <ChevronDoubleRightIcon />
@@ -225,7 +225,9 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
       let i = 0;
       let galleryIndex = 0;
 
-      const updatePrevImage = (currentIndex) => {
+      function updatePrevImage({ currentIndex, fromStartBtn }) {
+        disableLeftButtons(true, fromStartBtn);
+
         postImageContainer.forEach((container) => {
           const currentAsset = container.children.namedItem(currentIndex.toString());
           currentAsset.classList.remove('animate-enter-from-left');
@@ -251,10 +253,14 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
           currentCounters.forEach((counter) => {
             counter.innerHTML = i + 1;
           });
-        }, 190);
-      };
 
-      const updateNextImage = (currentIndex) => {
+          disableLeftButtons(false, fromStartBtn);
+        }, 190);
+      }
+
+      function updateNextImage({ currentIndex, fromEndBtn }) {
+        disableRightButtons(true, fromEndBtn);
+
         postImageContainer.forEach((container) => {
           const currentAsset = container.children.namedItem(currentIndex.toString());
           currentAsset.classList.remove('animate-enter-from-right');
@@ -280,10 +286,12 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
           currentCounters.forEach((counter) => {
             counter.innerHTML = i + 1;
           });
-        }, 190);
-      };
 
-      const prevImage = () => {
+          disableRightButtons(false, fromEndBtn);
+        }, 190);
+      }
+
+      function prevImage() {
         const currentType = assets[i].type;
         const currentIndex = i;
 
@@ -297,10 +305,13 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
           return;
         }
 
-        updatePrevImage(currentIndex);
-      };
+        updatePrevImage({
+          currentIndex,
+          fromStartBtn: false
+        });
+      }
 
-      const nextImage = () => {
+      function nextImage() {
         const currentIndex = i;
 
         if (i === assets.length - 1) {
@@ -313,10 +324,13 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
           return;
         }
 
-        updateNextImage(currentIndex);
-      };
+        updateNextImage({
+          currentIndex,
+          fromEndBtn: false
+        });
+      }
 
-      const firstImage = () => {
+      function firstImage() {
         const currentIndex = i;
         i = 0;
 
@@ -324,10 +338,13 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
           return;
         }
 
-        updatePrevImage(currentIndex);
-      };
+        updatePrevImage({
+          currentIndex,
+          fromStartBtn: true
+        });
+      }
 
-      const lastImage = () => {
+      function lastImage() {
         const currentIndex = i;
         i = assets.length - 1;
 
@@ -335,10 +352,37 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
           return;
         }
 
-        updateNextImage(currentIndex);
-      };
+        updateNextImage({
+          currentIndex,
+          fromEndBtn: true
+        });
+      }
 
-      const updateFrontImage = (index) => {
+      function disableLeftButtons(disable, fromStartBtn) {
+        if (fromStartBtn) {
+          startButtons.forEach((btn) => {
+            btn.disabled = disable;
+          });
+        } else {
+          prevButtons.forEach((btn) => {
+            btn.disabled = disable;
+          });
+        }
+      }
+
+      function disableRightButtons(disable, fromEndBtn) {
+        if (fromEndBtn) {
+          endButtons.forEach((btn) => {
+            btn.disabled = disable;
+          });
+        } else {
+          nextButtons.forEach((btn) => {
+            btn.disabled = disable;
+          });
+        }
+      }
+
+      function updateFrontImage(index) {
         const currentIndex = galleryIndex;
         galleryIndex = index;
 
@@ -359,9 +403,9 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
 
         selectedGalleryButton.classList.add('shadow-[0_0_0_3px_rgb(74,222,128)]');
         selectedGalleryButton.classList.remove('hover:shadow-[0_0_0_3px_rgb(29,78,216)]');
-      };
+      }
 
-      const displayImageModal = (idImage) => {
+      function displayImageModal(idImage) {
         document.body.classList.add('overflow-hidden');
         updateFrontImage(i);
 
@@ -372,7 +416,7 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
         );
 
         imagesDialog.showModal();
-      };
+      }
 
       prevButtons.forEach((btn) => {
         btn.addEventListener('click', () => prevImage());
