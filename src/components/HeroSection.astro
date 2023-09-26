@@ -4,7 +4,7 @@ import photo from '../assets/jordi-gomez-devesa.webp';
 ---
 
 <section class="text-textColor mt-20 px-5 md:flex justify-center opacity-0 transition-all md:gap-4">
-  <div class="">
+  <div class="max-w-[30rem]">
     <header>
       <span
         class="mb-5 text-3xl font-bold tracking-wider py-2 px-5 rounded-ss-full rounded-se-full rounded-ee-full relative inline-block text-[#1D2735] dark:text-white bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] dark:from-[#273449] dark:to-[#2A4A4B] after:z-[-1] after:absolute after:top-[-2px] after:left-[-2px] after:w-[calc(100%+4px)] after:h-[calc(100%+4px)] after:rounded-ss-full after:rounded-se-full after:rounded-ee-full after:bg-gradient-to-r after:from-[#273449] after:to-[#2A4A4B] dark:after:from-[#38BDF8] dark:after:to-[#45D9BF]"
@@ -64,6 +64,7 @@ import photo from '../assets/jordi-gomez-devesa.webp';
     </footer>
   </div>
   <Image
+    fetchpriority="high"
     class="m-auto rounded-3xl object-cover aspect-[0.95] w-[450px] md:w-[375px] lg:w-[490px]"
     src={photo}
     alt="Una foto de Jordi Gómez Devesa"
