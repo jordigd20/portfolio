@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/ProjectLayout.astro
+layout: ../../layouts/NewProjectLayout.astro
 title: 'NutriUs'
 date: 'Septiembre 2021 - Junio 2022'
 description: ''
@@ -95,6 +95,12 @@ stack:
     url: '/assets/technologies/webgl.svg'
 headerClass: 'bg-[#0D9488] text-white'
 navClass: 'text-white [&_svg]:fill-white'
+width: 
+  number: 1920
+  string: '1536px'
+height: 
+  number: 932
+  string: '746px'
 github: 'https://github.com/jordigd20/nutrius'
 site: ''
 ---

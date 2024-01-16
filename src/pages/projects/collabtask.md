@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/ProjectLayout.astro
+layout: ../../layouts/NewProjectLayout.astro
 title: 'CollabTask'
 date: 'Septiembre 2022 - Mayo 2023'
 description: ''
@@ -66,6 +66,12 @@ stack:
     url: '/assets/technologies/firebase.svg'
 headerClass: 'bg-[#0D9488] text-white'
 navClass: 'text-white [&_svg]:fill-white'
+width: 
+  number: 1080
+  string: '320px'
+height: 
+  number: 2400
+  string: '715px'
 github: 'https://github.com/jordigd20/collabtask'
 site: 'https://github.com/jordigd20/collabtask/releases'
 ---
@@ -82,8 +88,8 @@ El principal objetivo de esta aplicación es permitir a los usuarios crear grupo
 
 - Formar un equipo de personas y elaborar listas de tareas junto con los demás participantes
 - Existen dos tipos de reparto distintos:
-  - Reparto manual: Reparto en el que los usuarios deben asignarse las tareas una por una ellos mismos.
-  - Reparto automático por preferencias: Los usuarios podrán establecer qué tareas del reparto preferien realizar y un algoritmo repartirá las tareas teniendo en cuenta las preferencias de los usuarios y los puntos que hayan obtenido a lo largo del tiempo usando la aplicación.
+  - **Reparto manual**: Reparto en el que los usuarios deben asignarse las tareas una por una ellos mismos.
+  - **Reparto automático por preferencias**: Los usuarios podrán establecer qué tareas del reparto preferien realizar y un algoritmo repartirá las tareas teniendo en cuenta las preferencias de los usuarios y los puntos que hayan obtenido a lo largo del tiempo usando la aplicación.
 - Intercambio de tareas. Los usuarios pueden intercambiarse las tareas entre los compañeros utilizando sus puntos o intercambiando sus tareas por otras.
 - Los usuarios pueden valorar el trabajo de sus compañeros para que estas valoraciones se vean reflejadas en su perfil.
 - Tanto las valoraciones como la eficacia con las tareas asignadas mejoran el sello de calidad de CollabTask. Un sello que refleja el buen trabajo de los usuarios.

@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/ProjectLayout.astro
+layout: ../../layouts/NewProjectLayout.astro
 title: 'Bookstore'
 date: 'Diciembre 2023'
 description: ''
@@ -69,7 +69,13 @@ stack:
   - name: 'Railway'
     url: '/assets/technologies/railway.svg'
 headerClass: 'bg-[#0D9488] text-white'
-navClass: 'text-white [&_svg]:fill-white'
+navClass: 'text-textColor [&_svg]:fill-textColor'
+width: 
+  number: 1617
+  string: '1294px'
+height: 
+  number: 917
+  string: '734px'
 github: 'https://github.com/jordigd20/bookstore'
 site: 'https://bookstore-jgd.vercel.app/'
 ---

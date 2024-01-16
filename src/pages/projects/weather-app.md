@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/ProjectLayout.astro
+layout: ../../layouts/NewProjectLayout.astro
 title: 'Weather App'
 date: 'Julio 2023'
 description: ''
@@ -17,6 +17,13 @@ stack:
     url: '/assets/technologies/tailwindcss.svg'
 headerClass: 'bg-[#0D9488] text-white'
 navClass: 'text-white [&_svg]:fill-white'
+width: 
+  number: 1920
+  string: '1536px'
+height:
+  number: 936
+  string: '748px'
+
 github: 'https://github.com/jordigd20/weather-app'
 site: 'https://weather-app-jordigd.vercel.app/'
 ---

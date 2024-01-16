@@ -1,7 +1,5 @@
 /* Global variables */
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @layer base {
   :root {
@@ -9,6 +7,7 @@
     --color-text: #273449;
     --scrollbar: rgba(0, 0, 0, 0.5);
     --scrollbar-hover: rgba(0, 0, 0, 0.6);
+    --swiper-pagination-color: linear-gradient(90deg, rgba(56, 189, 248, 1) 0%, rgba(69, 217, 191, 1) 100%);
   }
 
   :root.dark {
@@ -17,7 +16,9 @@
     --scrollbar: rgba(255, 255, 255, 0.2);
     --scrollbar-hover: rgba(255, 255, 255, 0.3);
   }
+
 }
+
 
 html::-webkit-scrollbar {
   width: 10px;
