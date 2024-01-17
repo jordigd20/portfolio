@@ -15,7 +15,7 @@ import ContactIllustration from '../icons/ContactIllustration.astro';
     </div>
     <form
       id="contactForm"
-      class="p-5 bg-[#ecf1f4] dark:bg-gradient-to-r dark:from-[#273449] dark:to-[#2A4A4B] rounded-lg"
+      class="p-5 bg-[#ecf1f4] dark:bg-gradient-to-r dark:from-[#273449] dark:to-[#2A4A4B] rounded-lg z-0"
     >
       <div class="pb-5">
         <label for="from_name">Nombre</label>
@@ -51,10 +51,10 @@ import ContactIllustration from '../icons/ContactIllustration.astro';
 
       <button
         id="submitBtn"
-        class="text-[#273449] font-bold p-3 w-full bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg hover:bg-none hover:bg-background hover:text-textColor hover:border-[#45D9BF] border-2 border-transparent bg-origin-border"
+        class="btn-primary text-[#273449] font-bold p-3 w-full rounded-lg"
         type="submit"
       >
-        Enviar
+        <span class="z-10">Enviar</span>
       </button>
     </form>
   </div>
