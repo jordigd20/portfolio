@@ -5,12 +5,13 @@ import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="404 | Page not found" description="Portfolio personal de Jordi Gómez Devesa">
-  <main class="error-wrapper sm:[&>svg]:max-w-[calc(100vh-206px)] lg:[&>svg]:max-w-[calc(100vh-230px)] [&>svg]:m-auto">
-    <h1 class="text-2xl font-bold text-textColor text-center">
+  <main
+    class="error-wrapper sm:[&>svg]:max-w-[calc(100vh-206px)] lg:[&>svg]:max-w-[calc(100vh-230px)] [&>svg]:m-auto"
+  >
+    <h1 class="text-2xl font-bold text-textColor text-center pt-8">
       404 | La página solicitada no se ha encontrado.
     </h1>
     <NotFoundError />
   </main>
   <Footer notFoundError={true} />
 </Layout>
-

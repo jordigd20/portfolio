@@ -14,12 +14,12 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
   <head>
     <Head title={title} description={frontmatter.description} />
   </head>
-  <body class="bg-background">
-    <header>
-      <Nav className={frontmatter.navClass} />
-    </header>
+  <body
+    class="bg-background before:w-[300px] before:h-[300px] before:absolute before:left-[-50px] before:top-[100px] before:z-[-1] before:blur-[100px]"
+  >
+    <Nav />
 
-    <main class="container max-w-[1024px] text-textColor">
+    <main class="container max-w-[1024px] py-8 text-textColor">
       <div class="flex items-center justify-between gap-2 flex-wrap">
         <h1 class="text-textColor text-4xl font-bold mb-2">
           {frontmatter.title}
@@ -27,7 +27,7 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
 
         <div class="flex items-center gap-3">
           <a
-            class="text-black p-1.5 px-3 rounded-lg bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] flex items-center gap-2 [&>svg]:fill-black hover:bg-none hover:bg-background hover:text-textColor hover:border-[#45d9bf] border-2 border-transparent bg-origin-border"
+            class="btn-primary py-2 px-4 flex items-center gap-2 [&>svg]:fill-black"
             href={frontmatter.github}
             target="_blank"
           >
@@ -38,7 +38,7 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
           {
             frontmatter.site && (
               <a
-                class="text-black p-1.5 px-3 rounded-lg bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] flex items-center gap-2 [&>svg]:fill-black hover:bg-none hover:bg-background hover:text-textColor hover:border-[#45d9bf] border-2 border-transparent bg-origin-border"
+                class="btn-primary py-2 px-4 flex items-center gap-2 [&>svg]:fill-black"
                 href={frontmatter.site}
                 target="_blank"
               >
@@ -62,7 +62,7 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
                 target="_blank"
               >
                 <img
-                  class="w-full h-full object-cover "
+                  class="w-full h-full object-cover rounded-md"
                   id={`image-${index}`}
                   src={url}
                   alt={alt}
@@ -94,13 +94,14 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
       </div>
 
       <div
-        class="mb-10 p-5 lg:p-0 xl:pt-5 [&>h1]:text-3xl [&>h1]:font-bold [&>h1]:mb-4 [&>p]:mb-4 [&>h2]:font-bold [&>h2]:text-2xl [&>h2]:mb-2 [&>h2]:mt-8 [&>pre]:p-5 [&>pre]:mb-4 [&>pre]:whitespace-pre-wrap [&>pre]:text-justify [&>ul]:list-disc [&>ul>li]:mb-3 [&>ul>li:last-child]:mb-4 [&>ul>li>ul]:list-revert [&>ul>li>ul]:ml-4 [&>ul>li>a]:break-words [&_a]:text-[#00C2FF] [&_a]:underline [&_a:hover]:opacity-50"
+        class="p-5 lg:p-0 xl:pt-5 [&>h1]:text-3xl [&>h1]:font-bold [&>h1]:mb-4 [&>p]:mb-4 [&>h2]:font-bold [&>h2]:text-2xl [&>h2]:mb-2 [&>h2]:mt-8 [&>pre]:p-5 [&>pre]:mb-4 [&>pre]:whitespace-pre-wrap [&>pre]:text-justify [&>ul]:list-disc [&>ul>li]:mb-3 [&>ul>li:last-child]:mb-4 [&>ul>li>ul]:list-revert [&>ul>li>ul]:ml-4 [&>ul>li>a]:break-words [&_a]:text-[#3333FF] [&_a:hover]:underline"
       >
         <slot />
       </div>
     </main>
 
     <Footer />
+
     <script>
       import Swiper from 'swiper';
       import { Navigation, Pagination } from 'swiper/modules';
@@ -163,7 +164,12 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
         background-repeat: no-repeat;
         padding: 8px 22px;
         border-radius: 9999px;
-        box-shadow: 4px 8px 3px rgba(0, 0, 0, 0.1490196078);
+        /* box-shadow: 4px 8px 3px rgba(0, 0, 0, 0.1490196078); */
+        box-shadow:
+          /* 0px 1px 3px 0px #0000004d, */ 
+          /* 0px 4px 8px 3px #00000026; */ 0px
+          1px 3px 0px rgba(0, 0, 0, 0.3019607843);
+        /* 0px 4px 8px 3px rgba(0, 0, 0, 0.1490196078); */
       }
       .swiper-button-prev {
         background-image: url('/assets/icons/chevron-left.svg');

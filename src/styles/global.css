@@ -1,18 +1,27 @@
 /* Global variables */
+@import '@fontsource/rubik';
+
+
 @tailwind base;
 
 @layer base {
   :root {
-    --color-background: #ffffff;
-    --color-text: #273449;
+    --background: #ffffff;
+    --primary: #273449;
+    --muted-foreground: #66676e;
+    --muted: #f4f4f5;
+    --border: #e4e4e7;
     --scrollbar: rgba(0, 0, 0, 0.5);
     --scrollbar-hover: rgba(0, 0, 0, 0.6);
-    --swiper-pagination-color: linear-gradient(90deg, rgba(56, 189, 248, 1) 0%, rgba(69, 217, 191, 1) 100%);
+    --swiper-pagination-color: linear-gradient(90deg, rgb(56, 189, 248) 0%, rgb(69, 217, 191) 100%);
   }
 
   :root.dark {
-    --color-background: #17171b;
-    --color-text: #ffffff;
+    --background: #17171b;
+    --primary: #ffffff;
+    --muted: #27272a;
+    --muted-foreground: #a1a1aa;
+    --border: #27272a;
     --scrollbar: rgba(255, 255, 255, 0.2);
     --scrollbar-hover: rgba(255, 255, 255, 0.3);
   }
@@ -36,4 +45,54 @@ html::-webkit-scrollbar-thumb {
 
 html::-webkit-scrollbar-thumb:hover {
   background: var(--scrollbar-hover);
+}
+
+body::before {
+  background: rgb(69 217 191/.12);
+}
+
+.btn-primary {
+  position: relative;
+  background: transparent;
+  color: #000000;
+}
+
+.btn-primary:before {
+  content: '';
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  border-radius: 0.5rem;
+  border-width: 2px;
+  border-color: transparent;
+  background-origin: border-box;
+  background-image: linear-gradient(90deg, #38bdf8 0%, #45d9bf 100%);
+  transition: opacity 150ms cubic-bezier(.4, 0, .2, 1);
+}
+
+.btn-primary:hover:before {
+  opacity: 0;
+}
+
+.btn-primary:after {
+  content: '';
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background: #fff;
+  border: 2px solid #45d9bf;
+  transition: opacity 150ms cubic-bezier(.4, 0, .2, 1);
+  border-radius: 0.5rem;
+}
+
+.btn-primary:hover:after {
+  opacity: 1;
 }

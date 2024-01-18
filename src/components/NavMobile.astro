@@ -1,0 +1,140 @@
+---
+import Close from '../icons/Close.astro';
+import Dark from '../icons/Dark.astro';
+import Light from '../icons/Light.astro';
+import Logo from '../icons/Logo.astro';
+
+export interface Props {
+  navLinks: {
+    label: string;
+    url: string;
+  }[];
+  socialLinks: {
+    label: string;
+    url: string;
+    Icon: any;
+  }[];
+}
+const { navLinks, socialLinks } = Astro.props;
+---
+
+<dialog
+  id="navMobile"
+  class="[&::backdrop]:bg-black/30"
+>
+  <div
+    id="navMobileContent"
+    class="fixed bg-background text-primary w-3/4 py-6 px-6 m-0 left-0 min-h-full max-w-sm inset-y-0 border-r border-border animate-slide-in"
+  >
+    <a href="/" class="inline-flex items-center flex-wrap gap-2 text-md">
+      <Logo width={28} height={25} padding="p-1.5" />
+      Jordi Gómez Devesa
+    </a>
+
+    <button
+      class="absolute text-primary right-4 top-4 rounded-md transition-opacity opacity-70 ring-offset-background focus:outline-none focus:ring-2 focus:ring-offset-2 hover:opacity-100"
+      id="closeMobileNavBtn"
+    >
+      <Close />
+      <span class="sr-only">Close</span>
+    </button>
+
+    <div class="my-4 w-full">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.url}
+            class="nav-link block py-3 text-sm font-medium nav-link border-b border-[#3fcbdb] hover:opacity-80"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="flex items-center justify-between gap-2 flex-wrap">
+      <div class="flex items-center gap-2">
+        {
+          socialLinks.map(({ label, url, Icon }) => (
+            <a
+              class="transition-transform hover:scale-110 [&>svg]:fill-textColor"
+              href={url}
+              target="_blank"
+              aria-label={label}
+            >
+              <Icon />
+            </a>
+          ))
+        }
+      </div>
+      <button
+        id="toggleThemeMobileBtn"
+        class="bg-[#273449] rounded-full flex items-center"
+        aria-label="Cambiar de modo oscuro/claro"
+      >
+        <span
+          class="flex p-1 w-8 relative z-1 transition-transform text-[#273449] dark:text-white dark:before:translate-x-full before:transition-transform before:absolute before:inset-0 before:bg-[#45d9bf] before:rounded-full"
+        >
+          <Light />
+        </span>
+        <span
+          class="transition-transform text-[#ffffff] dark:text-[#273449] flex p-1 w-8 relative z-1"
+        >
+          <Dark />
+        </span>
+      </button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  function initMobileNav() {
+    const closeMobileNavBtn = document.getElementById('closeMobileNavBtn') as HTMLButtonElement;
+    const navMobile = document.getElementById('navMobile') as HTMLDialogElement;
+    const navMobileContent = document.getElementById('navMobileContent') as HTMLDivElement;
+    const navMobileLinks = navMobileContent.querySelectorAll('a');
+    const toggleThemeMobileBtn = document.getElementById(
+      'toggleThemeMobileBtn'
+    ) as HTMLButtonElement;
+
+    closeMobileNavBtn.addEventListener('click', () => {
+      closeAnimation();
+    });
+
+    navMobileLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        closeAnimation();
+      });
+    });
+
+    navMobile.addEventListener('animationend', (ev) => {
+      if (ev.animationName === 'slide-out') {
+        closeMobileNav();
+      }
+    });
+
+    navMobile.addEventListener('click', (ev) => {
+      if (ev.target === navMobile) {
+        closeAnimation();
+      }
+    });
+
+    function closeAnimation() {
+      navMobileContent.classList.remove('animate-slide-in');
+      navMobileContent.classList.add('animate-slide-out');
+    }
+
+    function closeMobileNav() {
+      navMobile.close();
+      navMobileContent.classList.remove('animate-slide-out');
+      navMobileContent.classList.add('animate-slide-in');
+    }
+
+    toggleThemeMobileBtn.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      document.documentElement.classList[!isDark ? 'add' : 'remove']('dark');
+    });
+  }
+
+  document.addEventListener('astro:page-load', initMobileNav);
+</script>

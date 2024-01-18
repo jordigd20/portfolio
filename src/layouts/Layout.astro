@@ -5,21 +5,20 @@ import Head from '../components/Head.astro';
 export interface Props {
   title: string;
   description: string;
-  headerClass?: string;
 }
 
-const { title, description, headerClass = "" } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html class="scroll-smooth" lang="es">
   <head>
     <Head title={title} description={description} />
   </head>
-  <body class="bg-background">
-    <header>
-      <Nav className={headerClass} />
-    </header>
+  <body
+    class="bg-background before:w-[300px] before:h-[300px] before:absolute before:left-[-50px] before:top-[100px] before:z-[-1] before:blur-[100px]"
+  >
+    <Nav />
     <slot />
   </body>
 </html>

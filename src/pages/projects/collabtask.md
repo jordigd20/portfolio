@@ -68,10 +68,10 @@ headerClass: 'bg-[#0D9488] text-white'
 navClass: 'text-white [&_svg]:fill-white'
 width: 
   number: 1080
-  string: '320px'
+  string: '260px'
 height: 
   number: 2400
-  string: '715px'
+  string: '580px'
 github: 'https://github.com/jordigd20/collabtask'
 site: 'https://github.com/jordigd20/collabtask/releases'
 ---
