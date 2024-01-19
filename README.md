@@ -10,8 +10,8 @@ Personal portfolio where I publish my latest updates on my work experience and p
 
 ## Overview
 
-![Landing page](src/assets/portfolio/hero-section.webp)
-![Experience section](src/assets/portfolio/experience-section.webp)
-![Project page](src/assets/portfolio/project-page.webp)
-![Project images](src/assets/portfolio/project-images.webp)
+![Landing page](https://res.cloudinary.com/demz9lbb3/image/upload/v1705685982/portfolio/nzm63nfjagqyt8gllmgi.webp)
+![Experience section](https://res.cloudinary.com/demz9lbb3/image/upload/v1705685982/portfolio/hmfgspiunalhithvgpzj.webp)
+![Project page](https://res.cloudinary.com/demz9lbb3/image/upload/v1705685982/portfolio/xi898zehm1ykqijixfii.webp)
+![Project images](https://res.cloudinary.com/demz9lbb3/image/upload/v1705685982/portfolio/tfvw3nsduc96jv0qeelc.webp)
 
