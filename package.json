@@ -15,7 +15,7 @@
     "@emailjs/browser": "^3.11.0",
     "@fontsource/rubik": "^5.0.18",
     "@vercel/analytics": "^1.0.1",
-    "astro": "^3.0.3",
+    "astro": "^4.2.1",
     "dialog-polyfill": "^0.5.6",
     "photoswipe": "^5.4.3",
     "swiper": "^11.0.5",
