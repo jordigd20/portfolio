@@ -2,124 +2,44 @@
 import Nav from '../components/Nav.astro';
 import Head from '../components/Head.astro';
 import GithubIcon from '../icons/Github.astro';
-import ChevronLeftIcon from '../icons/ChevronLeft.astro';
-import ChevronRightIcon from '../icons/ChevronRight.astro';
-import ChevronDoubleLeftIcon from '../icons/ChevronDoubleLeft.astro';
-import ChevronDoubleRightIcon from '../icons/ChevronDoubleRight.astro';
 import VisitSiteIcon from '../icons/VisitSite.astro';
 import Footer from '../components/Footer.astro';
-import ImagesDialog from '../components/ImagesDialog.astro';
 
 const { frontmatter } = Astro.props;
 const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
+const description = frontmatter.description;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
-    <Head title={title} description={frontmatter.description} />
-    <link rel="stylesheet" type="text/css" href="/dialog-polyfill.css" />
+    <Head title={title} description={description} />
   </head>
-  <body class="bg-background">
-    <header class="relative">
-      <Nav className={frontmatter.navClass} />
-      <div
-        class="z-[-1] w-full h-[30rem] md:h-[21rem] absolute top-0"
-        class:list={frontmatter.headerClass}
-      >
-      </div>
-    </header>
+  <body
+    class="bg-background before:w-[300px] before:h-[300px] before:absolute before:left-[-50px] before:top-[100px] before:z-[-1] before:blur-[100px]"
+  >
+    <Nav />
 
-    <div class="p-10 px-5 xl:px-20 flex justify-center gap-10 xl:m-auto">
-      <div class="postImageContainer hidden lg:block lg:flex-initial overflow-x-hidden">
-        {
-          frontmatter.assets.map(({ url, type, alt }: any, index: number) =>
-            type === 'video' ? (
-              <video
-                id={index.toString()}
-                class="postImage lg:w-full xl:w-[initial] max-w-lg max-h-[36rem] m-auto"
-                class:list={index !== 0 ? 'hidden' : ''}
-                src={url}
-                muted
-                controls
-              />
-            ) : (
-              <button
-                name={index.toString()}
-                class="cursor-zoom-in"
-                class:list={index !== 0 ? 'hidden' : ''}
-                aria-label="Ver imagen"
-              >
-                <img
-                  class="postImage lg:w-full xl:w-[initial] max-w-lg max-h-[36rem] m-auto object-cover rounded-sm"
-                  src={url}
-                  alt={alt}
-                />
-              </button>
-            )
-          )
-        }
-        <div class="text-black mt-3 flex items-center justify-center gap-3">
-          <button
-            class="start bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:bg-none hover:bg-background hover:text-textColor hover:border-[#45D9BF] border-2 border-transparent bg-origin-border cursor-pointer"
-            aria-label="Primero"
-          >
-            <ChevronDoubleLeftIcon />
-          </button>
-          <button
-            class="prev bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:bg-none hover:bg-background hover:text-textColor hover:border-[#45D9BF] border-2 border-transparent bg-origin-border cursor-pointer"
-            aria-label="Anterior"
-          >
-            <ChevronLeftIcon />
-          </button>
-          <div class="text-textColor">
-            <span class="currentCount">1</span><span class="totalCount text-gray-400"
-              >/{frontmatter.assets.length}</span
-            >
-          </div>
-          <button
-            class="next bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:bg-none hover:bg-background hover:text-textColor hover:border-[#45D9BF] border-2 border-transparent bg-origin-border cursor-pointer"
-            aria-label="Siguiente"
-          >
-            <ChevronRightIcon />
-          </button>
-          <button
-            class="end bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:bg-none hover:bg-background hover:text-textColor hover:border-[#45D9BF] border-2 border-transparent bg-origin-border cursor-pointer"
-            aria-label="Último"
-          >
-            <ChevronDoubleRightIcon />
-          </button>
-        </div>
-      </div>
-      <div class="text-textColor max-w-3xl lg:flex-1">
-        <h1 class="text-white dark:text-textColor text-4xl sm:text-5xl font-bold mb-2">
+    <main class="container max-w-[1024px] py-8 text-textColor">
+      <div class="flex items-center justify-between gap-2 flex-wrap">
+        <h1 class="text-textColor text-4xl font-bold mb-2">
           {frontmatter.title}
         </h1>
-        <div class="pt-2 flex items-center flex-wrap gap-3 mb-2">
-          {
-            frontmatter.stack.map(({ name, url }: any) => (
-              <div class="py-1 pl-2 pr-3 rounded-full flex items-center gap-2 bg-[#273449] dark:bg-[#181818]">
-                <img class="w-5 h-5" src={url} alt={name} />
-                <span class="text-white">{name}</span>
-              </div>
-            ))
-          }
-        </div>
-        <p class="mb-2 text-white dark:text-textColor">{frontmatter.date}</p>
-        <div class="flex items-center gap-3 mb-5">
+
+        <div class="flex items-center gap-3">
           <a
-            class="text-black p-2 px-3 rounded-lg bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] flex items-center gap-2 [&>svg]:fill-black hover:bg-none hover:bg-background hover:text-textColor hover:border-[#45d9bf] border-2 border-transparent bg-origin-border"
+            class="btn-primary py-2 px-4 flex items-center gap-2 [&>svg]:fill-black"
             href={frontmatter.github}
             target="_blank"
           >
             <GithubIcon />
-             GitHub
+            GitHub
           </a>
 
           {
             frontmatter.site && (
               <a
-                class="text-black p-2 px-3 rounded-lg bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] flex items-center gap-2 [&>svg]:fill-black hover:bg-none hover:bg-background hover:text-textColor hover:border-[#45d9bf] border-2 border-transparent bg-origin-border"
+                class="btn-primary py-2 px-4 flex items-center gap-2 [&>svg]:fill-black"
                 href={frontmatter.site}
                 target="_blank"
               >
@@ -129,318 +49,136 @@ const title = `Jordi Gómez Devesa | ${frontmatter.title}`;
             )
           }
         </div>
-        <div class="postImageContainer lg:hidden overflow-x-hidden">
-          {
-            frontmatter.assets.map(({ url, type, alt }: any, index: number) =>
-              type === 'video' ? (
-                <video
-                  id={index.toString()}
-                  class="postImage w-full xl:w-[initial] max-w-lg max-h-[36rem] m-auto"
-                  class:list={index !== 0 ? 'hidden' : ''}
-                  src={url}
-                  muted
-                  controls
-                />
-              ) : (
-                <button
-                  name={index.toString()}
-                  class="block m-auto cursor-zoom-in"
-                  class:list={index !== 0 ? 'hidden' : ''}
-                  aria-label="Ver imagen"
-                >
-                  <img
-                    class="postImage w-full sm:w-auto lg:w-full xl:w-[initial] max-w-lg max-h-[36rem] m-auto object-cover rounded-sm"
-                    src={url}
-                    alt={alt}
-                    width="259"
-                  />
-                </button>
-              )
-            )
-          }
-          <div class="text-black mt-3 flex items-center justify-center gap-3">
-            <button
-              class="start bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:bg-none hover:bg-background hover:text-textColor hover:border-[#45D9BF] border-2 border-transparent bg-origin-border cursor-pointer"
-              aria-label="Primero"
-            >
-              <ChevronDoubleLeftIcon />
-            </button>
-            <button
-              class="prev bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:bg-none hover:bg-background hover:text-textColor hover:border-[#45D9BF] border-2 border-transparent bg-origin-border cursor-pointer"
-              aria-label="Anterior"
-            >
-              <ChevronLeftIcon />
-            </button>
-            <div class="text-textColor">
-              <span class="currentCount">1</span><span class="totalCount text-gray-400"
-                >/{frontmatter.assets.length}</span
-              >
-            </div>
-            <button
-              class="next bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:bg-none hover:bg-background hover:text-textColor hover:border-[#45D9BF] border-2 border-transparent bg-origin-border cursor-pointer"
-              aria-label="Siguiente"
-            >
-              <ChevronRightIcon />
-            </button>
-            <button
-              class="end bg-gradient-to-r from-[#38BDF8] to-[#45D9BF] rounded-lg p-2 hover:bg-none hover:bg-background hover:text-textColor hover:border-[#45D9BF] border-2 border-transparent bg-origin-border cursor-pointer"
-              aria-label="Último"
-            >
-              <ChevronDoubleRightIcon />
-            </button>
-          </div>
-        </div>
-
-        <div
-          class="p-5 lg:p-0 xl:pt-5 [&>h1]:text-3xl [&>h1]:font-bold [&>h1]:mb-4 [&>p]:mb-4 [&>h2]:font-bold [&>h2]:text-2xl [&>h2]:mb-2 [&>h2]:mt-8 [&>pre]:p-5 [&>pre]:mb-4 [&>pre]:whitespace-pre-wrap [&>pre]:text-justify [&>ul]:list-disc [&>ul>li]:mb-1 [&>ul>li:last-child]:mb-4 [&>ul>li>ul]:list-revert [&>ul>li>ul]:ml-4 [&_a]:text-[#00C2FF] [&_a]:underline [&_a:hover]:opacity-50"
-        >
-          <slot />
-        </div>
       </div>
-    </div>
 
-    <ImagesDialog assets={frontmatter.assets} />
+      <div class="swiper flex flex-wrap gap-1 my-4 rounded-md shadow-sm">
+        <div class="swiper-wrapper pswp-gallery" id="gallery">
+          {
+            frontmatter.assets.map(({ url, type, alt }: any, index: number) => (
+              <a
+                class="swiper-slide"
+                href={url}
+                data-pswp-width={frontmatter.width.number}
+                data-pswp-height={frontmatter.height.number}
+                target="_blank"
+              >
+                <img
+                  class="w-full h-full object-cover rounded-md"
+                  id={`image-${index}`}
+                  src={url}
+                  alt={alt}
+                />
+              </a>
+            ))
+          }
+        </div>
+        <div class="swiper-pagination"></div>
+
+        <div class="swiper-button-prev shadow-2xl"></div>
+        <div class="swiper-button-next shadow-2xl"></div>
+
+        <div class="swiper-scrollbar"></div>
+      </div>
+
+      <div class="space-y-3">
+        <div class="pt-2 flex items-center flex-wrap gap-3">
+          {
+            frontmatter.stack.map(({ name, url }: any) => (
+              <div class="py-1 pl-2 pr-3 rounded-full flex items-center gap-2 bg-[#273449] ">
+                <img class="w-5 h-5" src={url} alt={name} />
+                <span class="text-white">{name}</span>
+              </div>
+            ))
+          }
+        </div>
+        <p class="text-textColor">{frontmatter.date}</p>
+      </div>
+
+      <div
+        class="p-5 lg:p-0 xl:pt-5 [&>h1]:text-3xl [&>h1]:font-bold [&>h1]:mb-4 [&>p]:mb-4 [&>h2]:font-bold [&>h2]:text-2xl [&>h2]:mb-2 [&>h2]:mt-8 [&>pre]:p-5 [&>pre]:mb-4 [&>pre]:whitespace-pre-wrap [&>pre]:text-justify [&>ul]:list-disc [&>ul>li]:mb-3 [&>ul>li:last-child]:mb-4 [&>ul>li>ul]:list-revert [&>ul>li>ul]:ml-4 [&>ul>li>a]:break-words [&_a]:text-blue-500 [&_a:hover]:underline"
+      >
+        <slot />
+      </div>
+    </main>
+
     <Footer />
 
     <script>
-      import dialogPolyfill from 'dialog-polyfill';
-      const imagesDialog = document.getElementById('imagesDialog');
-      dialogPolyfill.registerDialog(imagesDialog);
+      import Swiper from 'swiper';
+      import { Navigation, Pagination } from 'swiper/modules';
+      import PhotoSwipeLightbox from 'photoswipe/lightbox';
+      import 'swiper/css';
+      import 'swiper/css/navigation';
+      import 'swiper/css/pagination';
+      import 'photoswipe/style.css';
+
+      function setUpPhotoSwipe() {
+        const lightbox = new PhotoSwipeLightbox({
+          gallery: '#gallery',
+          children: 'a',
+          padding: {
+            top: 50,
+            bottom: 50,
+            left: 50,
+            right: 50
+          },
+          loop: false,
+          pswpModule: () => import('photoswipe')
+        });
+
+        lightbox.init();
+
+        const swiper = new Swiper('.swiper', {
+          modules: [Navigation, Pagination],
+          spaceBetween: 20,
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+          },
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            dynamicBullets: true,
+            dynamicMainBullets: 3
+          }
+        });
+
+        lightbox.on('close', () => {
+          const index = lightbox.pswp!.currIndex;
+          swiper.slideTo(index, 0, false);
+        });
+      }
+
+      document.addEventListener('astro:page-load', setUpPhotoSwipe);
     </script>
 
-    <script define:vars={{ assets: frontmatter.assets }}>
-      const prevButtons = document.querySelectorAll('.prev');
-      const nextButtons = document.querySelectorAll('.next');
-      const startButtons = document.querySelectorAll('.start');
-      const endButtons = document.querySelectorAll('.end');
-      const currentCounters = document.querySelectorAll('.currentCount');
-      const postImageContainer = document.querySelectorAll('.postImageContainer');
-      const postImages = [];
-      const imageButtons = document.querySelectorAll('.postImageContainer > button');
-      const imagesDialog = document.getElementById('imagesDialog');
-      const closeButton = document.getElementById('closeButton');
-      const frontImage = document.getElementById('frontImage');
-      const galleryButtons = document.querySelectorAll('#imageGallery > button');
-
-      let i = 0;
-      let galleryIndex = 0;
-
-      function updatePrevImage({ currentIndex, fromStartBtn }) {
-        disableLeftButtons(true, fromStartBtn);
-
-        postImageContainer.forEach((container) => {
-          const currentAsset = container.children.namedItem(currentIndex.toString());
-          currentAsset.classList.remove('animate-enter-from-left');
-          currentAsset.classList.remove('animate-enter-from-right');
-          currentAsset.classList.add('animate-leave-to-right');
-        });
-
-        setTimeout(() => {
-          postImageContainer.forEach((container) => {
-            const currentAsset = container.children.namedItem(currentIndex.toString());
-            const nextAsset = container.children.namedItem(i.toString());
-            currentAsset.classList.remove('animate-leave-to-right');
-            currentAsset.classList.add('hidden');
-            nextAsset.classList.remove('hidden');
-            nextAsset.classList.add('animate-enter-from-left');
-          });
-
-          postImages.forEach((image) => {
-            image.src = assets[i].url;
-            image.alt = assets[i].alt;
-          });
-
-          currentCounters.forEach((counter) => {
-            counter.innerHTML = i + 1;
-          });
-
-          disableLeftButtons(false, fromStartBtn);
-        }, 190);
+    <style define:vars={{ width: frontmatter.width.string, height: frontmatter.height.string }}>
+      .swiper {
+        max-width: var(--width);
+        max-height: var(--height);
       }
-
-      function updateNextImage({ currentIndex, fromEndBtn }) {
-        disableRightButtons(true, fromEndBtn);
-
-        postImageContainer.forEach((container) => {
-          const currentAsset = container.children.namedItem(currentIndex.toString());
-          currentAsset.classList.remove('animate-enter-from-right');
-          currentAsset.classList.remove('animate-enter-from-left');
-          currentAsset.classList.add('animate-leave-to-left');
-        });
-
-        setTimeout(() => {
-          postImageContainer.forEach((container) => {
-            const currentAsset = container.children.namedItem(currentIndex.toString());
-            const nextAsset = container.children.namedItem(i.toString());
-            currentAsset.classList.remove('animate-leave-to-left');
-            currentAsset.classList.add('hidden');
-            nextAsset.classList.remove('hidden');
-            nextAsset.classList.add('animate-enter-from-right');
-          });
-
-          postImages.forEach((image) => {
-            image.src = assets[i].url;
-            image.alt = assets[i].alt;
-          });
-
-          currentCounters.forEach((counter) => {
-            counter.innerHTML = i + 1;
-          });
-
-          disableRightButtons(false, fromEndBtn);
-        }, 190);
+      .swiper-button-next,
+      .swiper-button-prev {
+        background-color: white;
+        background-position: center;
+        background-size: 20px;
+        background-repeat: no-repeat;
+        padding: 8px 22px;
+        border-radius: 9999px;
+        box-shadow:
+          0px 3px 8px 3px rgba(0, 0, 0, 0.15),
+          0px 1px 3px 0px rgba(0, 0, 0, 0.3);
       }
-
-      function prevImage() {
-        const currentType = assets[i].type;
-        const currentIndex = i;
-
-        if (i == 0) {
-          i = 0;
-        } else {
-          i--;
-        }
-
-        if (currentIndex === i) {
-          return;
-        }
-
-        updatePrevImage({
-          currentIndex,
-          fromStartBtn: false
-        });
+      .swiper-button-prev {
+        background-image: url('/assets/icons/chevron-left.svg');
       }
-
-      function nextImage() {
-        const currentIndex = i;
-
-        if (i === assets.length - 1) {
-          i = assets.length - 1;
-        } else {
-          i++;
-        }
-
-        if (currentIndex === i) {
-          return;
-        }
-
-        updateNextImage({
-          currentIndex,
-          fromEndBtn: false
-        });
+      .swiper-button-next {
+        background-image: url('/assets/icons/chevron-right.svg');
       }
-
-      function firstImage() {
-        const currentIndex = i;
-        i = 0;
-
-        if (currentIndex === i) {
-          return;
-        }
-
-        updatePrevImage({
-          currentIndex,
-          fromStartBtn: true
-        });
+      .swiper-button-next::after,
+      .swiper-button-prev::after {
+        content: '';
       }
-
-      function lastImage() {
-        const currentIndex = i;
-        i = assets.length - 1;
-
-        if (currentIndex === i) {
-          return;
-        }
-
-        updateNextImage({
-          currentIndex,
-          fromEndBtn: true
-        });
-      }
-
-      function disableLeftButtons(disable, fromStartBtn) {
-        if (fromStartBtn) {
-          startButtons.forEach((btn) => {
-            btn.disabled = disable;
-          });
-        } else {
-          prevButtons.forEach((btn) => {
-            btn.disabled = disable;
-          });
-        }
-      }
-
-      function disableRightButtons(disable, fromEndBtn) {
-        if (fromEndBtn) {
-          endButtons.forEach((btn) => {
-            btn.disabled = disable;
-          });
-        } else {
-          nextButtons.forEach((btn) => {
-            btn.disabled = disable;
-          });
-        }
-      }
-
-      function updateFrontImage(index) {
-        const currentIndex = galleryIndex;
-        galleryIndex = index;
-
-        if (currentIndex !== galleryIndex) {
-          const currentSelectedButton = Array.from(galleryButtons).find(
-            (btn) => btn.id === `gallery-${currentIndex}`
-          );
-          currentSelectedButton.classList.remove('shadow-[0_0_0_3px_rgb(74,222,128)]');
-          currentSelectedButton.classList.add('hover:shadow-[0_0_0_3px_rgb(29,78,216)]');
-        }
-
-        frontImage.src = assets[index].url;
-        frontImage.alt = assets[index].alt;
-
-        const selectedGalleryButton = Array.from(galleryButtons).find(
-          (btn) => btn.id === `gallery-${index}`
-        );
-
-        selectedGalleryButton.classList.add('shadow-[0_0_0_3px_rgb(74,222,128)]');
-        selectedGalleryButton.classList.remove('hover:shadow-[0_0_0_3px_rgb(29,78,216)]');
-      }
-
-      function displayImageModal(idImage) {
-        document.body.classList.add('overflow-hidden');
-        updateFrontImage(i);
-
-        imagesDialog.classList.add(
-          'animate-fade-in',
-          '[&::backdrop]:animate-fade-in',
-          '[&+.backdrop]:animate-fade-in'
-        );
-
-        imagesDialog.showModal();
-      }
-
-      prevButtons.forEach((btn) => {
-        btn.addEventListener('click', () => prevImage());
-      });
-
-      nextButtons.forEach((btn) => {
-        btn.addEventListener('click', () => nextImage());
-      });
-
-      startButtons.forEach((btn) => {
-        btn.addEventListener('click', () => firstImage());
-      });
-
-      endButtons.forEach((btn) => {
-        btn.addEventListener('click', () => lastImage());
-      });
-
-      imageButtons.forEach((btn) => {
-        btn.addEventListener('click', () => displayImageModal(btn.name));
-      });
-
-      galleryButtons.forEach((btn) => {
-        btn.addEventListener('click', () => updateFrontImage(btn.id.split('-')[1]));
-      });
-    </script>
+    </style>
   </body>
 </html>

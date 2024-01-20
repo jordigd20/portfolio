@@ -1,13 +1,13 @@
 ---
-layout: ../../layouts/NewProjectLayout.astro
+layout: ../../layouts/ProjectLayout.astro
 title: 'Weather App'
 date: 'Julio 2023'
-description: ''
+description: 'WeatherApp es una aplicación web que muestra información sobre el pronóstico del tiempo en la ubicación actual del usuario o sobre cualquier otra ciudad.'
 assets: 
-  - url: '/assets/weather-app/weather-app-1.webp'
+  - url: 'https://res.cloudinary.com/demz9lbb3/image/upload/v1705686645/weather-app/acatm5xjwiro98e7sb7d.webp'
     type: 'image' 
     alt: 'Interfaz de la aplicación 1'
-  - url: '/assets/weather-app/weather-app-2.webp'
+  - url: 'https://res.cloudinary.com/demz9lbb3/image/upload/v1705686646/weather-app/mawivpear3zb0wk0h7bk.webp'
     type: 'image' 
     alt: 'Interfaz de la aplicación 2'
 stack:       
