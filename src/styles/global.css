@@ -55,6 +55,11 @@ body::before {
   position: relative;
   background: transparent;
   color: #000000;
+  transition: color 150ms cubic-bezier(.4, 0, .2, 1);
+}
+
+.btn-primary:hover {
+  color: var(--primary);
 }
 
 .btn-primary:before {
@@ -87,7 +92,7 @@ body::before {
   right: 0;
   bottom: 0;
   z-index: -1;
-  background: #fff;
+  background: var(--background);
   border: 2px solid #45d9bf;
   transition: opacity 150ms cubic-bezier(.4, 0, .2, 1);
   border-radius: 0.5rem;
