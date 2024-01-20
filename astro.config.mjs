@@ -6,9 +6,6 @@ import vercel from '@astrojs/vercel/serverless';
 export default defineConfig({
   output: 'server',
   integrations: [tailwind()],
-  image: {
-    domains: ['res.cloudinary.com', 'jordigomez.dev']
-  },
   adapter: vercel({
     analytics: true,
   })
