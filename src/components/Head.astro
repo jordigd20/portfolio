@@ -12,7 +12,31 @@ const { title, description } = Astro.props;
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
-<meta name="description" property="og:description" content={description} />
+
+<!-- Primary Meta Tags -->
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+
+<!-- Open Graph / Facebook  -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://jordigomez.dev/" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta
+  property="og:image"
+  content="https://res.cloudinary.com/demz9lbb3/image/upload/v1705685982/portfolio/nzm63nfjagqyt8gllmgi.webp"
+/>
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content="https://jordigomez.dev/" />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta
+  property="twitter:image"
+  content="https://res.cloudinary.com/demz9lbb3/image/upload/v1705685982/portfolio/nzm63nfjagqyt8gllmgi.webp"
+/>
+
 <meta name="generator" content={Astro.generator} />
 
 <title>{title}</title>
@@ -39,7 +63,7 @@ const { title, description } = Astro.props;
       }
       return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     };
-   
+
     const isDark = getThemePreference() === 'dark';
     document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
   }
