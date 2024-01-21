@@ -152,8 +152,8 @@ const description = frontmatter.description;
           swiper.slideTo(index, 0, false);
         });
       }
-
-      document.addEventListener('astro:page-load', setUpPhotoSwipe);
+      
+      setUpPhotoSwipe();
     </script>
 
     <style define:vars={{ width: frontmatter.width.string, height: frontmatter.height.string }}>

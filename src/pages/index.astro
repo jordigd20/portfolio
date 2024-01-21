@@ -23,8 +23,8 @@ import Footer from '../components/Footer.astro';
 </Layout>
 
 <script>
-  document.addEventListener('astro:page-load', setUpIntersectionObserver);
-  
+  setUpIntersectionObserver();
+
   function setUpIntersectionObserver() {
     const sections = document.querySelectorAll('#main-index section');
 
