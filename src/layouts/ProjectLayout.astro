@@ -63,10 +63,14 @@ const description = frontmatter.description;
                 target="_blank"
               >
                 <img
+                  fetchpriority={index === 0 ? 'high' : 'low'}
                   class="w-full h-full object-cover rounded-md"
                   id={`image-${index}`}
                   src={url}
                   alt={alt}
+                  width={frontmatter.width.number}
+                  height={frontmatter.height.number}
+                  decoding={index === 0 ? 'sync' : 'async'}
                 />
               </a>
             ))
