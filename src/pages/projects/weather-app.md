@@ -36,7 +36,7 @@ La aplicación ha sido desarrollada probando las nuevas funcionalidades de la <a
 
 ## Funcionalidades
 
-La <a href="https://devchallenges.io/challenges/mM1UIenRhK808W8qmLWv" target="_blank">propuesta</a> de devChallenges.io establece los siguientes requisitos: 
+La <a href="https://legacy.devchallenges.io/challenges/mM1UIenRhK808W8qmLWv" target="_blank">propuesta</a> de devChallenges.io establece los siguientes requisitos: 
 
 - Establecer una ciudad por defecto, preferiblemente la localización actual del usuario
 - Poder buscar por ciudades
