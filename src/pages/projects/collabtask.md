@@ -90,7 +90,7 @@ El principal objetivo de esta aplicación es permitir a los usuarios crear grupo
 - Existen dos tipos de reparto distintos:
   - **Reparto manual**: Reparto en el que los usuarios deben asignarse las tareas una por una ellos mismos.
   - **Reparto automático por preferencias**: Los usuarios podrán establecer qué tareas del reparto preferien realizar y un algoritmo repartirá las tareas teniendo en cuenta las preferencias de los usuarios y los puntos que hayan obtenido a lo largo del tiempo usando la aplicación.
-- Intercambio de tareas. Los usuarios pueden intercambiarse las tareas entre los compañeros utilizando sus puntos o intercambiando sus tareas por otras.
+- **Intercambio de tareas**: Los usuarios pueden intercambiarse las tareas entre los compañeros utilizando sus puntos o intercambiando sus tareas por otras.
 - Los usuarios pueden valorar el trabajo de sus compañeros para que estas valoraciones se vean reflejadas en su perfil.
 - Tanto las valoraciones como la eficacia con las tareas asignadas mejoran el sello de calidad de CollabTask. Un sello que refleja el buen trabajo de los usuarios.
 

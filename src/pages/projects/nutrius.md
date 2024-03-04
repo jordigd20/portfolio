@@ -85,7 +85,7 @@ assets:
 stack:       
   - name: 'Angular'
     url: '/assets/technologies/angular.svg'
-  - name: 'NodeJS'
+  - name: 'Node.js'
     url: '/assets/technologies/nodejs.svg'
   - name: 'MongoDB'
     url: '/assets/technologies/mongodb.svg'

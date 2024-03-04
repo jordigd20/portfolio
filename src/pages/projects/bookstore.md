@@ -93,9 +93,9 @@ Bookstore es una tienda online de libros. En ella podrás encontrar todas las fu
 
 ## Objetivo 
 
-El principal objetivo de este proyecto era desarrollar un e-commerce desde cero, utilizando tecnologías en la parte backend que no había utilizado anteriormente como NestJS, Prisma y PostgreSQL. Además, también se ha utilizado Stripe para gestionar los pagos de los usuarios.
+El principal objetivo de este proyecto era desarrollar un e-commerce desde cero, utilizando tecnologías en la parte backend que no había utilizado anteriormente como NestJS, Prisma y PostgreSQL. Además, también se ha utilizado Stripe para la gestión de los pagos de los usuarios.
 
-Respecto a la parte frontend, se ha utilizado Angular v16 y TailwindCSS para desarrollar la interfaz de usuario.
+Respecto a la parte frontend, se ha utilizado Angular v16.0 y TailwindCSS para desarrollar la interfaz de usuario.
 
 ## Funcionalidades principales
 

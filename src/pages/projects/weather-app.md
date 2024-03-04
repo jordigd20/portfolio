@@ -30,7 +30,7 @@ site: 'https://weather-app-jordigd.vercel.app/'
 
 # Weather App
 
-Solución a la propuesta de <a href="http://devchallenges.io" target="_blank">devChallenges.io</a> para desarrollar un app que utilice un API externa para buscar una ciudad o utilizar la localización actual para mostrar información meteorológica sobre esta.
+Solución a la propuesta de <a href="http://devchallenges.io" target="_blank">devChallenges.io</a> para desarrollar un app que utilice un API externa para buscar una ciudad o utilizar la localización actual para mostrar información meteorológica sobre ésta.
 
 La aplicación ha sido desarrollada probando las nuevas funcionalidades de la <a href="https://blog.angular.io/angular-v16-is-here-4d7a28ec680d" target="_blank">versión 16</a> de Angular.
 
