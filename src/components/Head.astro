@@ -4,9 +4,10 @@ import '../styles/global.css';
 export interface Props {
   title: string;
   description: string;
+  url?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, url = 'https://jordigomez.dev' } = Astro.props;
 ---
 
 <meta charset="UTF-8" />
@@ -18,22 +19,22 @@ const { title, description } = Astro.props;
 
 <!-- Open Graph / Facebook  -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://jordigomez.dev/" />
+<meta property="og:url" content={url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta
   property="og:image"
-  content="https://res.cloudinary.com/demz9lbb3/image/upload/v1705685982/portfolio/nzm63nfjagqyt8gllmgi.webp"
+  content="https://res.cloudinary.com/demz9lbb3/image/upload/v1709832724/portfolio/rtghjo0oi0lcrjtrjboy.webp"
 />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content="https://jordigomez.dev/" />
+<meta property="twitter:url" content={url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta
   property="twitter:image"
-  content="https://res.cloudinary.com/demz9lbb3/image/upload/v1705685982/portfolio/nzm63nfjagqyt8gllmgi.webp"
+  content="https://res.cloudinary.com/demz9lbb3/image/upload/v1709832724/portfolio/rtghjo0oi0lcrjtrjboy.webp"
 />
 
 <meta name="generator" content={Astro.generator} />
@@ -60,6 +61,5 @@ const { title, description } = Astro.props;
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    console.log(observer);
   }
 </script>
