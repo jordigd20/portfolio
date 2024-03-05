@@ -14,9 +14,9 @@ dependencies:
   '@emailjs/browser':
     specifier: ^3.11.0
     version: 3.12.1
-  '@fontsource/rubik':
-    specifier: ^5.0.18
-    version: 5.0.18
+  '@fontsource-variable/onest':
+    specifier: ^5.0.3
+    version: 5.0.3
   '@vercel/analytics':
     specifier: ^1.0.1
     version: 1.1.1
@@ -578,8 +578,8 @@ packages:
     dev: false
     optional: true
 
-  /@fontsource/rubik@5.0.18:
-    resolution: {integrity: sha512-AmEsTzBYA6PZCgCbSE/VC7asgtOtuLQrmcca210CcW+Yb+KYJQdut/jKQAEaSl889jDMyLfowmZe8r1GBzSCqQ==}
+  /@fontsource-variable/onest@5.0.3:
+    resolution: {integrity: sha512-vqeDrKg3Ysl4rOepz2N6PnFZ+/EjrmhOv9/pJ+tCn0y00ralsEsCog0xPK6T1hx8Vt70agNR4Jb9C+KWr/K3sg==}
     dev: false
 
   /@isaacs/cliui@8.0.2:

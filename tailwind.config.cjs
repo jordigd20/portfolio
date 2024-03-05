@@ -28,12 +28,21 @@ module.exports = {
           foreground: 'var(--muted-foreground)',
         },
         primary: 'var(--primary)',
+        flexible: {
+          green: 'var(--flexible-green)',
+        },
+        link: {
+          DEFAULT: 'var(--link)',
+          hover: 'var(--link-hover)',
+        },
         border: 'var(--border)',
       },
       animation: {
         'slide-in': 'slide-in 300ms cubic-bezier(0.6, 0.6, 0, 1)',
         'slide-out': 'slide-out 300ms cubic-bezier(0.6, 0.6, 0, 1)',
         'fade-in-up': 'fade-in-up 350ms ease-out',
+        'cursor': 'cursor 1s step-end infinite',
+        'typing': 'typing 3s',
       },
       keyframes: {
         'slide-in': {
@@ -62,13 +71,33 @@ module.exports = {
             transform: 'translateY(0)'
           }
         },
+        'cursor': {
+          'from, to': {
+            'border-right-color': 'transparent'
+          },
+          '50%': {
+            'border-right-color': 'var(--flexible-green)'
+          }
+        },
+        'typing': {
+          '0%': { content: '""' },
+          '10%': { content: '"F"' },
+          '20%': { content: '"Fu"' },
+          '30%': { content: '"Ful"' },
+          '40%': { content: '"Full"' },
+          '50%': { content: '"Full S"' },
+          '60%': { content: '"Full St"' },
+          '70%': { content: '"Full Sta"' },
+          '80%': { content: '"Full Stac"' },
+          '90%': { content: '"Full Stack"' },
+        },
       },
       listStyleType: {
         revert: 'revert'
       }
     },
     fontFamily: {
-      sans: ['Rubik', ...defaultTheme.fontFamily.sans],
+      sans: ['Onest Variable', ...defaultTheme.fontFamily.sans],
     }
   },
   darkMode: 'class',
