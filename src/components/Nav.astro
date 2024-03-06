@@ -28,12 +28,12 @@ const socialLinks = [
 <header class="block w-full border-b border-border text-primary">
   <div class="container flex items-center justify-between h-16">
     <div class="relative p-5 w-full flex items-center justify-between lg:p-0 lg:w-auto">
-      <a href="/" class="hidden xxs:flex items-center gap-3 text-lg sm:text-xl">
+      <a href="/" class="hidden xxs:flex items-center gap-3 text-lg sm:text-xl font-medium" aria-label="Navigate Home">
         <Logo width={40} height={35} />
         Jordi Gómez Devesa
       </a>
 
-      <a href="/" class="xxs:hidden">
+      <a href="/" class="xxs:hidden" aria-label="Navigate Home">
         <Logo width={35} height={30} />
       </a>
 
@@ -49,7 +49,7 @@ const socialLinks = [
       {
         navLinks.map(({ label, url }) => (
           <a
-            class="nav-link relative px-5 lg:px-0 hover:font-extrabold hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#38BDF8] hover:to-[#45D9BF]"
+            class="nav-link relative font-medium px-5 lg:px-0 hover:font-bold hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#38BDF8] hover:to-[#45D9BF]"
             aria-current={Astro.url.pathname === url}
             href={url}
           >
@@ -98,25 +98,6 @@ const socialLinks = [
 </header>
 
 <NavMobile navLinks={navLinks} socialLinks={socialLinks} />
-
-<style>
-  .nav-link::before {
-    content: '';
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background: linear-gradient(90deg, #38bdf8 0%, #45d9bf 100%);
-    transform: scaleX(0);
-    transform-origin: top left;
-    transition: transform 0.3s ease;
-  }
-  .nav-link:hover::before {
-    transform: scaleX(1);
-  }
-</style>
 
 <script>
   import dialogPolyfill from 'dialog-polyfill';

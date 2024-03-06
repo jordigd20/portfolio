@@ -16,8 +16,14 @@ const { title, description } = Astro.props;
     <Head title={title} description={description} />
   </head>
   <body
-    class="bg-background before:w-[300px] before:h-[300px] before:absolute before:left-[-50px] before:top-[100px] before:z-[-1] before:blur-[100px]"
+    class="bg-background "
   >
+    <div class="fixed inset-0 -z-10 h-full w-full">
+      <div
+        class="absolute top-0 z-[-2] min-h-full w-full bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(69,217,191,0.15),rgba(255,255,255,0))]"
+      >
+      </div>
+    </div>
     <Nav />
     <slot />
   </body>
