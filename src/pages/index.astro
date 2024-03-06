@@ -4,6 +4,7 @@ import HeroSection from '../components/HeroSection.astro';
 import ExperienceSection from '../components/ExperienceSection.astro';
 import ProjectsSection from '../components/ProjectsSection.astro';
 import ContactForm from '../components/ContactForm.astro';
+import AboutMe from '../components/AboutMe.astro';
 import Footer from '../components/Footer.astro';
 ---
 
@@ -16,6 +17,7 @@ import Footer from '../components/Footer.astro';
       <HeroSection />
       <ExperienceSection />
       <ProjectsSection />
+      <AboutMe />
       <ContactForm />
     </div>
     <Footer />
@@ -26,14 +28,14 @@ import Footer from '../components/Footer.astro';
   setUpIntersectionObserver();
 
   function setUpIntersectionObserver() {
-    const sections = document.querySelectorAll('#main-index section');
+    const sections = document.querySelectorAll('#main-index .animate-section');
 
     if (sections.length !== 0) {
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             entry.target.classList.toggle('animate-fade-in-up', entry.isIntersecting);
-            
+
             if (entry.isIntersecting) {
               entry.target.classList.remove('opacity-0');
               observer.unobserve(entry.target);
@@ -44,9 +46,8 @@ import Footer from '../components/Footer.astro';
           threshold: 0.1
         }
       );
-        
+
       sections.forEach((section) => observer.observe(section));
     }
-  }  
-
+  }
 </script>
