@@ -1,0 +1,58 @@
+---
+import { Image } from 'astro:assets';
+import type { Project } from '../data/projects';
+
+export interface Props extends Project {}
+
+const { id, title, description, stack, image, imageClass, href, type } = Astro.props;
+---
+
+<article
+  class="group project-card hover:scale-[1.02] transition-all duration-[250ms] hover:ease-in-out ease-linear"
+>
+  <div
+    class="bg-[#ecf1f4] dark:[background-color:var(--background)] dark:bg-gradient-to-r dark:from-[#273449] dark:to-[#2A4A4B] rounded-lg rounded-b-none h-full"
+  >
+    <a class="relative" href={href}>
+      <span
+        class="absolute bg-[#1a2746] text-[#ffffff] px-3 py-0.5 rounded-md left-4 top-4 shadow scale-75 opacity-0 group-hover:scale-100 group-hover:opacity-100 [transition:transform_200ms,opacity_200ms]"
+      >
+        {type}
+      </span>
+      <Image
+        class="rounded-t-lg w-full h-52 object-cover"
+        class:list={imageClass}
+        src={image}
+        alt={'Inicio de ' + title}
+      />
+    </a>
+    <div class="p-5">
+      <a class="hover:text-link transition-colors" href={href}>
+        <h3 class="font-bold mb-3">{title}</h3>
+      </a>
+      <p class="text-sm line-clamp-4 mb-3 dark:text-[#d1d7de]">{description}</p>
+      <footer class="flex items-center gap-1 flex-wrap [&>svg]:w-6">
+        {
+          stack.map((tech) => (
+            <div class="relative">
+              <div
+                class="peer relative tech-icon size-6 bg-textColor hover:scale-110 transition-all"
+                style={`-webkit-mask: url(${tech.url}) no-repeat center;mask: url(${tech.url});`}
+                data-color={tech.color}
+                aria-describedby={`${id}-${tech.name}`}
+              />
+              <span
+                role="tooltip"
+                id={`${id}-${tech.name}`}
+                class="absolute -bottom-[51px] left-1/2 -translate-x-1/2   py-1.5 px-3 text-textColor bg-[#ffffff] dark:bg-[#5b5461] rounded-md -translate-y-2 z-20 invisible peer-hover:visible opacity-0 peer-hover:opacity-100 peer-hover:translate-y-0 [transition:opacity_150ms,transform_500ms] shadow before:absolute before:w-0 before:h-0 before:left-1/2 before:top-[-8px] before:bg-transparent before:[border:solid_transparent] before:-translate-x-1/2 before:!border-t-0 before:!border-l-8 before:!border-r-8 before:!border-b-[10px] before:!border-b-[#fff] dark:before:!border-b-[#5b5461] before:hidden peer-hover:before:block"
+              >
+                {tech.name}
+              </span>
+            </div>
+          ))
+        }
+      </footer>
+    </div>
+  </div>
+  <span class="h-1.5 w-full bg-[#45D9BF] block rounded-b-lg"></span>
+</article>
