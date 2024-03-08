@@ -10,8 +10,6 @@ Personal portfolio where I publish my latest updates on my work experience and p
 
 ## Overview
 
-![Landing page](https://res.cloudinary.com/demz9lbb3/image/upload/v1705685982/portfolio/nzm63nfjagqyt8gllmgi.webp)
-![Experience section](https://res.cloudinary.com/demz9lbb3/image/upload/v1705685982/portfolio/hmfgspiunalhithvgpzj.webp)
-![Project page](https://res.cloudinary.com/demz9lbb3/image/upload/v1705685982/portfolio/xi898zehm1ykqijixfii.webp)
-![Project images](https://res.cloudinary.com/demz9lbb3/image/upload/v1705685982/portfolio/tfvw3nsduc96jv0qeelc.webp)
+![Landing page](https://res.cloudinary.com/demz9lbb3/image/upload/v1709832724/portfolio/rtghjo0oi0lcrjtrjboy.webp)
+
 
