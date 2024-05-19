@@ -2,7 +2,8 @@ import NutriusImage from '../assets/nutrius.webp';
 import CollabtaskImage from '../assets/collabtask.webp';
 import WeatherAppImage from '../assets/weather-app.webp';
 import BookstoreImage from '../assets/bookstore.webp';
-import SpotifyClone from '../assets/spotify-clone.webp';
+import SpotifyCloneImage from '../assets/spotify-clone.webp';
+import TaskManagerImage from '../assets/task-manager.webp';
 import type { ImageMetadata } from 'astro';
 
 export interface Project {
@@ -136,6 +137,11 @@ export const projects: Project[] = [
         color: '#ffffff'
       },
       {
+        name: 'Jest',
+        url: '/assets/technologies/jest.svg',
+        color: '#c21325'
+      },
+      {
         name: 'PostgreSQL',
         url: '/assets/technologies/postgresql.svg',
         color: '#4169e1'
@@ -179,8 +185,44 @@ export const projects: Project[] = [
       }
     ],
     type: 'Frontend',
-    image: SpotifyClone,
+    image: SpotifyCloneImage,
     imageClass: '',
     href: '/projects/spotify-clone'
+  },
+  {
+    id: 6,
+    title: 'Task Manager',
+    description: 'Task Manager es una aplicación web que permite a los usuarios gestionar las tareas de sus proyectos.',
+    stack: [
+      {
+        name: 'Angular',
+        url: '/assets/technologies/angular.svg',
+        color: '#dd3100'
+      },
+      {
+        name: 'TailwindCSS',
+        url: '/assets/technologies/tailwindcss.svg',
+        color: '#06b6d4'
+      },
+      {
+        name: 'NgRx',
+        url: '/assets/technologies/ngrx.svg',
+        color: '#ba2bd2'
+      },
+      {
+        name: 'Jest',
+        url: '/assets/technologies/jest.svg',
+        color: '#c21325'
+      },
+      {
+        name: 'Cypress',
+        url: '/assets/technologies/cypress.svg',
+        color: '#69d3a7'
+      }
+    ],
+    type: 'Frontend',
+    image: TaskManagerImage,
+    imageClass: '',
+    href: '/projects/task-manager'
   }
 ];

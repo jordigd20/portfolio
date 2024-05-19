@@ -63,9 +63,9 @@ const url = `${BASE_URL}${frontmatter.url}`;
       <div class="swiper flex flex-wrap gap-1 my-4 rounded-md shadow-sm">
         <div class="swiper-wrapper pswp-gallery" id="gallery">
           {
-            frontmatter.assets.map(({ url, type, alt }: any, index: number) => (
+            frontmatter.assets.map(({ url, alt }: any, index: number) => (
               <a
-                class="swiper-slide"
+                class="swiper-slide cursor-zoom-in"
                 href={url}
                 data-pswp-width={frontmatter.width.number}
                 data-pswp-height={frontmatter.height.number}
