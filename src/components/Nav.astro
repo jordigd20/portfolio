@@ -28,7 +28,11 @@ const socialLinks = [
 <header class="block w-full border-b border-border text-primary">
   <div class="container flex items-center justify-between h-16">
     <div class="relative p-5 w-full flex items-center justify-between lg:p-0 lg:w-auto">
-      <a href="/" class="hidden xxs:flex items-center gap-3 text-lg sm:text-xl font-medium" aria-label="Navigate Home">
+      <a
+        href="/"
+        class="hidden xxs:flex items-center gap-3 text-lg sm:text-xl font-medium"
+        aria-label="Navigate Home"
+      >
         <Logo width={40} height={35} />
         Jordi Gómez Devesa
       </a>
@@ -78,19 +82,11 @@ const socialLinks = [
 
         <button
           id="toggleThemeBtn"
-          class="bg-[#273449] rounded-full flex items-center"
+          class="text-primary py-1 px-1 mx-1 border border-border rounded-md transition-[background-color] shadow-sm hover:bg-background dark:hover:bg-accent"
           aria-label="Cambiar de modo oscuro/claro"
         >
-          <span
-            class="flex p-1 w-8 relative z-1 transition-transform text-[#273449] dark:text-white dark:before:translate-x-full before:transition-transform before:absolute before:inset-0 before:bg-[#45d9bf] before:rounded-full"
-          >
-            <Light />
-          </span>
-          <span
-            class="transition-transform text-[#ffffff] dark:text-[#273449] flex p-1 w-8 relative z-1"
-          >
-            <Dark />
-          </span>
+          <Light id="light-icon" class="theme-icon hidden" />
+          <Dark id="dark-icon" class="theme-icon hidden" />
         </button>
       </div>
     </div>
@@ -117,6 +113,18 @@ const socialLinks = [
       const isDark = document.documentElement.classList.contains('dark');
       document.documentElement.classList[!isDark ? 'add' : 'remove']('dark');
       localStorage.setItem('theme', isDark ? 'light' : 'dark');
+      updateIcon(isDark ? 'light-icon' : 'dark-icon');
+    });
+
+    const isDark = document.documentElement.classList.contains('dark');
+    updateIcon(isDark ? 'dark-icon' : 'light-icon');
+  }
+
+  function updateIcon(theme: 'light-icon' | 'dark-icon') {
+    const themeIcons = document.querySelectorAll('.theme-icon');
+
+    themeIcons.forEach((icon) => {
+      icon.id === theme ? icon.classList.remove('hidden') : icon.classList.add('hidden');
     });
   }
 

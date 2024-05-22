@@ -23,6 +23,7 @@ module.exports = {
       colors: {
         background: 'var(--background)',
         textColor: 'var(--primary)',
+        accent: 'var(--accent)',
         muted: {
           DEFAULT: 'var(--muted)',
           foreground: 'var(--muted-foreground)',

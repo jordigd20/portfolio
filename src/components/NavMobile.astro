@@ -18,10 +18,7 @@ export interface Props {
 const { navLinks, socialLinks } = Astro.props;
 ---
 
-<dialog
-  id="navMobile"
-  class="[&::backdrop]:bg-black/30"
->
+<dialog id="navMobile" class="[&::backdrop]:bg-black/30">
   <div
     id="navMobileContent"
     class="fixed bg-background text-primary w-3/4 py-6 px-6 m-0 left-0 min-h-full max-w-sm inset-y-0 border-r border-border animate-slide-in"
@@ -67,21 +64,14 @@ const { navLinks, socialLinks } = Astro.props;
           ))
         }
       </div>
+
       <button
         id="toggleThemeMobileBtn"
-        class="bg-[#273449] rounded-full flex items-center"
+        class="text-primary py-1 px-1 mx-1 border border-border rounded-md transition-[background-color] shadow-sm hover:bg-accent"
         aria-label="Cambiar de modo oscuro/claro"
       >
-        <span
-          class="flex p-1 w-8 relative z-1 transition-transform text-[#273449] dark:text-white dark:before:translate-x-full before:transition-transform before:absolute before:inset-0 before:bg-[#45d9bf] before:rounded-full"
-        >
-          <Light />
-        </span>
-        <span
-          class="transition-transform text-[#ffffff] dark:text-[#273449] flex p-1 w-8 relative z-1"
-        >
-          <Dark />
-        </span>
+        <Light id="light-icon" class="theme-icon hidden" />
+        <Dark id="dark-icon" class="theme-icon hidden" />
       </button>
     </div>
   </div>
@@ -133,9 +123,17 @@ const { navLinks, socialLinks } = Astro.props;
     toggleThemeMobileBtn.addEventListener('click', () => {
       const isDark = document.documentElement.classList.contains('dark');
       document.documentElement.classList[!isDark ? 'add' : 'remove']('dark');
+      updateIcon(isDark ? 'light-icon' : 'dark-icon');
     });
+
+    function updateIcon(theme: 'light-icon' | 'dark-icon') {
+      const themeIcons = document.querySelectorAll('.theme-icon');
+
+      themeIcons.forEach((icon) => {
+        icon.id === theme ? icon.classList.remove('hidden') : icon.classList.add('hidden');
+      });
+    }
   }
 
   initMobileNav();
-
 </script>

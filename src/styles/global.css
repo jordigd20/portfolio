@@ -9,10 +9,11 @@
     --primary: #273449;
     --primary-green: #45d9bf;
     --flexible-green: #22A58D;
-    --muted-foreground: #66676e;
+    --accent: #f4f4f5;
     --link: #2f57ef;
     --link-hover: #001e8f;
     --muted: #f4f4f5;
+    --muted-foreground: #66676e;
     --border: #e4e4e7;
     --scrollbar: rgba(0, 0, 0, 0.5);
     --scrollbar-hover: rgba(0, 0, 0, 0.6);
@@ -23,6 +24,7 @@
     --background: #17171b;
     --primary: #ffffff;
     --flexible-green: #45d9bf;
+    --accent: #3a3a40;
     --link: #6fd3ff;
     --link-hover: #1f98ff;
     --muted: #27272a;
