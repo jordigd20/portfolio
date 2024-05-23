@@ -3,6 +3,7 @@ import Close from '../icons/Close.astro';
 import Dark from '../icons/Dark.astro';
 import Light from '../icons/Light.astro';
 import Logo from '../icons/Logo.astro';
+import LanguagePicker from './LanguagePicker.astro';
 
 export interface Props {
   navLinks: {
@@ -65,14 +66,24 @@ const { navLinks, socialLinks } = Astro.props;
         }
       </div>
 
-      <button
-        id="toggleThemeMobileBtn"
-        class="text-primary py-1 px-1 mx-1 border border-border rounded-md transition-[background-color] shadow-sm hover:bg-accent"
-        aria-label="Cambiar de modo oscuro/claro"
-      >
-        <Light id="light-icon" class="theme-icon hidden" />
-        <Dark id="dark-icon" class="theme-icon hidden" />
-      </button>
+      <div class="flex items-center gap-1">
+        <button
+          id="toggleThemeMobileBtn"
+          class="text-primary py-1 px-1 border border-border rounded-md transition-[background-color] shadow-sm hover:bg-accent"
+          aria-label="Cambiar de modo oscuro/claro"
+        >
+          <Light id="light-icon" class="theme-icon hidden" />
+          <Dark id="dark-icon" class="theme-icon hidden" />
+        </button>
+
+        <div class="relative">
+          <LanguagePicker
+            buttonId="language-button-mobile"
+            menuId="language-menu-mobile"
+            isMobile={true}
+          />
+        </div>
+      </div>
     </div>
   </div>
 </dialog>

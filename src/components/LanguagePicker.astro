@@ -1,0 +1,103 @@
+---
+import LanguageIcon from '../icons/Language.astro';
+
+interface Props {
+  buttonId: string;
+  menuId: string;
+  isMobile?: boolean;
+}
+
+const { buttonId, menuId, isMobile } = Astro.props;
+---
+
+<button
+  id={buttonId}
+  class="text-primary py-[5px] px-[5px] border border-border rounded-md transition-[background-color] shadow-sm"
+  class:list={isMobile
+    ? 'hover:bg-accent focus:bg-accent'
+    : 'hover:bg-background dark:hover:bg-accent'}
+  aria-describedby={menuId}
+>
+  <LanguageIcon />
+</button>
+
+<ul
+  id={menuId}
+  role="menu"
+  class="hidden bg-background absolute right-0 top-[38px] w-max h-max p-1 rounded-md shadow-sm space-y-1"
+  aria-expanded="false"
+>
+  <li class="relative w-full h-full block">
+    <a
+      href="/en"
+      class="block px-5 py-1 rounded-md hover:bg-accent"
+      role="menuitem"
+      aria-current="false"
+    >
+      English
+    </a>
+  </li>
+  <li class="relative w-full h-full block">
+    <a
+      href="/"
+      class="block px-5 py-1 rounded-md bg-accent font-semibold"
+      role="menuitem"
+      aria-current="true"
+    >
+      Español
+    </a>
+  </li>
+</ul>
+
+<style>
+  #language-menu {
+    animation: scale-up-center 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  @keyframes scale-up-center {
+    from {
+      transform: scale(0.85);
+      opacity: 0;
+    }
+
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+</style>
+
+<script define:vars={{ buttonId, menuId }}>
+  const button = document.getElementById(buttonId);
+  const menu = document.getElementById(menuId);
+
+  function showMenu() {
+    button.classList.add('bg-background', 'dark:bg-accent');
+    menu.classList.remove('hidden');
+
+    document.addEventListener(
+      'click',
+      (event) => {
+        if (!menu.contains(event.target) && event.target !== button) {
+          hideMenu();
+        }
+      },
+      { once: true }
+    );
+  }
+
+  function hideMenu() {
+    button.classList.remove('bg-background', 'dark:bg-accent');
+    menu.classList.add('hidden');
+  }
+
+  button.addEventListener('click', (ev) => {
+    ev.stopPropagation();
+
+    if (menu.classList.contains('hidden')) {
+      showMenu();
+    } else {
+      hideMenu();
+    }
+  });
+</script>

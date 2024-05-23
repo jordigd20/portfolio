@@ -7,6 +7,7 @@ import EmailIcon from '../icons/Email.astro';
 import Dark from '../icons/Dark.astro';
 import Light from '../icons/Light.astro';
 import NavMobile from './NavMobile.astro';
+import LanguagePicker from './LanguagePicker.astro';
 
 const navLinks: { label: string; url: string }[] = [
   { label: 'Inicio', url: '/' },
@@ -88,6 +89,10 @@ const socialLinks = [
           <Light id="light-icon" class="theme-icon hidden" />
           <Dark id="dark-icon" class="theme-icon hidden" />
         </button>
+
+        <div class="mx-1 relative">
+          <LanguagePicker buttonId="language-button" menuId="language-menu" />
+        </div>
       </div>
     </div>
   </div>
