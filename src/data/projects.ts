@@ -8,8 +8,14 @@ import type { ImageMetadata } from 'astro';
 
 export interface Project {
   id: number;
-  title: string;
-  description: string;
+  title: {
+    es: string;
+    en: string;
+  };
+  description: {
+    es: string;
+    en: string;
+  };
   stack: Stack[];
   image: ImageMetadata;
   imageClass: string;
@@ -26,9 +32,14 @@ export interface Stack {
 export const projects: Project[] = [
   {
     id: 1,
-    title: 'NutriUs - Desarrollo del proyecto de una startup',
-    description:
-      'Aplicación web sobre nutrición infantil que ofrece menús y dietas para niños de acuerdo con los objetivos/intolerancias que los tutores/padres establezcan.',
+    title: {
+      es: 'NutriUs - Desarrollo del proyecto de una startup',
+      en: 'NutriUs - Development of a startup project'
+    },
+    description: {
+      es: 'Aplicación web sobre nutrición infantil que ofrece menús y dietas para niños de acuerdo con los objetivos/intolerancias que los tutores/padres establezcan.',
+      en: 'Web application on child nutrition that offers menus and diets for children according to the objectives/intolerances that the tutors/parents establish.'
+    },
     stack: [
       {
         name: 'Angular',
@@ -63,9 +74,14 @@ export const projects: Project[] = [
   },
   {
     id: 2,
-    title: 'CollabTask - App de gestión de tareas colaborativas',
-    description:
-      'CollabTask es una app móvil para la gestión y el reparto de tareas entre un grupo de personas de una manera equitativa y justa entre todos los participantes.',
+    title: {
+      es: 'CollabTask - App de gestión de tareas colaborativas',
+      en: 'CollabTask - Collaborative task management app'
+    },
+    description: {
+      es: 'CollabTask es una app móvil para la gestión y el reparto de tareas entre un grupo de personas de una manera equitativa y justa entre todos los participantes.',
+      en: 'CollabTask is a mobile app for managing and distributing tasks among a group of people in an equitable and fair way among all participants.'
+    },
     stack: [
       {
         name: 'Ionic',
@@ -90,9 +106,14 @@ export const projects: Project[] = [
   },
   {
     id: 3,
-    title: 'Weather App - App de predicción meteorológica',
-    description:
-      'WeatherApp es una aplicación web que muestra información sobre el pronóstico del tiempo en la ubicación actual del usuario o sobre cualquier otra ciudad.',
+    title: {
+      es: 'Weather App - App de predicción meteorológica',
+      en: 'Weather App - Weather forecast app'
+    },
+    description: {
+      es: 'WeatherApp es una aplicación web que muestra información sobre el pronóstico del tiempo en la ubicación actual del usuario o sobre cualquier otra ciudad.',
+      en: 'WeatherApp is a web application that shows information about the weather forecast in the user\'s current location or in any other city.'
+    },
     stack: [
       {
         name: 'Angular',
@@ -112,9 +133,14 @@ export const projects: Project[] = [
   },
   {
     id: 4,
-    title: 'Bookstore - Tienda online de libros',
-    description:
-      'Bookstore es un e-commerce desarrollado desde cero que permite realizar todas las funcionalidades básicas de una tienda online.',
+    title: {
+      es: 'Bookstore - Tienda online de libros',
+      en: 'Bookstore'
+    },
+    description: {
+      es: 'Bookstore es un e-commerce desarrollado desde cero que permite realizar todas las funcionalidades básicas de una tienda online.',
+      en: 'Bookstore is an e-commerce developed from scratch that allows you to perform all the basic functionalities of an online store.'
+    },
     stack: [
       {
         name: 'Angular',
@@ -169,9 +195,15 @@ export const projects: Project[] = [
   },
   {
     id: 5,
-    title: 'Spotify Clone',
-    description:
-      'Spotify Clone es una aplicación web que simula la interfaz de usuario de Spotify. Cuenta con un buscador y un reproductor de canciones.',
+
+    title: {
+      es: 'Spotify Clone',
+      en: 'Spotify Clone'
+    },
+    description: {
+      es: 'Spotify Clone es una aplicación web que simula la interfaz de usuario de Spotify. Cuenta con un buscador y un reproductor de canciones.',
+      en: 'Spotify Clone is a web application that simulates the Spotify user interface. It has a search engine and a music player.'
+    },
     stack: [
       {
         name: 'Angular',
@@ -191,8 +223,14 @@ export const projects: Project[] = [
   },
   {
     id: 6,
-    title: 'Task Manager',
-    description: 'Task Manager es una aplicación web que permite a los usuarios gestionar las tareas de sus proyectos.',
+    title: {
+      es: 'Task Manager',
+      en: 'Task Manager'
+    },
+    description: {
+      es: 'Task Manager es una aplicación web que permite a los usuarios gestionar las tareas de sus proyectos.',
+      en: 'Task Manager is a web application that allows users to manage the tasks of their projects.'
+    },
     stack: [
       {
         name: 'Angular',

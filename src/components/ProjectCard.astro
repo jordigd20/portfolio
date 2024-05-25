@@ -1,8 +1,12 @@
 ---
 import { Image } from 'astro:assets';
 import type { Project } from '../data/projects';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 export interface Props extends Project {}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const { id, title, description, stack, image, imageClass, url, type } = Astro.props;
 ---
@@ -23,14 +27,14 @@ const { id, title, description, stack, image, imageClass, url, type } = Astro.pr
         class="rounded-t-lg w-full h-52 object-cover"
         class:list={imageClass}
         src={image}
-        alt={'Inicio de ' + title}
+        alt={t('alt.projects.images') + title[lang]}
       />
     </a>
     <div class="p-5">
       <a class="hover:text-link transition-colors" href={url}>
-        <h3 class="font-bold mb-3">{title}</h3>
+        <h3 class="font-bold mb-3">{title[lang]}</h3>
       </a>
-      <p class="text-sm line-clamp-4 mb-3 dark:text-[#d1d7de]">{description}</p>
+      <p class="text-sm line-clamp-4 mb-3 dark:text-[#d1d7de]">{description[lang]}</p>
       <footer class="flex items-center gap-1 flex-wrap [&>svg]:w-6">
         {
           stack.map((tech) => (
