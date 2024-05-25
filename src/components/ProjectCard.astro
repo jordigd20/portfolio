@@ -4,7 +4,7 @@ import type { Project } from '../data/projects';
 
 export interface Props extends Project {}
 
-const { id, title, description, stack, image, imageClass, href, type } = Astro.props;
+const { id, title, description, stack, image, imageClass, url, type } = Astro.props;
 ---
 
 <article
@@ -13,7 +13,7 @@ const { id, title, description, stack, image, imageClass, href, type } = Astro.p
   <div
     class="bg-[#ecf1f4] dark:[background-color:var(--background)] dark:bg-gradient-to-r dark:from-[#273449] dark:to-[#2A4A4B] rounded-lg rounded-b-none h-full"
   >
-    <a class="relative" href={href}>
+    <a class="relative" href={url}>
       <span
         class="absolute bg-[#1a2746] text-[#ffffff] px-3 py-0.5 rounded-md left-4 top-4 shadow scale-75 opacity-0 group-hover:scale-100 group-hover:opacity-100 [transition:transform_200ms,opacity_200ms]"
       >
@@ -27,7 +27,7 @@ const { id, title, description, stack, image, imageClass, href, type } = Astro.p
       />
     </a>
     <div class="p-5">
-      <a class="hover:text-link transition-colors" href={href}>
+      <a class="hover:text-link transition-colors" href={url}>
         <h3 class="font-bold mb-3">{title}</h3>
       </a>
       <p class="text-sm line-clamp-4 mb-3 dark:text-[#d1d7de]">{description}</p>

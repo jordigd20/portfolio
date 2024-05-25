@@ -1,6 +1,14 @@
 ---
-import { projects } from '../data/projects';
+import { projects, type Project } from '../data/projects';
 import ProjectCard from '../components/ProjectCard.astro';
+import { getLangFromUrl } from '../i18n/utils';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const projectList: Project[] = projects.map((project) => ({
+  ...project,
+  url: `${getRelativeLocaleUrl(lang)}${project.url}`
+}));
 ---
 
 <section id="projects" class="text-textColor px-2 sm:px-5 mb-28 opacity-0 animate-section">
@@ -23,7 +31,7 @@ import ProjectCard from '../components/ProjectCard.astro';
 
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
     {
-      projects.map(({ id, title, description, stack, image, imageClass, href, type }) => (
+      projectList.map(({ id, title, description, stack, image, imageClass, url, type }) => (
         <ProjectCard
           id={id}
           title={title}
@@ -31,7 +39,7 @@ import ProjectCard from '../components/ProjectCard.astro';
           stack={stack}
           image={image}
           imageClass={imageClass}
-          href={href}
+          url={url}
           type={type}
         />
       ))

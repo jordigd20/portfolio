@@ -13,7 +13,7 @@ export interface Project {
   stack: Stack[];
   image: ImageMetadata;
   imageClass: string;
-  href: string;
+  url: string;
   type: 'Full Stack' | 'Frontend' | 'Backend';
 }
 
@@ -59,7 +59,7 @@ export const projects: Project[] = [
     type: 'Full Stack',
     image: NutriusImage,
     imageClass: '',
-    href: '/projects/nutrius'
+    url: 'projects/nutrius'
   },
   {
     id: 2,
@@ -86,7 +86,7 @@ export const projects: Project[] = [
     image: CollabtaskImage,
     type: 'Full Stack',
     imageClass: 'object-[50%_15%]',
-    href: '/projects/collabtask'
+    url: 'projects/collabtask'
   },
   {
     id: 3,
@@ -108,7 +108,7 @@ export const projects: Project[] = [
     image: WeatherAppImage,
     type: 'Frontend',
     imageClass: '',
-    href: '/projects/weather-app'
+    url: 'projects/weather-app'
   },
   {
     id: 4,
@@ -165,7 +165,7 @@ export const projects: Project[] = [
     type: 'Full Stack',
     image: BookstoreImage,
     imageClass: '',
-    href: '/projects/bookstore'
+    url: 'projects/bookstore'
   },
   {
     id: 5,
@@ -187,7 +187,7 @@ export const projects: Project[] = [
     type: 'Frontend',
     image: SpotifyCloneImage,
     imageClass: '',
-    href: '/projects/spotify-clone'
+    url: 'projects/spotify-clone'
   },
   {
     id: 6,
@@ -223,6 +223,6 @@ export const projects: Project[] = [
     type: 'Frontend',
     image: TaskManagerImage,
     imageClass: '',
-    href: '/projects/task-manager'
+    url: 'projects/task-manager'
   }
 ];

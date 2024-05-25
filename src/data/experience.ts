@@ -4,7 +4,7 @@ export interface Experience {
   date: string;
   description: string;
   icon: string;
-  link?: string;
+  url?: string;
 }
 
 export const experience: Experience[] = [
@@ -24,7 +24,7 @@ export const experience: Experience[] = [
       'CollabTask es una app para la gestión y el reparto de tareas entre un grupo de personas de una manera equitativa y justa entre todos los participantes, usando la gamificación como herramienta para incentivar la participación y la colaboración entre los usuarios. Este proyecto fue realizado para el TFG en la Universidad de Alicante.',
 
     icon: 'school',
-    link: '/projects/collabtask'
+    url: 'projects/collabtask'
   },
   {
     role: 'Desarrollador Full Stack',
@@ -34,6 +34,6 @@ export const experience: Experience[] = [
       'NutriUs es un proyecto ABP (Aprendizaje Basado en Proyectos) desarrollado en el último curso de la universidad. El objetivo del proyecto se centraba en lograr el desarrollo completo de una aplicación web en un equipo de 5 personas durante 8 meses. Esta aplicación debía tener almenos una sección de administración y una sección para los usuarios que contara con un motor gráfico propio desarrollado con WebGL.',
 
     icon: 'school',
-    link: '/projects/nutrius'
+    url: 'projects/nutrius'
   }
 ];

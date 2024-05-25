@@ -5,13 +5,14 @@ import Head from '../components/Head.astro';
 export interface Props {
   title: string;
   description: string;
+  language: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, language } = Astro.props;
 ---
 
 <!doctype html>
-<html class="scroll-smooth" lang="es">
+<html class="scroll-smooth" lang={language}>
   <head>
     <Head title={title} description={description} />
   </head>

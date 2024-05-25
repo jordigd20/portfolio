@@ -1,6 +1,14 @@
 ---
 import School from '../icons/School.astro';
 import { experience } from '../data/experience';
+import { getLangFromUrl } from '../i18n/utils';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import type { Experience } from '../data/experience';
+
+const lang = getLangFromUrl(Astro.url);
+const experienceList: Experience[] = experience.map((exp) =>
+  exp.url ? { ...exp, url: `${getRelativeLocaleUrl(lang)}${exp.url}` } : exp
+);
 ---
 
 <section class="text-textColor mb-28 px-2 sm:px-5 opacity-0 animate-section">
@@ -25,7 +33,7 @@ import { experience } from '../data/experience';
 
   <ol class="w-full [&>:not(:last-child)]:pb-10">
     {
-      experience.map(({ work, role, date, description, icon, link }) => (
+      experienceList.map(({ work, role, date, description, icon, url }) => (
         <li class="relative flex justify-between gap-4 sm:gap-8 before:absolute before:w-[1px] before:h-[calc(100%-28px-8px-8px)] before:top-9 before:bg-gray-400 dark:before:bg-gray-200 before:left-[13px] before:z-[-1]">
           <div class="size-7 rounded-full text-black bg-gradient-to-r from-[#38bdf8] to-[#45d9bf] flex justify-center items-center ">
             {icon === 'school' && <School className="size-7 p-1" />}
@@ -46,8 +54,8 @@ import { experience } from '../data/experience';
               <p>{description}</p>
               <a
                 class="group inline-flex items-center font-medium text-link hover:text-link-hover transition-colors"
-                class:list={{ hidden: !link }}
-                href={link}
+                class:list={{ hidden: !url }}
+                href={url}
               >
                 Saber más
                 <svg

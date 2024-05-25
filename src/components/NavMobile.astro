@@ -1,4 +1,6 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
 import Close from '../icons/Close.astro';
 import Dark from '../icons/Dark.astro';
 import Light from '../icons/Light.astro';
@@ -16,6 +18,10 @@ export interface Props {
     Icon: any;
   }[];
 }
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 const { navLinks, socialLinks } = Astro.props;
 ---
 
@@ -24,7 +30,11 @@ const { navLinks, socialLinks } = Astro.props;
     id="navMobileContent"
     class="fixed bg-background text-primary w-3/4 py-6 px-6 m-0 left-0 min-h-full max-w-sm inset-y-0 border-r border-border animate-slide-in"
   >
-    <a href="/" class="inline-flex items-center flex-wrap gap-2 text-md">
+    <a
+      href={getRelativeLocaleUrl(lang)}
+      class="inline-flex items-center flex-wrap gap-2 text-md"
+      aria-label={t('aria-label.nav.home')}
+    >
       <Logo width={28} height={25} padding="p-1.5" />
       Jordi Gómez Devesa
     </a>
@@ -70,7 +80,7 @@ const { navLinks, socialLinks } = Astro.props;
         <button
           id="toggleThemeMobileBtn"
           class="text-primary py-1 px-1 border border-border rounded-md transition-[background-color] shadow-sm hover:bg-accent"
-          aria-label="Cambiar de modo oscuro/claro"
+          aria-label={t('aria-label.nav.theme')}
         >
           <Light id="light-icon" class="theme-icon hidden" />
           <Dark id="dark-icon" class="theme-icon hidden" />

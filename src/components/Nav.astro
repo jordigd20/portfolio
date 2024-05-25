@@ -8,11 +8,16 @@ import Dark from '../icons/Dark.astro';
 import Light from '../icons/Light.astro';
 import NavMobile from './NavMobile.astro';
 import LanguagePicker from './LanguagePicker.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const navLinks: { label: string; url: string }[] = [
-  { label: 'Inicio', url: '/' },
-  { label: 'Proyectos', url: '/#projects' },
-  { label: 'Contacto', url: '/#contact' }
+  { label: t('nav.projects'), url: `${getRelativeLocaleUrl(lang)}#projects` },
+  { label: t('nav.about-me'), url: `${getRelativeLocaleUrl(lang)}#about-me` },
+  { label: t('nav.contact'), url: `${getRelativeLocaleUrl(lang)}#contact` }
 ];
 
 const socialLinks = [
@@ -30,21 +35,24 @@ const socialLinks = [
   <div class="container flex items-center justify-between h-16">
     <div class="relative p-5 w-full flex items-center justify-between lg:p-0 lg:w-auto">
       <a
-        href="/"
+        href={getRelativeLocaleUrl(lang)}
         class="hidden xxs:flex items-center gap-3 text-lg sm:text-xl font-medium"
-        aria-label="Navigate Home"
+        aria-label={t('aria-label.nav.home')}
       >
         <Logo width={40} height={35} />
         Jordi Gómez Devesa
       </a>
 
-      <a href="/" class="xxs:hidden" aria-label="Navigate Home">
+      <a href={getRelativeLocaleUrl(lang)} class="xxs:hidden" aria-label={t('aria-label.nav.home')}>
         <Logo width={35} height={30} />
       </a>
 
-      <button class="z-50 lg:hidden cursor-pointer" id="mobileNavBtn">
+      <button
+        class="z-50 lg:hidden cursor-pointer"
+        id="mobileNavBtn"
+        aria-label={t('aria-label.nav.mobile-menu')}
+      >
         <MenuRight />
-        <span class="sr-only">Toggle menu</span>
       </button>
     </div>
 
@@ -55,7 +63,6 @@ const socialLinks = [
         navLinks.map(({ label, url }) => (
           <a
             class="nav-link relative font-medium px-5 lg:px-0 hover:font-bold hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#38BDF8] hover:to-[#45D9BF]"
-            aria-current={Astro.url.pathname === url}
             href={url}
           >
             {label}

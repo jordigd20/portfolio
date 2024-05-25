@@ -1,5 +1,7 @@
 ---
 import LanguageIcon from '../icons/Language.astro';
+import { getLangFromUrl } from '../i18n/utils';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
 interface Props {
   buttonId: string;
@@ -8,6 +10,9 @@ interface Props {
 }
 
 const { buttonId, menuId, isMobile } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const pathname = Astro.url.pathname;
+const path = pathname.includes('/en/') ? pathname.replace('/en/', '/') : pathname;
 ---
 
 <button
@@ -29,22 +34,24 @@ const { buttonId, menuId, isMobile } = Astro.props;
 >
   <li class="relative w-full h-full block">
     <a
-      href="/en"
+      href={getRelativeLocaleUrl('es', path)}
       class="block px-5 py-1 rounded-md hover:bg-accent"
+      class:list={lang === 'es' ? 'bg-accent font-semibold' : 'bg-background'}
+      aria-current={lang === 'es' ? 'true' : 'false'}
       role="menuitem"
-      aria-current="false"
     >
-      English
+      Español
     </a>
   </li>
   <li class="relative w-full h-full block">
     <a
-      href="/"
-      class="block px-5 py-1 rounded-md bg-accent font-semibold"
+      href={getRelativeLocaleUrl('en', path)}
+      class="block px-5 py-1 rounded-md hover:bg-accent"
+      class:list={lang === 'en' ? 'bg-accent font-semibold' : 'bg-background'}
+      aria-current={lang === 'en' ? 'true' : 'false'}
       role="menuitem"
-      aria-current="true"
     >
-      Español
+      English
     </a>
   </li>
 </ul>
@@ -74,6 +81,7 @@ const { buttonId, menuId, isMobile } = Astro.props;
   function showMenu() {
     button.classList.add('bg-background', 'dark:bg-accent');
     menu.classList.remove('hidden');
+    menu.attributes['aria-expanded'].value = 'true';
 
     document.addEventListener(
       'click',
@@ -89,6 +97,7 @@ const { buttonId, menuId, isMobile } = Astro.props;
   function hideMenu() {
     button.classList.remove('bg-background', 'dark:bg-accent');
     menu.classList.add('hidden');
+    menu.attributes['aria-expanded'].value = 'false';
   }
 
   button.addEventListener('click', (ev) => {
