@@ -1,6 +1,10 @@
 ---
 import { Image } from 'astro:assets';
 import MyPhoto from '../assets/jordi-gomez-devesa-2.webp';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section id="about-me" class="text-textColor mb-28 px-2 sm:px-5 opacity-0 animate-section">
@@ -20,53 +24,28 @@ import MyPhoto from '../assets/jordi-gomez-devesa-2.webp';
         <path d="m16 19l2 2l4-4"></path>
       </g>
     </svg>
-    Sobre mí
+    {t('about-me.title')}
   </h2>
 
   <div class="flex items-center justify-center flex-col md:flex-row gap-8 xl:gap-24">
     <div class="max-w-[80ch] space-y-4">
       <p>
-        Mi nombre es Jordi Gómez Devesa y desarrollé mi primera página web a los 16 años en el
-        instituto. Desde entonces, quedé encantado con el mundo de la programación, y gracias a
-        ello, me decidí por estudiar <strong
-          class="bg-clip-text bg-gradient-to-r from-[#089DDD] dark:from-[#38bdf8] to-[#22A58D] dark:to-[#45d9bf] text-transparent font-bold"
-        >
-          Ingeniería Multimedia en la Universidad de Alicante.
-        </strong>
+        <Fragment set:html={t('about-me.description.1')} />
       </p>
 
       <p>
-        Actualmente he terminado los estudios, y entre mis hitos durante mi paso por la Universidad
-        destaco la oportunidad de haber
-        <strong
-          class="bg-clip-text bg-gradient-to-r from-[#089DDD] dark:from-[#38bdf8] to-[#22A58D] dark:to-[#45d9bf] text-transparent font-bold"
-        >
-          aprendido trabajando en proyectos cercanos al mundo laboral.
-        </strong>
-        Un ejemplo es <a
-          href="/projects/nutrius"
-          class="text-link hover:text-link-hover transition-colors font-bold">NutriUs</a
-        >, en el cuál trabajamos un equipo de 5 personas durante 8 meses, obteniendo una <strong
-          class="bg-clip-text bg-gradient-to-r from-[#089DDD] dark:from-[#38bdf8] to-[#22A58D] dark:to-[#45d9bf] text-transparent font-bold"
-          >muy buena evaluación, tanto por los profesores como por empresas del sector.</strong
-        >
+        <Fragment set:html={t('about-me.description.2')} />
       </p>
 
       <p>
-        Como desarrollador web, sigo en un <strong
-          class="bg-clip-text bg-gradient-to-r from-[#089DDD] dark:from-[#38bdf8] to-[#22A58D] dark:to-[#45d9bf] text-transparent font-bold"
-          >constante aprendizaje</strong
-        > que me permita mejorar mis habilidades y conocimientos, ya que mi objetivo es <strong
-          class="bg-clip-text bg-gradient-to-r from-[#089DDD] dark:from-[#38bdf8] to-[#22A58D] dark:to-[#45d9bf] text-transparent font-bold"
-          >aportar valor y dejar huella en cada empresa, equipo o proyecto del que forme parte.</strong
-        >
+        <Fragment set:html={t('about-me.description.3')} />
       </p>
     </div>
 
     <Image
       class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-80 aspect-square rounded-2xl"
       src={MyPhoto}
-      alt="Una foto de Jordi Gómez Devesa con el mar de fondo"
+      alt={t('alt.about-me.image')}
     />
   </div>
 </section>
