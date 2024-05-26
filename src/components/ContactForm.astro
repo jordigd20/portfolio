@@ -1,6 +1,10 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
 import ContactIllustration from '../icons/ContactIllustration.astro';
 import EmailLink from '../icons/EmailLink.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section id="contact" class="text-textColor px-2 sm:px-5 mb-20 opacity-0 animate-section">
@@ -8,14 +12,13 @@ import EmailLink from '../icons/EmailLink.astro';
     class="text-2xl mb-10 font-bold relative flex items-center gap-2 before:absolute before:block before:w-24 before:h-1 before:-bottom-3 before:left-0 before:bg-gradient-to-r before:from-[#38bdf8] before:to-[#45d9bf] before:rounded-full"
   >
     <EmailLink />
-    Contacto
+    {t('contact.title')}
   </h2>
 
   <div class="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-5">
     <div>
       <p class="mb-3">
-        No dudes en ponerte en contacto conmigo a través de este formulario o directamente a mi
-        correo electrónico.
+        {t('contact.description')}
       </p>
       <ContactIllustration />
     </div>
@@ -24,34 +27,35 @@ import EmailLink from '../icons/EmailLink.astro';
       class="p-5 bg-[#ecf1f4] dark:bg-gradient-to-r dark:from-[#273449] dark:to-[#2A4A4B] rounded-lg z-0"
     >
       <div class="pb-5">
-        <label for="from_name">Nombre</label>
+        <label for="from_name">{t('contact.form.name')}</label>
         <input
           class="text-black w-full py-2 px-3 rounded-lg outline-none border-[3px] border-white focus:border-[#45d9bf]"
           type="text"
           id="from_name"
           name="from_name"
-          placeholder="Nombre"
+          placeholder="John Doe"
           required
         />
       </div>
       <div class="pb-5">
-        <label for="from_email">Email</label>
+        <label for="from_email">{t('contact.form.email')}</label>
         <input
           class="text-black w-full py-2 px-3 rounded-lg outline-none border-[3px] border-white focus:border-[#45d9bf]"
           type="email"
           id="from_email"
           name="from_email"
-          placeholder="Correo electrónico"
+          placeholder="johndoe@email.com"
           required
         />
       </div>
+
       <div class="pb-5">
-        <label for="message">Mensaje</label>
+        <label for="message">{t('contact.form.message')}</label>
         <textarea
           class="py-2 px-3 text-black w-full rounded-lg resize-none h-44 outline-none border-[3px] border-white focus:border-[#45d9bf] overflow-y-auto"
           name="message"
           id="message"
-          placeholder="Escribe aquí tu mensaje..."
+          placeholder={t('contact.form.message-placeholder')}
           required></textarea>
       </div>
 
@@ -60,7 +64,7 @@ import EmailLink from '../icons/EmailLink.astro';
         class="btn-primary text-[#273449] font-bold p-2 w-full rounded-lg"
         type="submit"
       >
-        <span class="z-10">Enviar</span>
+        <span class="z-10">{t('contact.form.submit')}</span>
       </button>
     </form>
   </div>
@@ -68,11 +72,36 @@ import EmailLink from '../icons/EmailLink.astro';
 
 <script>
   import emailjs from '@emailjs/browser';
-  emailjs.init('-7oN40-PprdhoEmgw');
+  emailjs.init('vGoEfxDBt2AaMgwb8');
 
   function setUpOnSubmit() {
     const form = document.getElementById('contactForm') as HTMLFormElement;
     const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement;
+    const lang = document.documentElement.lang;
+
+    const texts: {
+      sending: Record<string, string>;
+      success: Record<string, string>;
+      error: Record<string, string>;
+      submit: Record<string, string>;
+    } = {
+      sending: {
+        es: 'Enviando...',
+        en: 'Sending...'
+      },
+      success: {
+        es: '¡Mensaje enviado con éxito! Te responderé lo antes posible.',
+        en: 'Message sent successfully! I will answer you as soon as possible.'
+      },
+      error: {
+        es: 'Ha ocurrido un error. Por favor, intenta contactarme a través de mi correo electrónico.',
+        en: 'An error occurred while sending the message. Please try contacting me through my email.'
+      },
+      submit: {
+        es: 'Enviar',
+        en: 'Send'
+      }
+    };
 
     if (!form || !submitBtn) return;
 
@@ -80,22 +109,22 @@ import EmailLink from '../icons/EmailLink.astro';
       e.preventDefault();
 
       submitBtn.disabled = true;
-      submitBtn.innerHTML = 'Enviando...';
+      submitBtn.innerHTML = texts.sending[lang];
       emailjs
-        .sendForm('service_j016olb', 'template_fm1ll9h', form)
+        .sendForm('service_ynh19fa', 'template_j2ngjdo', form)
         .then(() => {
-          alert('Mensaje enviado correctamente. Pronto me pondre en contacto.');
+          alert(texts.success[lang]);
         })
         .catch(() => {
-          alert(`Ha ocurrido un error. Por favor, intenta contacter desde otro medio.`);
+          alert(texts.error[lang]);
         })
         .finally(() => {
           form.reset();
           submitBtn.disabled = false;
-          submitBtn.innerHTML = 'Enviar';
+          submitBtn.innerHTML = texts.submit[lang];
         });
     });
   }
 
-  document.addEventListener('astro:page-load', setUpOnSubmit);
+  setUpOnSubmit();
 </script>
