@@ -29,7 +29,7 @@ export const ui = {
     'contact.form.message': 'Mensaje',
     'contact.form.message-placeholder': 'Escribe aquí tu mensaje...',
     'contact.form.submit': 'Enviar',
-
+    'footer.title': 'Portfolio de <span class="text-primary font-semibold">Jordi Gómez Devesa</span>',
     'alt.projects.images': 'Pantalla de inicio de ',
     'alt.hero.image': 'Una foto de Jordi Gómez Devesa',
     'alt.about-me.image': 'Una foto de Jordi Gómez Devesa con el mar de fondo',
@@ -62,7 +62,7 @@ export const ui = {
     'contact.form.message': 'Message',
     'contact.form.message-placeholder': 'Write your message here...',
     'contact.form.submit': 'Send message',
-    
+    'footer.title': 'Portfolio of <span class="text-primary font-semibold">Jordi Gómez Devesa</span>',
     'alt.projects.images': 'Home screen of ',
     'alt.hero.image': 'A picture of Jordi Gómez Devesa',
     'alt.about-me.image': 'A picture of Jordi Gómez Devesa with the sea in the background',
