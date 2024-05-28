@@ -1,29 +1,29 @@
 ---
 layout: ../../../layouts/ProjectLayout.astro
 title: 'Task Manager'
-date: 'Mayo 2024'
-description: 'Task Manager es una aplicación web que permite a los usuarios gestionar las tareas de sus proyectos.'
+date: 'May 2024'
+description: 'Task Manager is a web application that allows users to manage the tasks of their projects.'
 assets: 
   - url: 'https://res.cloudinary.com/demz9lbb3/image/upload/v1716051726/task-manager-portfolio/q8wye6paubxqoejkzfuw.webp'
-    alt: 'Inicio de Task Manager con modo claro'
+    alt: 'Task Manager home with light mode'
   - url: 'https://res.cloudinary.com/demz9lbb3/image/upload/v1716051726/task-manager-portfolio/yzcdmd3dagqgf3dhs8ph.webp'
-    alt: 'Añadir tablero en Task Manager con modo claro'
+    alt: 'Add board in Task Manager with light mode'
   - url: 'https://res.cloudinary.com/demz9lbb3/image/upload/v1716051727/task-manager-portfolio/ga77dymv7amlzcwr1fsk.webp'
-    alt: 'Detalle de un tablero en Task Manager con modo claro'
+    alt: 'Detail of a board in Task Manager with light mode'
   - url: 'https://res.cloudinary.com/demz9lbb3/image/upload/v1716051726/task-manager-portfolio/sbq8yhkfz7wi2hjub9n7.webp'
-    alt: 'Moviendo una tarea de estado en Task Manager con el modo claro'
+    alt: 'Moving a task from state in Task Manager with light mode'
   - url: 'https://res.cloudinary.com/demz9lbb3/image/upload/v1716051726/task-manager-portfolio/bc6oidogfm242wzl21lr.webp'
-    alt: 'Editar tarea en Task Manager con modo claro'
+    alt: 'Edit task in Task Manager with light mode'
   - url: 'https://res.cloudinary.com/demz9lbb3/image/upload/v1716051727/task-manager-portfolio/mgfp3aiymyrqp8e6turg.webp'
-    alt: 'Inicio de Task Manager con modo oscuro'
+    alt: 'Task Manager home with dark mode'
   - url: 'https://res.cloudinary.com/demz9lbb3/image/upload/v1716051726/task-manager-portfolio/jqzm0rk4rar4xmlc4otz.webp'
-    alt: 'Añadir tablero en Task Manager con modo oscuro'
+    alt: 'Add board in Task Manager with dark mode'
   - url: 'https://res.cloudinary.com/demz9lbb3/image/upload/v1716051726/task-manager-portfolio/utohysotes6yaecgj5aj.webp'
-    alt: 'Detalle de un tablero en Task Manager con modo oscuro'
+    alt: 'Detail of a board in Task Manager with dark mode'
   - url: 'https://res.cloudinary.com/demz9lbb3/image/upload/v1716051727/task-manager-portfolio/pjjlj1b5dvf7aojfript.webp'
-    alt: 'Moviendo una tarea de estado en Task Manager con el modo oscuro'
+    alt: 'Moving a task from state in Task Manager with dark mode'
   - url: 'https://res.cloudinary.com/demz9lbb3/image/upload/v1716051727/task-manager-portfolio/lcpifnp4qqclwrrosfzh.webp'
-    alt: 'Editar tarea en Task Manager con modo oscuro'
+    alt: 'Edit task in Task Manager with dark mode'
 stack:       
   - name: 'Angular'
     url: '/assets/technologies/angular.svg'
@@ -48,4 +48,21 @@ site: 'https://task-manager-jgd.vercel.app/'
 
 # Task Manager
 
-English version coming soon...
+Task Manager is a web application for managing tasks and boards. It allows users to create, edit, and delete tasks, as well as organize them into boards. In addition, users can drag and drop tasks between the different columns of the board to change their status.
+
+# Objective
+
+The main objective of this project was to develop a web application applying TDD (Test Driven Development) and using NgRx for managing the application state. Jest has been used for unit testing and Cypress for integration testing.
+
+## Features
+
+- **Home**: Shows the different boards available to the user.
+- **Board management**: Allows the user to create, edit, and delete boards.
+- **Task management**: Allows the user to create, edit, and delete tasks.
+- **Board detail**: Shows the tasks of a board organized into columns according to their status.
+- **Drag & Drop tasks**: Allows the user to drag and drop tasks between the different columns of the board to change their status.
+- **Drag & Drop columns**: Allows the user to drag and drop the columns of the board to change their order.
+- **Manage tags**: Allows the user to add and remove tags to tasks to categorize them.
+- **File upload**: Allows the user to upload images to add them to tasks.
+- **Theme change**: Allows the user to switch between light and dark mode.
+- **Responsive design**: It has a responsive design for mobiles, tablets, and computers.
