@@ -13,7 +13,7 @@ export const ui = {
     'nav.about-me': 'Sobre mí',
     'nav.contact': 'Contacto',
     'hero.intro': 'Hola, soy',
-    'hero.job-position': 'Desarrollador <span class="font-bold bg-clip-text bg-gradient-to-r from-[#089DDD] dark:from-[#38bdf8] to-[#22A58D] dark:to-[#45d9bf] text-transparent relative before:animate-typing before:content-[\'Full_Stack\'] after:border-r-[2px] after:border-r-[#22a58d] dark:after:border-r-[#45d9bf] after:animate-cursor"></span>',
+    'hero.job-position': 'Desarrollador <span class="typing-animation font-bold bg-clip-text bg-gradient-to-r from-[#089DDD] dark:from-[#38bdf8] to-[#22A58D] dark:to-[#45d9bf] text-transparent relative after:border-r-[2px] after:border-r-[#22a58d] dark:after:border-r-[#45d9bf] after:animate-cursor"></span>',
     'hero.description': `+2 años de experiencia. <strong class="${boldEffect}">Ingeniero Multimedia</strong> y <strong class="${boldEffect}">Desarrollador Web</strong> de Benidorm, España. Especializado en crear aplicaciones web únicas, interactivas y accesibles.`,
     'experience.title': 'Experiencia en proyectos',
     'experience.more': 'Saber más',

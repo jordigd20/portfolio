@@ -43,7 +43,6 @@ module.exports = {
         'slide-out': 'slide-out 300ms cubic-bezier(0.6, 0.6, 0, 1)',
         'fade-in-up': 'fade-in-up 350ms ease-out',
         'cursor': 'cursor 1s step-end infinite',
-        'typing': 'typing 3s',
       },
       keyframes: {
         'slide-in': {
@@ -79,18 +78,6 @@ module.exports = {
           '50%': {
             'border-right-color': 'var(--flexible-green)'
           }
-        },
-        'typing': {
-          '0%': { content: '""' },
-          '10%': { content: '"F"' },
-          '20%': { content: '"Fu"' },
-          '30%': { content: '"Ful"' },
-          '40%': { content: '"Full"' },
-          '50%': { content: '"Full S"' },
-          '60%': { content: '"Full St"' },
-          '70%': { content: '"Full Sta"' },
-          '80%': { content: '"Full Stac"' },
-          '90%': { content: '"Full Stack"' },
         },
       },
       listStyleType: {

@@ -128,3 +128,50 @@ body::before {
 .nav-link:hover::before {
   transform: scaleX(1);
 }
+
+.typing-animation::before {
+  content: 'Full Stack';
+  animation: typing 3s;
+}
+
+@keyframes typing {
+  0% {
+    content: ""
+  }
+
+  10% {
+    content: "F"
+  }
+
+  20% {
+    content: "Fu"
+  }
+
+  30% {
+    content: "Ful"
+  }
+
+  40% {
+    content: "Full"
+  }
+
+  50% {
+    content: "Full S"
+  }
+
+  60% {
+    content: "Full St"
+  }
+
+  70% {
+    content: "Full Sta"
+  }
+
+  80% {
+    content: "Full Stac"
+  }
+
+  90% {
+    content: "Full Stack"
+  }
+}
