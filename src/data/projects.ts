@@ -107,38 +107,11 @@ export const projects: Project[] = [
   {
     id: 3,
     title: {
-      es: 'Weather App - App de predicción meteorológica',
-      en: 'Weather App - Weather forecast app'
-    },
-    description: {
-      es: 'WeatherApp es una aplicación web que muestra información sobre el pronóstico del tiempo en la ubicación actual del usuario o sobre cualquier otra ciudad.',
-      en: 'WeatherApp is a web application that shows information about the weather forecast in the user\'s current location or in any other city.'
-    },
-    stack: [
-      {
-        name: 'Angular',
-        url: '/assets/technologies/angular.svg',
-        color: '#dd3100'
-      },
-      {
-        name: 'TailwindCSS',
-        url: '/assets/technologies/tailwindcss.svg',
-        color: '#06B6D4'
-      }
-    ],
-    image: WeatherAppImage,
-    type: 'Frontend',
-    imageClass: '',
-    url: 'projects/weather-app'
-  },
-  {
-    id: 4,
-    title: {
       es: 'Bookstore - Tienda online de libros',
       en: 'Bookstore'
     },
     description: {
-      es: 'Bookstore es un e-commerce desarrollado desde cero que permite realizar todas las funcionalidades básicas de una tienda online.',
+      es: 'Bookstore es un e-commerce de libros desarrollado desde cero que permite realizar todas las funcionalidades básicas de una tienda online.',
       en: 'Bookstore is an e-commerce developed from scratch that allows you to perform all the basic functionalities of an online store.'
     },
     stack: [
@@ -194,8 +167,7 @@ export const projects: Project[] = [
     url: 'projects/bookstore'
   },
   {
-    id: 5,
-
+    id: 4,
     title: {
       es: 'Spotify Clone',
       en: 'Spotify Clone'
@@ -222,7 +194,7 @@ export const projects: Project[] = [
     url: 'projects/spotify-clone'
   },
   {
-    id: 6,
+    id: 5,
     title: {
       es: 'Task Manager',
       en: 'Task Manager'
