@@ -97,13 +97,23 @@ El principal objetivo de este proyecto era desarrollar un e-commerce desde cero,
 
 Respecto a la parte frontend, se ha utilizado Angular v16.0 y TailwindCSS para desarrollar la interfaz de usuario.
 
-## Funcionalidades principales
 
-- **Gestión de usuarios**: Los usuarios pueden crear una cuenta y acceder a ella para gestionar sus datos personales, sus pedidos y su lista de deseos.
-- **Gestión de pedidos**: Los usuarios pueden realizar pedidos de libros y gestionarlos desde su cuenta.
-- **Gestión de libros**: Los usuarios pueden ver todos los libros disponibles en la tienda y añadirlos a su lista de deseos para comprarlos más tarde.
-- **Gestión de pagos**: Los usuarios pueden realizar el pago de sus pedidos utilizando Stripe.
-- **Gestión de valoraciones**: Los usuarios pueden valorar los libros que hayan comprado.
+## Arquitectura del sistema
+
+<br>
+
+<img src="https://res.cloudinary.com/demz9lbb3/image/upload/v1721067758/bookstore/drmhxigw5fekilp2arl5.webp" alt="Arquitectura del sistema de Bookstore" class="rounded-md" />
 
 
+## Funcionalidades
+
+- **Autenticación**: Los usuarios pueden registrarse e iniciar sesión en la aplicación.
+- **Google OAuth**: Los usuarios pueden utilizar Google para iniciar sesión.
+- **Búsqueda de libros**: Los ususarios pueden buscar libros y filtrarlos de acuerdo a diferentes criterios.
+- **Carrito de la compra**: Los usuarios pueden añadir libros al carrito de la compra.
+- **Compra de libros**: Los usuarios pueden comprar libros a través de Stripe con una tarjeta de pruebas.
+- **Lista de deseos**: Los usuarios pueden añadir libros a su lista de deseos para comprarlos más tarde.
+- **Valoración de libros**: Los usuarios pueden valorar los libros que hayan comprado.
+- **Gestión de pedidos**: Los usuarios pueden ver todos los pedidos que hayan realizado y su estado.
+- **Gestión de usuarios**: Los usuarios pueden ver y modificar sus datos personales y direcciones.
 

@@ -97,10 +97,22 @@ The main objective of this project was to develop an e-commerce from scratch, us
 
 Regarding the frontend part, Angular v16.0 and TailwindCSS have been used to develop the user interface.
 
-## Main features
+## System architecture
 
-- **User management**: Users can create an account and access it to manage their personal data, orders and wishlist.
-- **Order management**: Users can place orders for books and manage them from their account.
-- **Book management**: Users can see all the books available in the store and add them to their wishlist to buy them later.
-- **Payment management**: Users can pay for their orders using Stripe.
-- **Rating management**: Users can rate the books they have purchased.
+<br>
+
+<img src="https://res.cloudinary.com/demz9lbb3/image/upload/v1721067758/bookstore/drmhxigw5fekilp2arl5.webp" alt="Bookstore system architecture" class="rounded-md"/>
+
+
+## Features
+
+- **Authentication**: Users can register and log in to the application.
+- **Google OAuth**: Users can use Google to log in.
+- **Search for books**: Users can search for books and filter them according to different criteria.
+- **Shopping cart**: Users can add books to the shopping cart.
+- **Purchase of books**: Users can buy books through Stripe with a test card.
+- **Wishlist**: Users can add books to their wishlist to buy them later.
+- **Rating of books**: Users can rate the books they have purchased.
+- **Order management**: Users can see all the orders they have placed and their status.
+- **User management**: Users can view and modify their personal data and addresses.
+
