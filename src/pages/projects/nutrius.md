@@ -115,6 +115,12 @@ Actualmente el proyecto no está disponible al público ya que la web fue hostea
 
 NutriUs es un proyecto que surge de la necesidad de desarrollar una aplicación web para el 4º curso del grado de Ingeniería Multimedia en la Universidad de Alicante. Este tipo de proyecto llamado "proyecto ABP" (Aprendizaje Basado en Proyectos) se centraba en lograr el desarrollo completo de una aplicación web con temática libre en un equipo de 5 personas durante 8 meses. Los únicos requisitos eran tener un apartado para la  administración del sistema, un apartado para los usuarios corrientes y un apartado que contara con un motor gráfico propio desarrollado utilizando WebGL.
 
+## Arquitectura del Sistema
+
+<br>
+
+<img src="https://res.cloudinary.com/demz9lbb3/image/upload/v1721125708/nutrius/dkrhxgx8n4lzvtribggv.webp" alt="Arquitectura de sistema de NutriUs" class="rounded-md"/>
+
 ## Funcionalidades principales
 
 - **Chat integrado con DialogFlow**: Dentro del apartado de los padres/tutores, se desarrolló un chat que respondía preguntas de carácter general, las dudas más frecuentes sobre la aplicación en sí, y realizaba acciones en la cuenta del usuario como cambiar un plato del menú, crear un nuevo registro del peso y la altura o crear nuevas recompensas.

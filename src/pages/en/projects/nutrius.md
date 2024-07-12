@@ -115,6 +115,12 @@ Currently the project is not available to view online, this is because the proje
 
 NutriUs is a project that comes from the necessity of creating a web app for the 4th year of the Multimedia Engineering degree at the University of Alicante. The objective of this kind of project called "PBL project" (Project Based Learning) was to achieve the complete development from scratch of a web application with a free theme in a team of 5 people during 8 months. The only requirements were to have an administration area, a user area and an area with a custom graphic engine developed using WebGL.
 
+## System architecture
+
+<br>
+
+<img src="https://res.cloudinary.com/demz9lbb3/image/upload/v1721125708/nutrius/dkrhxgx8n4lzvtribggv.webp" alt="NutriUs System Architecture" class="rounded-md"/>
+
 ## Main features
 
 - **Dialogflow virtual assistant**: In the parents/tutors area, we developed a virtual assistant in a chat that could keep a small talk with the user and help them with the most common questions about NutriUs. The assistant can also interact with the backend to create/edit dishes from the menu, create/edit weight and heights of the children or create/edit rewards.
