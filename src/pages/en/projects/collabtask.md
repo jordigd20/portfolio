@@ -80,6 +80,12 @@ site: 'https://github.com/jordigd20/collabtask/releases'
 
 This project is mobile application developed for the Final Degree Project of Multimedia Engineering at the University of Alicante. 
 
+You can visit the application from the web or download it on Android devices.
+
+- Web application: https://collabtask-8d01d.firebaseapp.com/
+- Download APK: https://github.com/jordigd20/collabtask/releases
+
+
 ## Objective
 
 The main objective of this application is to allow users to create groups among other users to be able to manage and obtain a balanced and fair distribution of tasks, focused on a collaborative and friendly context, in which participation is encouraged and a system that rewards people who complete their tasks is available.

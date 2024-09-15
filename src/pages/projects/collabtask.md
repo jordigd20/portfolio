@@ -73,12 +73,18 @@ height:
   number: 2400
   string: '580px'
 github: 'https://github.com/jordigd20/collabtask'
-site: 'https://github.com/jordigd20/collabtask/releases'
+site: 'https://collabtask-8d01d.firebaseapp.com/'
 ---
 
 # CollabTask
 
-En este proyecto se ha desarrollado una app sobre la gestión de tareas colaborativas para el Trabajo de Fin de Grado de Ingeniería Multmiedia en la Universidad de Alicante.
+CollabTask es una app móvil sobre la gestión de tareas colaborativas desarrollada para el Trabajo de Fin de Grado de Ingeniería Multmiedia en la Universidad de Alicante.
+
+La aplicación puede visitarse desde la web o descargarse en dispositivos Android.
+
+- Aplicación web: https://collabtask-8d01d.firebaseapp.com/
+- Descargar APK: https://github.com/jordigd20/collabtask/releases
+
 
 ## Objetivo 
 
