@@ -1,9 +1,9 @@
 import NutriusImage from '../assets/nutrius.webp';
 import CollabtaskImage from '../assets/collabtask.webp';
-import WeatherAppImage from '../assets/weather-app.webp';
 import BookstoreImage from '../assets/bookstore.webp';
 import SpotifyCloneImage from '../assets/spotify-clone.webp';
 import TaskManagerImage from '../assets/task-manager.webp';
+import MicroServicesImage from '../assets/microservices.webp';
 import type { ImageMetadata } from 'astro';
 
 export interface Project {
@@ -234,5 +234,58 @@ export const projects: Project[] = [
     image: TaskManagerImage,
     imageClass: '',
     url: 'projects/task-manager'
+  },
+  {
+    id: 6,
+    title: {
+      es: 'Microservicios de productos',
+      en: 'Products Microservices'
+    },
+    description: {
+      es: 'Arquitectura de microservicios básica para la gestión de productos de una tienda online.',
+      en: 'Microservices architecture for managing products of an online store.'
+    },
+    stack: [
+      {
+        name: 'NestJS',
+        url: '/assets/technologies/nestjs.svg',
+        color: '#e0234e'
+      },
+      {
+        name: 'NATS',
+        url: '/assets/technologies/natsdotio.svg',
+        color: '#27aae1'
+      },
+      {
+        name: 'Docker',
+        url: '/assets/technologies/docker.svg',
+        color: '#2496ed'
+      },
+      {
+        name: 'PostgreSQL',
+        url: '/assets/technologies/postgresql.svg',
+        color: '#4169e1'
+      },
+      {
+        name: 'MongoDB',
+        url: '/assets/technologies/mongodb.svg',
+        color: '#09934e'
+      },
+      {
+        name: 'Stripe',
+        url: '/assets/technologies/stripe.svg',
+        color: '#6860ff'
+      },
+      {
+        name: 'Prisma',
+        url: '/assets/technologies/prisma.svg',
+        color: '#ffffff'
+      },
+    ],
+    type: 'Backend',
+    image: MicroServicesImage,
+    imageClass: '',
+    url: 'projects/microservices'
+
   }
 ];
