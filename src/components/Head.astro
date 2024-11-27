@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Analytics from '@vercel/analytics/astro';
 
 export interface Props {
   title: string;
@@ -41,6 +42,8 @@ const { title, description, url = 'https://jordigomez.dev' } = Astro.props;
 
 <title>{title}</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+<Analytics />
 
 <script is:inline>
   // This code is inlined in the head to make dark mode instant & blocking.
