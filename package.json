@@ -14,7 +14,7 @@
     "@emailjs/browser": "^3.12.1",
     "@fontsource-variable/onest": "^5.0.4",
     "@vercel/analytics": "^1.4.1",
-    "astro": "^4.8.6",
+    "astro": "^4.16.1",
     "dialog-polyfill": "^0.5.6",
     "photoswipe": "^5.4.3",
     "swiper": "^11.1.3",
