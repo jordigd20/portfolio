@@ -11,6 +11,24 @@ export const experience: { es: Experience, en: Experience }[] = [
   {
     es: {
       role: 'Desarrollador Frontend',
+      work: 'NITSNETS',
+      date: 'Diciembre 2024 - Actualidad',
+      description:
+        'Desarrollador Frontend trabajando en proyectos para un cliente líder en el sector de la gestión tributaria a nivel internacional. Encargado de implementar de forma eficiente y efectiva las necesidades del cliente, colaborando con un equipo para desarrollar y optimizar las funcionalidades de la plataforma, asegurando una experiencia de usuario fluida.',
+      icon: 'work'
+    },
+    en: {
+      role: 'Frontend Developer',
+      work: 'NITSNETS',
+      date: 'October 2024 - Present',
+      description:
+        'Frontend Developer working on projects for a leading client in the field of tax management at an international level. Responsible for efficiently and effectively implementing the client\'s needs, collaborating with a team to develop and optimize the platform\'s functionalities, ensuring a smooth user experience.',
+      icon: 'work'
+    },
+  },
+  {
+    es: {
+      role: 'Desarrollador Frontend',
       work: 'InfoJobs',
       date: 'Octubre 2024 - Noviembre 2024',
       description:
@@ -28,46 +46,46 @@ export const experience: { es: Experience, en: Experience }[] = [
       url: 'https://www.linkedin.com/posts/infojobs-net_tenemos-a-nuestros-seleccionados-felicitamos-activity-7252319960713052161-yFHS?utm_source=share&utm_medium=member_desktop'
     },
   },
-  {
-    es: {
-      role: 'Desarrollador Full Stack',
-      work: 'UA - CollabTask',
-      date: 'Septiembre 2022 - Mayo 2023',
-      description:
-        'CollabTask es una app para la gestión y el reparto de tareas entre un grupo de personas de una manera equitativa y justa entre todos los participantes. Este proyecto fue realizado para el TFG en la Universidad de Alicante.',
+  // {
+  //   es: {
+  //     role: 'Desarrollador Full Stack',
+  //     work: 'UA - CollabTask',
+  //     date: 'Septiembre 2022 - Mayo 2023',
+  //     description:
+  //       'CollabTask es una app para la gestión y el reparto de tareas entre un grupo de personas de una manera equitativa y justa entre todos los participantes. Este proyecto fue realizado para el TFG en la Universidad de Alicante.',
 
-      icon: 'school',
-      url: '/projects/collabtask'
-    },
-    en: {
-      role: 'Full Stack Developer',
-      work: 'UA - CollabTask',
-      date: 'September 2022 - May 2023',
-      description:
-        'CollabTask is an app for managing and distributing tasks among a group of people in an equitable and fair way among all participants, using gamification as a tool to encourage participation and collaboration among users. This project was carried out for the Final Degree Project at the University of Alicante.',
-      icon: 'school',
-      url: '/en/projects/collabtask'
-    }
-  },
-  {
-    es: {
-      role: 'Desarrollador Full Stack',
-      work: 'UA - NutriUs',
-      date: 'Septiembre 2021 - Junio 2022',
-      description:
-        'NutriUs es un proyecto sobre nutrición infantil que se hizo en el último año de la universidad. El objetivo del proyecto era conseguir el desarrollo completo de una aplicación web en un equipo de 5 personas durante los 8 meses del 4º curso.',
+  //     icon: 'school',
+  //     url: '/projects/collabtask'
+  //   },
+  //   en: {
+  //     role: 'Full Stack Developer',
+  //     work: 'UA - CollabTask',
+  //     date: 'September 2022 - May 2023',
+  //     description:
+  //       'CollabTask is an app for managing and distributing tasks among a group of people in an equitable and fair way among all participants, using gamification as a tool to encourage participation and collaboration among users. This project was carried out for the Final Degree Project at the University of Alicante.',
+  //     icon: 'school',
+  //     url: '/en/projects/collabtask'
+  //   }
+  // },
+  // {
+  //   es: {
+  //     role: 'Desarrollador Full Stack',
+  //     work: 'UA - NutriUs',
+  //     date: 'Septiembre 2021 - Junio 2022',
+  //     description:
+  //       'NutriUs es un proyecto sobre nutrición infantil que se hizo en el último año de la universidad. El objetivo del proyecto era conseguir el desarrollo completo de una aplicación web en un equipo de 5 personas durante los 8 meses del 4º curso.',
 
-      icon: 'school',
-      url: '/projects/nutrius'
-    },
-    en: {
-      role: 'Full Stack Developer',
-      work: 'UA - NutriUs',
-      date: 'September 2021 - June 2022',
-      description:
-        'NutriUs is a PBL (Project Based Learning) project developed in the last year of university. The objective of the project was to achieve the complete development of a web application in a team of 5 people for 8 months. This application should have at least an administration section and a section for users that has its own graphic engine developed with WebGL.',
-      icon: 'school',
-      url: '/en/projects/nutrius'
-    }
-  }
+  //     icon: 'school',
+  //     url: '/projects/nutrius'
+  //   },
+  //   en: {
+  //     role: 'Full Stack Developer',
+  //     work: 'UA - NutriUs',
+  //     date: 'September 2021 - June 2022',
+  //     description:
+  //       'NutriUs is a PBL (Project Based Learning) project developed in the last year of university. The objective of the project was to achieve the complete development of a web application in a team of 5 people for 8 months. This application should have at least an administration section and a section for users that has its own graphic engine developed with WebGL.',
+  //     icon: 'school',
+  //     url: '/en/projects/nutrius'
+  //   }
+  // }
 ];

@@ -20,8 +20,9 @@ export const ui = {
     'projects.title': 'Proyectos',
     'about-me.title': 'Sobre mí',
     'about-me.description.1': `Mi nombre es Jordi Gómez Devesa y desarrollé mi primera página web a los 16 años en el instituto. Desde entonces, quedé encantado con el mundo de la programación, y gracias a ello, me decidí por estudiar <strong class="${boldEffect}">Ingeniería Multimedia en la Universidad de Alicante.</strong>`,
-    'about-me.description.2': `Actualmente he terminado los estudios, y entre mis hitos durante mi paso por la Universidad destaco la oportunidad de haber <strong class="${boldEffect}">aprendido trabajando en proyectos cercanos al mundo laboral.</strong> Un ejemplo es <a href="/projects/nutrius" class="text-link hover:text-link-hover transition-colors font-bold">NutriUs</a>, en el cuál trabajamos un equipo de 5 personas durante 8 meses, obteniendo una <strong class="${boldEffect}">muy buena evaluación, tanto por los profesores como por empresas del sector.</strong>`,
-    'about-me.description.3': `Como desarrollador web, sigo en un <strong class="${boldEffect}">constante aprendizaje</strong> que me permita mejorar mis habilidades y conocimientos, ya que mi objetivo es <strong class="${boldEffect}">aportar valor y dejar huella en cada empresa, equipo o proyecto del que forme parte.</strong>`,
+    'about-me.description.2': `Tras mi paso por la Universidad, he tenido la oportunidad de trabajar en conjunto con uno de los mayores creadores de contenido sobre desarrollo web en español, <strong class="${boldEffect}">Midudev</strong>, en un proyecto freelance para <strong class="${boldEffect}">InfoJobs</strong>.`,
+    'about-me.description.3': `Esta experiencia marcó el inicio de mi carrera profesional, que continúa actualmente en <strong class="${boldEffect}">NITSNETS</strong>, donde trabajo como desarrollador frontend en proyectos para un cliente líder en el sector de la gestón tributaria a nivel internacional.`,
+    'about-me.description.4': `Como desarrollador web, sigo en un <strong class="${boldEffect}">constante aprendizaje</strong> que me permita mejorar mis habilidades y conocimientos, ya que mi objetivo es <strong class="${boldEffect}">aportar valor y dejar huella en cada empresa, equipo o proyecto del que forme parte.</strong>`,
     'contact.title': 'Contacto',
     'contact.description': 'No dudes en ponerte en contacto conmigo a través de este formulario o directamente a mi correo electrónico.',
     'contact.form.name': 'Nombre',
@@ -52,9 +53,10 @@ export const ui = {
     'about-me.description.1': `
     My name is Jordi Gómez Devesa and I developed my first website at 16 years old in high school. Since then, I was delighted with the world of programming, and thanks to that, I decided to study <strong class="${boldEffect}">Multimedia Engineering at the University of Alicante.</strong>`,
     'about-me.description.2': `
-    I have currently finished my studies, and among my milestones during my time at the University, I highlight the opportunity to have <strong class="${boldEffect}">learned by working on projects close to the real world of work.</strong> An example is <a href="/projects/nutrius" class="text-link hover:text-link-hover transition-colors font-bold">NutriUs</a>, in which we worked as a team of 5 people for 8 months, obtaining a <strong class="${boldEffect}">very good evaluation, both by teachers and companies in the sector.</strong>
-    `,
-    'about-me.description.3': `As a web developer, I am in a <strong class="${boldEffect}">constant learning</strong> that allows me to improve my skills and knowledge, since my goal is to <strong class="${boldEffect}">add value and leave a mark in every company, team or project I am part of.</strong>`,
+    After my time at the University, I had the opportunity to work together with one of the largest content creators about web development in Spanish, <strong class="${boldEffect}">Midudev</strong>, in a freelance project for <strong class="${boldEffect}">InfoJobs</strong>.`,
+    'about-me.description.3': `
+    This experience marked the beginning of my professional career, which continues today at <strong class="${boldEffect}">NITSNETS</strong>, where I work as a frontend developer on projects for a leading client in the field of tax management at an international level.`,
+    'about-me.description.4': `As a web developer, I am in a <strong class="${boldEffect}">constant learning</strong> that allows me to improve my skills and knowledge, since my goal is to <strong class="${boldEffect}">add value and leave a mark in every company, team or project I am part of.</strong>`,
     'contact.title': 'Contact',
     'contact.description': 'Do not hesitate to contact me through this form or directly to my email.',
     'contact.form.name': 'Name',
